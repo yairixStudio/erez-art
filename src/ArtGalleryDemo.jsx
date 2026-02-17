@@ -122,22 +122,22 @@ const getExhibitionCoverUrl = (ex) => {
 // ===== ICONS =====
 const Icons = {
   exhibitions: (active) => (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={active ? "#1a1a1a" : "#999"} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={active ? "#e8e4df" : "#7a756e"} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
       <rect x="3" y="3" width="7" height="7" rx="1" /><rect x="14" y="3" width="7" height="7" rx="1" /><rect x="3" y="14" width="7" height="7" rx="1" /><rect x="14" y="14" width="7" height="7" rx="1" />
     </svg>
   ),
   artists: (active) => (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={active ? "#1a1a1a" : "#999"} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={active ? "#e8e4df" : "#7a756e"} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
       <circle cx="12" cy="8" r="4" /><path d="M4 21v-1a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v1" />
     </svg>
   ),
   art: (active) => (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={active ? "#1a1a1a" : "#999"} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={active ? "#e8e4df" : "#7a756e"} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
       <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7S2 12 2 12z" /><circle cx="12" cy="12" r="3" />
     </svg>
   ),
   blog: (active) => (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={active ? "#1a1a1a" : "#999"} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={active ? "#e8e4df" : "#7a756e"} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
       <path d="M4 4h16v16H4z" /><path d="M8 8h8M8 12h8M8 16h4" />
     </svg>
   ),
@@ -156,7 +156,7 @@ const Icons = {
     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#888" strokeWidth="2" strokeLinecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a6 6 0 016-6h4a6 6 0 016 6v1"/></svg>
   ),
   home: (active) => (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={active ? "#1a1a1a" : "#999"} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={active ? "#e8e4df" : "#7a756e"} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
       <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /><polyline points="9 22 9 12 15 12 15 22" />
     </svg>
   ),
@@ -1107,7 +1107,7 @@ export default function ArtGalleryApp() {
             <button
               key={t.key}
               onClick={() => navigate(t.key)}
-              style={{ ...styles.tabBtn, color: active ? "#1a1a1a" : "#999" }}
+              style={{ ...styles.tabBtn, color: active ? "#e8e4df" : "#7a756e" }}
             >
               {t.icon(active)}
               <span style={{ fontSize: 10, fontWeight: active ? 700 : 500, marginTop: 3, transition: "all 0.2s" }}>{t.label}</span>
@@ -1145,6 +1145,9 @@ const styles = {
     letterSpacing: 2,
     cursor: "pointer",
     flexShrink: 0,
+    position: "sticky",
+    top: 0,
+    zIndex: 10,
     zIndex: 10,
   },
   content: {
@@ -1161,10 +1164,10 @@ const styles = {
     display: "flex",
     alignItems: "center",
     justifyContent: "space-around",
-    backgroundColor: "rgba(250, 248, 245, 0.92)",
+    backgroundColor: "rgba(10, 10, 10, 0.95)",
     backdropFilter: "blur(20px)",
     WebkitBackdropFilter: "blur(20px)",
-    borderTop: "1px solid #eae6e0",
+    borderTop: "1px solid rgba(200,180,140,0.12)",
     zIndex: 100,
     paddingBottom: 2,
   },
@@ -1185,7 +1188,7 @@ const styles = {
     width: 20,
     height: 3,
     borderRadius: 2,
-    backgroundColor: "#1a1a1a",
+    backgroundColor: "#e8e4df",
   },
   listContainer: {
     padding: "8px 20px 120px",
