@@ -1087,7 +1087,7 @@ export default function ArtGalleryApp() {
       `}</style>
 
       {/* HEADER */}
-      <div style={{ ...styles.header, padding: 0, position: "relative" }}>
+      <div style={{ ...styles.header, padding: 0 }}>
         <div onClick={goHome} style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", height: "100%", cursor: "pointer" }}>
           <span style={{ direction: "ltr", unicodeBidi: "bidi-override" }}>ZIELINSKI AND ROZEN <span style={{ color: "#fff" }}>| ART</span></span>
         </div>
