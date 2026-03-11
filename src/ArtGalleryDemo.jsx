@@ -357,7 +357,7 @@ const SearchInput = ({ value, onChange, placeholder }) => (
         border: "1px solid #e8e4df",
         backgroundColor: "#fff",
         fontSize: 14,
-        fontFamily: "Heebo, sans-serif",
+        fontFamily: "'Ezmel', 'DIN Next', sans-serif",
         color: "#1a1a1a",
         outline: "none",
         direction: "rtl",
@@ -1079,8 +1079,7 @@ export default function ArtGalleryApp() {
   return (
     <div style={styles.device}>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap');
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Heebo', sans-serif; -webkit-tap-highlight-color: transparent; }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Ezmel', 'DIN Next', sans-serif; -webkit-tap-highlight-color: transparent; }
         @keyframes slideIn { from { opacity: 0; transform: translateX(-12px); } to { opacity: 1; transform: translateX(0); } }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
         ::-webkit-scrollbar { display: none; }

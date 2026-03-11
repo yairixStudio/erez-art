@@ -1,3 +1,27 @@
+@font-face {
+  font-family: 'Ezmel';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/ezmel-regular.woff2') format('woff2');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Ezmel';
+  font-style: normal;
+  font-weight: 300;
+  src: url('/fonts/ezmel-light.woff2') format('woff2');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'DIN Next';
+  font-style: normal;
+  font-weight: 300;
+  src: url('/fonts/din-next-light.woff2') format('woff2');
+  font-display: swap;
+}
+
 * {
   margin: 0;
   padding: 0;
