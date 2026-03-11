@@ -634,15 +634,14 @@ export default function ArtGalleryApp() {
 
       {/* About + Nav + Exhibitions + Artists */}
       <div className="snap-section" style={{ padding: "0", justifyContent: "flex-start" }}>
-        <div style={{ padding: "28px 20px 20px", borderBottom: "1px solid rgba(200,180,140,0.1)" }}>
-          <div style={{ fontSize: 11, fontWeight: 400, color: "#9a8e7a", letterSpacing: 4, textTransform: "uppercase", marginBottom: 16, textAlign: "center" }}>אודות</div>
-          <div style={{ display: "flex", gap: 16, alignItems: "flex-start" }}>
-            <div style={{ flexShrink: 0, width: 90, height: 110, borderRadius: 4, overflow: "hidden", border: "1px solid rgba(200,180,140,0.15)" }}>
+        <div style={{ padding: "32px 20px 28px", borderBottom: "1px solid rgba(200,180,140,0.1)" }}>
+          <div style={{ display: "flex", gap: 18, alignItems: "flex-start" }}>
+            <div style={{ flexShrink: 0, width: 100, height: 130, borderRadius: 4, overflow: "hidden", border: "1px solid rgba(200,180,140,0.15)" }}>
               <img src="https://images.squarespace-cdn.com/content/v1/5b6a0c9c7106997328d0b426/1683114779329-4A26HC728NYDAIUHYI4D/Erez%2BRozenR1-02879-007A.jpg" alt="ארז זילינסקי־רוזן" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
             </div>
             <div style={{ flex: 1 }}>
-              <div style={{ fontSize: 15, fontWeight: 600, color: "#ede8e0", marginBottom: 6 }}>ארז זילינסקי־רוזן</div>
-              <p style={{ fontSize: 14, lineHeight: 1.8, color: "#bfb5a3", margin: 0 }}>
+              <div style={{ fontSize: 16, fontWeight: 600, color: "#ede8e0", marginBottom: 8 }}>ארז זילינסקי־רוזן</div>
+              <p style={{ fontSize: 14, lineHeight: 1.9, color: "#bfb5a3", margin: 0 }}>
                 קודם כול אמן. עולם הבישום עבורו הוא קנבס בלתי נראה שנבנה משכבות של רגש וזיכרון. הגלריות הן מקום שבו האמנות מתרחשת — ופועלות ללא מטרות רווח. כל ההכנסות חוזרות לאמנים.
               </p>
             </div>
@@ -701,20 +700,23 @@ export default function ArtGalleryApp() {
       </div>
 
       {/* Artworks grid */}
-      <div className="snap-section" style={{ padding: "28px 20px 16px" }}>
+      <div className="snap-section" style={{ padding: "28px 20px 0" }}>
         <div onClick={() => navigate("art")} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 18, cursor: "pointer" }}>
           <div style={{ fontSize: 12, fontWeight: 400, color: "#9a8e7a", letterSpacing: 4, textTransform: "uppercase" }}>אמנות</div>
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9a8e7a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
         </div>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
-          {artworks.filter(w => getArtworkThumb(w)).slice(0, 6).map(w => (
-            <div key={w.id} onClick={() => navigate("artwork", w.id)} style={{ cursor: "pointer", overflow: "hidden", border: "1px solid rgba(200,180,140,0.12)" }}>
-              <img src={getArtworkThumb(w)} alt={w.title} style={{ width: "100%", height: "auto", display: "block" }} />
-            </div>
-          ))}
-        </div>
-        <div onClick={() => navigate("art")} style={{ marginTop: 16, padding: "12px 0", border: "1px solid rgba(200,180,140,0.2)", textAlign: "center", cursor: "pointer" }}>
-          <span style={{ fontSize: 12, color: "#a89a82", letterSpacing: 2 }}>עוד</span>
+        <div style={{ position: "relative" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
+            {artworks.filter(w => getArtworkThumb(w)).slice(0, 6).map(w => (
+              <div key={w.id} onClick={() => navigate("artwork", w.id)} style={{ cursor: "pointer", overflow: "hidden", border: "1px solid rgba(200,180,140,0.12)" }}>
+                <img src={getArtworkThumb(w)} alt={w.title} style={{ width: "100%", height: "auto", display: "block" }} />
+              </div>
+            ))}
+          </div>
+          {/* Fade overlay on bottom row + CTA */}
+          <div onClick={() => navigate("art")} style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "55%", background: "linear-gradient(to top, rgba(10,10,10,1) 0%, rgba(10,10,10,0.95) 30%, rgba(10,10,10,0) 100%)", display: "flex", alignItems: "flex-end", justifyContent: "center", paddingBottom: 24, cursor: "pointer" }}>
+            <span style={{ fontSize: 13, color: "#c8b99a", letterSpacing: 3, borderBottom: "1px solid rgba(200,180,140,0.3)", paddingBottom: 4 }}>צפייה בכל העבודות</span>
+          </div>
         </div>
       </div>
 
