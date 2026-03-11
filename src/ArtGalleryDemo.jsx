@@ -1214,6 +1214,7 @@ export default function ArtGalleryApp() {
         overflow: "hidden",
         transition: "max-height 0.35s ease",
         backgroundColor: "#2A4C39",
+        borderTop: menuOpen ? "1px solid rgba(200,180,140,0.15)" : "none",
       }}>
         {textureUrl && <div style={{ position: "absolute", inset: 0, backgroundImage: `url("${textureUrl}")`, backgroundRepeat: "repeat", backgroundSize: "200% auto", opacity: 0.18, pointerEvents: "none", mixBlendMode: "soft-light", zIndex: 0 }} />}
         <div style={{ position: "absolute", inset: 0, filter: "url(#noise)", opacity: 0.08, pointerEvents: "none", mixBlendMode: "multiply", zIndex: 0 }} />
