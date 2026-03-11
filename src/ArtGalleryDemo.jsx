@@ -415,6 +415,24 @@ const ParsedContent = ({ content, navigate }) => {
   );
 };
 
+// ===== BREADCRUMB =====
+const Breadcrumb = ({ crumbs, title }) => (
+  <div style={{ padding: "14px 20px 8px", position: "sticky", top: 42, backgroundColor: "rgba(250,248,245,0.95)", backdropFilter: "blur(20px)", WebkitBackdropFilter: "blur(20px)", zIndex: 5 }}>
+    <div style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 12, color: "#999", flexWrap: "wrap" }}>
+      {crumbs.map((c, i) => (
+        <span key={i} style={{ display: "flex", alignItems: "center", gap: 6 }}>
+          {i > 0 && <span style={{ color: "#ccc" }}>&lsaquo;</span>}
+          <span onClick={c.onClick} style={{ cursor: c.onClick ? "pointer" : "default", color: c.onClick ? "#999" : "#666", transition: "color 0.2s" }}
+            onMouseEnter={(e) => c.onClick && (e.target.style.color = "#1a1a1a")}
+            onMouseLeave={(e) => c.onClick && (e.target.style.color = "#999")}
+          >{c.label}</span>
+        </span>
+      ))}
+    </div>
+    <h1 style={{ fontSize: 28, fontWeight: 700, color: "#1a1a1a", margin: "8px 0 0", letterSpacing: "-0.3px", lineHeight: 1.3 }}>{title}</h1>
+  </div>
+);
+
 // ===== MAIN APP =====
 export default function ArtGalleryApp() {
   const [nav, setNav] = useState({ page: "home", id: null, history: [] });
@@ -665,11 +683,8 @@ export default function ArtGalleryApp() {
   // ===== EXHIBITIONS LIST =====
   const renderExhibitions = () => (
     <TexturedContainer style={styles.listContainer}>
-      <div style={styles.listHeader}>
-        <button onClick={goHome} style={styles.backBtn}>{Icons.back()}</button>
-        <h1 style={styles.pageTitle}>תערוכות</h1>
-      </div>
-      <div style={{ fontSize: 15, color: "#999", marginBottom: 20, marginTop: -12 }}>תערוכות עבר, הווה ועתיד בגלריות זילינסקי רוזן</div>
+      <Breadcrumb crumbs={[{ label: "בית", onClick: goHome }, { label: "תערוכות" }]} title="תערוכות" />
+      <div style={{ fontSize: 15, color: "#999", padding: "0 20px", marginBottom: 20 }}>תערוכות עבר, הווה ועתיד בגלריות זילינסקי רוזן</div>
       <div style={{ display: "flex", flexDirection: "column", gap: 32 }}>
         {exhibitions.map((ex) => {
           const coverUrl = getExhibitionCoverUrl(ex);
@@ -708,11 +723,8 @@ export default function ArtGalleryApp() {
 
     return (
       <TexturedContainer style={styles.listContainer}>
-        <div style={styles.listHeader}>
-          <button onClick={goHome} style={styles.backBtn}>{Icons.back()}</button>
-          <h1 style={styles.pageTitle}>אמנים</h1>
-        </div>
-        <div style={{ fontSize: 15, color: "#999", marginBottom: 16, marginTop: -12 }}>היוצרים שמאחורי העבודות</div>
+        <Breadcrumb crumbs={[{ label: "בית", onClick: goHome }, { label: "אמנים" }]} title="אמנים" />
+        <div style={{ fontSize: 15, color: "#999", padding: "0 20px", marginBottom: 16 }}>היוצרים שמאחורי העבודות</div>
         <SearchInput value={artistSearch} onChange={setArtistSearch} placeholder="חיפוש אמנים..." />
         <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
           {filtered.length === 0 && (
@@ -748,11 +760,8 @@ export default function ArtGalleryApp() {
 
     return (
       <TexturedContainer style={styles.listContainer}>
-        <div style={styles.listHeader}>
-          <button onClick={goHome} style={styles.backBtn}>{Icons.back()}</button>
-          <h1 style={styles.pageTitle}>אומנות</h1>
-        </div>
-        <div style={{ fontSize: 15, color: "#999", marginBottom: 16, marginTop: -12 }}>יצירות מקוריות מהתערוכות שלנו</div>
+        <Breadcrumb crumbs={[{ label: "בית", onClick: goHome }, { label: "אומנות" }]} title="אומנות" />
+        <div style={{ fontSize: 15, color: "#999", padding: "0 20px", marginBottom: 16 }}>יצירות מקוריות מהתערוכות שלנו</div>
         <SearchInput value={artSearch} onChange={setArtSearch} placeholder="חיפוש יצירות, אמנים..." />
         {filtered.length === 0 && (
           <div style={{ textAlign: "center", padding: "40px 0", color: "#999", fontSize: 14 }}>לא נמצאו תוצאות</div>
@@ -780,11 +789,8 @@ export default function ArtGalleryApp() {
   // ===== BLOG LIST =====
   const renderBlog = () => (
     <TexturedContainer style={styles.listContainer}>
-      <div style={styles.listHeader}>
-        <button onClick={goHome} style={styles.backBtn}>{Icons.back()}</button>
-        <h1 style={styles.pageTitle}>בלוג</h1>
-      </div>
-      <div style={{ fontSize: 15, color: "#999", marginBottom: 20, marginTop: -12 }}>כתבות, ראיונות והצצה מאחורי הקלעים</div>
+      <Breadcrumb crumbs={[{ label: "בית", onClick: goHome }, { label: "בלוג" }]} title="בלוג" />
+      <div style={{ fontSize: 15, color: "#999", padding: "0 20px", marginBottom: 20 }}>כתבות, ראיונות והצצה מאחורי הקלעים</div>
       <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
         {blogPosts.map((p) => (
           <div key={p.id} onClick={() => navigate("post", p.id)} style={{ cursor: "pointer" }}>
@@ -807,16 +813,12 @@ export default function ArtGalleryApp() {
     const coverUrl = getExhibitionCoverUrl(ex);
     return (
       <div style={{ ...styles.page, animation: "slideIn 0.25s ease" }}>
-        <div style={styles.detailHeader}>
-          <button onClick={goBack} style={styles.backBtn}>{Icons.back()}</button>
-          <span style={styles.detailHeaderTitle}>תערוכה</span>
-        </div>
+        <Breadcrumb crumbs={[{ label: "בית", onClick: goHome }, { label: "תערוכות", onClick: () => navigate("exhibitions") }, { label: ex.title }]} title={ex.title} />
         <div style={{ padding: "0 20px 120px" }}>
           <Placeholder height={220} rounded={12} src={coverUrl} />
           <div style={{ textAlign: "center", margin: "20px 0 8px" }}>
             <StatusBadge status={ex.status} />
           </div>
-          <h1 style={{ fontSize: 28, fontWeight: 700, margin: "0 0 6px", color: "#1a1a1a", lineHeight: 1.3, textAlign: "left", direction: "ltr" }}>{ex.title}</h1>
           <div style={{ display: "flex", gap: 14, alignItems: "center", color: "#888", fontSize: 15, margin: "0 0 6px", flexWrap: "wrap" }}>
             <span style={{ display: "flex", alignItems: "center", gap: 4 }}>{Icons.calendar()} {ex.startDate} — {ex.endDate}</span>
             <span style={{ display: "flex", alignItems: "center", gap: 4 }}>{Icons.location()} {ex.location}</span>
@@ -915,18 +917,13 @@ export default function ArtGalleryApp() {
     const zoneBg = "#f7f4f0";
     return (
       <div style={{ ...styles.page, animation: "slideIn 0.25s ease" }}>
-        {/* Header — same tinted bg */}
-        <div style={{ ...styles.detailHeader, backgroundColor: "rgba(247,244,240,0.92)" }}>
-          <button onClick={goBack} style={styles.backBtn}>{Icons.back()}</button>
-          <span style={styles.detailHeaderTitle}>אמן/ית</span>
-        </div>
+        <Breadcrumb crumbs={[{ label: "בית", onClick: goHome }, { label: "אמנים", onClick: () => navigate("artists") }, { label: ar.name }]} title={ar.name} />
 
         {/* Zone 1: Profile + icons + bio — slightly tinted bg */}
         <div style={{ backgroundColor: zoneBg, padding: "0 20px 24px" }}>
           <div style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
             <AvatarPlaceholder size={100} src={ar.img} />
-            <h1 style={{ fontSize: 28, fontWeight: 700, margin: "16px 0 4px", color: "#1a1a1a" }}>{ar.name}</h1>
-            <div style={{ fontSize: 15, color: "#999", marginBottom: 10 }}>{ar.nameEn}</div>
+            <div style={{ fontSize: 15, color: "#999", marginTop: 12, marginBottom: 10 }}>{ar.nameEn}</div>
             {socials.length > 0 && (
               <div style={{ display: "flex", gap: 6, marginBottom: 16 }}>
                 {socials.map((s, i) => (
@@ -987,13 +984,9 @@ export default function ArtGalleryApp() {
     const exs = exhibitions.filter((e) => e.artworkIds.includes(w.id));
     return (
       <div style={{ ...styles.page, animation: "slideIn 0.25s ease" }}>
-        <div style={styles.detailHeader}>
-          <button onClick={goBack} style={styles.backBtn}>{Icons.back()}</button>
-          <span style={styles.detailHeaderTitle}>יצירה</span>
-        </div>
+        <Breadcrumb crumbs={[{ label: "בית", onClick: goHome }, { label: "אומנות", onClick: () => navigate("art") }, { label: w.title }]} title={w.title} />
         <div style={{ padding: "0 20px 120px" }}>
           <MediaSlideshow media={w.media} />
-          <h1 style={{ fontSize: 28, fontWeight: 700, margin: "20px 0 6px", color: "#1a1a1a", lineHeight: 1.3 }}>{w.title}</h1>
           <div style={{ display: "flex", gap: 12, alignItems: "center", marginBottom: 6, flexWrap: "wrap" }}>
             <Tag onClick={() => navigate("artist", w.artistId)}>{ar?.name}</Tag>
             <span style={{ fontSize: 15, color: "#999" }}>{w.year}</span>
@@ -1024,14 +1017,10 @@ export default function ArtGalleryApp() {
     let imgIdx = 0;
     return (
       <div style={{ ...styles.page, animation: "slideIn 0.25s ease" }}>
-        <div style={styles.detailHeader}>
-          <button onClick={goBack} style={styles.backBtn}>{Icons.back()}</button>
-          <span style={styles.detailHeaderTitle}>בלוג</span>
-        </div>
+        <Breadcrumb crumbs={[{ label: "בית", onClick: goHome }, { label: "בלוג", onClick: () => navigate("blog") }, { label: post.title }]} title={post.title} />
         <div style={{ padding: "0 20px 120px" }}>
           <Placeholder height={200} rounded={12} />
           <div style={{ fontSize: 14, color: "#999", marginTop: 16 }}>{post.date} &middot; {post.author}</div>
-          <h1 style={{ fontSize: 26, fontWeight: 700, margin: "8px 0 16px", color: "#1a1a1a", lineHeight: 1.4 }}>{post.title}</h1>
           {paragraphs.map((para, i) => {
             const showImg = imgIdx < post.imagePlaceholders && i > 0 && i % 2 === 0;
             if (showImg) imgIdx++;
