@@ -634,10 +634,19 @@ export default function ArtGalleryApp() {
 
       {/* About + Nav + Exhibitions + Artists */}
       <div className="snap-section" style={{ padding: "0", justifyContent: "flex-start" }}>
-        <div style={{ padding: "24px 24px 16px", borderBottom: "1px solid rgba(200,180,140,0.1)" }}>
-          <p style={{ fontSize: 16, lineHeight: 1.9, color: "#bfb5a3", margin: 0, textAlign: "center" }}>
-            ארז זילינסקי־רוזן הוא קודם כול אמן. עולם הבישום עבורו הוא קנבס בלתי נראה שנבנה משכבות של רגש וזיכרון. הגלריות הן מקום שבו האמנות מתרחשת — ופועלות ללא מטרות רווח. כל ההכנסות חוזרות לאמנים.
-          </p>
+        <div style={{ padding: "28px 20px 20px", borderBottom: "1px solid rgba(200,180,140,0.1)" }}>
+          <div style={{ fontSize: 11, fontWeight: 400, color: "#9a8e7a", letterSpacing: 4, textTransform: "uppercase", marginBottom: 16, textAlign: "center" }}>אודות</div>
+          <div style={{ display: "flex", gap: 16, alignItems: "flex-start" }}>
+            <div style={{ flexShrink: 0, width: 90, height: 110, borderRadius: 4, overflow: "hidden", border: "1px solid rgba(200,180,140,0.15)" }}>
+              <img src="https://images.squarespace-cdn.com/content/v1/5b6a0c9c7106997328d0b426/1683114779329-4A26HC728NYDAIUHYI4D/Erez%2BRozenR1-02879-007A.jpg" alt="ארז זילינסקי־רוזן" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+            </div>
+            <div style={{ flex: 1 }}>
+              <div style={{ fontSize: 15, fontWeight: 600, color: "#ede8e0", marginBottom: 6 }}>ארז זילינסקי־רוזן</div>
+              <p style={{ fontSize: 14, lineHeight: 1.8, color: "#bfb5a3", margin: 0 }}>
+                קודם כול אמן. עולם הבישום עבורו הוא קנבס בלתי נראה שנבנה משכבות של רגש וזיכרון. הגלריות הן מקום שבו האמנות מתרחשת — ופועלות ללא מטרות רווח. כל ההכנסות חוזרות לאמנים.
+              </p>
+            </div>
+          </div>
         </div>
         {/* Exhibitions */}
         <div style={{ padding: "16px 0 8px" }}>
@@ -1178,9 +1187,9 @@ export default function ArtGalleryApp() {
         </div>
         {/* Hamburger - left side (RTL) */}
         <button onClick={() => setMenuOpen(prev => !prev)} style={{ background: "none", border: "none", cursor: "pointer", padding: 4, position: "relative", zIndex: 1, display: "flex", flexDirection: "column", gap: 4 }}>
-          <span style={{ display: "block", width: 20, height: 1.5, backgroundColor: "#e8e4df", borderRadius: 1, transition: "all 0.3s", transform: menuOpen ? "rotate(45deg) translate(2px, 2px)" : "none" }} />
+          <span style={{ display: "block", width: 20, height: 1.5, backgroundColor: "#e8e4df", borderRadius: 1, transition: "all 0.3s", transformOrigin: "center", transform: menuOpen ? "translateY(5.5px) rotate(45deg)" : "none" }} />
           <span style={{ display: "block", width: 20, height: 1.5, backgroundColor: "#e8e4df", borderRadius: 1, transition: "all 0.3s", opacity: menuOpen ? 0 : 1 }} />
-          <span style={{ display: "block", width: 20, height: 1.5, backgroundColor: "#e8e4df", borderRadius: 1, transition: "all 0.3s", transform: menuOpen ? "rotate(-45deg) translate(2px, -2px)" : "none" }} />
+          <span style={{ display: "block", width: 20, height: 1.5, backgroundColor: "#e8e4df", borderRadius: 1, transition: "all 0.3s", transformOrigin: "center", transform: menuOpen ? "translateY(-5.5px) rotate(-45deg)" : "none" }} />
         </button>
         </div>
       </div>
