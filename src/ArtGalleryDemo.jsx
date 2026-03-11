@@ -682,7 +682,7 @@ export default function ArtGalleryApp() {
             <div style={{ fontSize: 12, fontWeight: 400, color: "#9a8e7a", letterSpacing: 4, textTransform: "uppercase" }}>תערוכות</div>
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9a8e7a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
           </div>
-          <div style={{ display: "flex", gap: 12, overflowX: "auto", paddingLeft: 20, paddingRight: 20, scrollbarWidth: "none", scrollSnapType: "x mandatory", WebkitOverflowScrolling: "touch" }}>
+          <div style={{ display: "flex", gap: 12, overflowX: "auto", paddingLeft: 20, paddingRight: 20, scrollbarWidth: "none", scrollSnapType: "x mandatory", WebkitOverflowScrolling: "touch", touchAction: "pan-x" }}>
             {exhibitions.map(ex => {
               const coverUrl = getExhibitionCoverUrl(ex);
               return (
@@ -709,7 +709,7 @@ export default function ArtGalleryApp() {
             <div style={{ fontSize: 12, fontWeight: 400, color: "#9a8e7a", letterSpacing: 4, textTransform: "uppercase" }}>אמנים</div>
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9a8e7a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
           </div>
-        <div style={{ display: "flex", gap: 16, overflowX: "auto", paddingLeft: 20, paddingRight: 20, scrollbarWidth: "none", scrollSnapType: "x mandatory", WebkitOverflowScrolling: "touch" }}>
+        <div style={{ display: "flex", gap: 16, overflowX: "auto", paddingLeft: 20, paddingRight: 20, scrollbarWidth: "none", scrollSnapType: "x mandatory", WebkitOverflowScrolling: "touch", touchAction: "pan-x" }}>
           {artists.map(ar => (
             <div key={ar.id} onClick={() => navigate("artist", ar.id)} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 6, cursor: "pointer", flexShrink: 0, scrollSnapAlign: "center" }}>
               <div style={{ width: 80, height: 80, borderRadius: "50%", overflow: "hidden", border: "1.5px solid rgba(200,180,140,0.25)" }}>
@@ -778,7 +778,7 @@ export default function ArtGalleryApp() {
           <div style={{ fontSize: 12, fontWeight: 400, color: "#9a8e7a", letterSpacing: 4, textTransform: "uppercase" }}>בלוג</div>
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9a8e7a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
         </div>
-        <div style={{ display: "flex", gap: 12, overflowX: "auto", paddingLeft: 20, paddingRight: 20, scrollbarWidth: "none", scrollSnapType: "x mandatory", WebkitOverflowScrolling: "touch" }}>
+        <div style={{ display: "flex", gap: 12, overflowX: "auto", paddingLeft: 20, paddingRight: 20, scrollbarWidth: "none", scrollSnapType: "x mandatory", WebkitOverflowScrolling: "touch", touchAction: "pan-x" }}>
           {blogPosts.slice(0, 3).map(post => (
             <div key={post.id} onClick={() => navigate("post", post.id)} style={{ flexShrink: 0, width: 200, cursor: "pointer", scrollSnapAlign: "center" }}>
               <div style={{ width: 200, height: 120, overflow: "hidden", border: "1px solid rgba(200,180,140,0.15)", backgroundColor: "rgba(200,180,140,0.06)", display: "flex", alignItems: "center", justifyContent: "center" }}>
@@ -1177,7 +1177,7 @@ export default function ArtGalleryApp() {
   };
 
   return (
-    <div ref={(el) => { deviceRef.current = el; }} style={{ ...styles.device, ...(nav.page === "home" ? { height: "100vh", overflowY: "auto", scrollSnapType: "y mandatory", scrollBehavior: "smooth", scrollPaddingTop: 68 } : {}) }}>
+    <div ref={(el) => { deviceRef.current = el; }} style={{ ...styles.device, ...(nav.page === "home" ? { height: "100vh", overflowY: "auto", scrollSnapType: "y proximity", scrollBehavior: "smooth", scrollPaddingTop: 68 } : {}) }}>
       <style>{`
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Ezmel', 'DIN Next', sans-serif; -webkit-tap-highlight-color: transparent; }
         @keyframes slideIn { from { opacity: 0; transform: translateX(-12px); } to { opacity: 1; transform: translateX(0); } }
@@ -1209,7 +1209,7 @@ export default function ArtGalleryApp() {
         </button>
         {/* Logo - center */}
         <div onClick={goHome} style={{ position: "absolute", left: "50%", transform: "translateX(-50%)", display: "flex", alignItems: "center", cursor: "pointer", zIndex: 1 }}>
-          <span style={{ direction: "ltr", unicodeBidi: "bidi-override", fontWeight: 700, fontSize: 13, letterSpacing: 2.5 }}>ZIELINSKI & ROZEN <span style={{ color: "#fff", fontWeight: 800 }}>| ART</span></span>
+          <span style={{ direction: "ltr", unicodeBidi: "bidi-override", fontWeight: 700, fontSize: 13, letterSpacing: 2.5, whiteSpace: "nowrap" }}>ZIELINSKI & ROZEN <span style={{ color: "#fff", fontWeight: 800 }}>| ART</span></span>
         </div>
         {/* Hamburger - left side (RTL) */}
         <button onClick={() => setMenuOpen(prev => !prev)} style={{ background: "none", border: "none", cursor: "pointer", padding: 4, position: "relative", zIndex: 1, display: "flex", flexDirection: "column", gap: 4 }}>
