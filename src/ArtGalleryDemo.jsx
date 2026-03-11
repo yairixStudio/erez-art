@@ -670,7 +670,7 @@ export default function ArtGalleryApp() {
             <div style={{ fontSize: 12, fontWeight: 400, color: "#9a8e7a", letterSpacing: 4, textTransform: "uppercase" }}>תערוכות</div>
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9a8e7a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
           </div>
-          <div className="swipe-hint" style={{ display: "flex", gap: 12, overflowX: "auto", paddingLeft: 20, paddingRight: 20, scrollbarWidth: "none", scrollSnapType: "x mandatory", WebkitOverflowScrolling: "touch" }}>
+          <div style={{ display: "flex", gap: 12, overflowX: "auto", paddingLeft: 20, paddingRight: 20, scrollbarWidth: "none", scrollSnapType: "x mandatory", WebkitOverflowScrolling: "touch" }}>
             {exhibitions.map(ex => {
               const coverUrl = getExhibitionCoverUrl(ex);
               return (
@@ -697,7 +697,7 @@ export default function ArtGalleryApp() {
             <div style={{ fontSize: 12, fontWeight: 400, color: "#9a8e7a", letterSpacing: 4, textTransform: "uppercase" }}>אמנים</div>
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9a8e7a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
           </div>
-        <div className="swipe-hint" style={{ display: "flex", gap: 16, overflowX: "auto", paddingLeft: 20, paddingRight: 20, scrollbarWidth: "none", scrollSnapType: "x mandatory", WebkitOverflowScrolling: "touch" }}>
+        <div style={{ display: "flex", gap: 16, overflowX: "auto", paddingLeft: 20, paddingRight: 20, scrollbarWidth: "none", scrollSnapType: "x mandatory", WebkitOverflowScrolling: "touch" }}>
           {artists.map(ar => (
             <div key={ar.id} onClick={() => navigate("artist", ar.id)} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 6, cursor: "pointer", flexShrink: 0, scrollSnapAlign: "center" }}>
               <div style={{ width: 80, height: 80, borderRadius: "50%", overflow: "hidden", border: "1.5px solid rgba(200,180,140,0.25)" }}>
@@ -1172,13 +1172,10 @@ export default function ArtGalleryApp() {
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
         @keyframes snapReveal { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes scrollHint { 0%, 100% { transform: translateY(0); opacity: 0.4; } 50% { transform: translateY(8px); opacity: 1; } }
-        @keyframes swipeHint { 0% { transform: translateX(0); } 40% { transform: translateX(-18px); } 70% { transform: translateX(0); } 100% { transform: translateX(0); } }
-        .swipe-hint > *:nth-child(1) { animation: swipeHint 3s ease 1.5s 1 both; }
-        .swipe-hint > *:nth-child(2) { animation: swipeHint 3s ease 1.6s 1 both; }
-        .swipe-hint > *:nth-child(3) { animation: swipeHint 3s ease 1.7s 1 both; }
+        @keyframes snapSlideIn { from { opacity: 0; transform: translateX(-20px); } to { opacity: 1; transform: translateX(0); } }
         ::-webkit-scrollbar { display: none; }
         .snap-section { scroll-snap-align: start; min-height: calc(100vh - 68px); display: flex; flex-direction: column; justify-content: center; }
-        .snap-section > * { animation: snapReveal 0.6s ease both; }
+        .snap-section > * { animation: snapSlideIn 0.6s ease both; }
       `}</style>
 
       {/* TOP BAR + HEADER wrapper for sticky */}
