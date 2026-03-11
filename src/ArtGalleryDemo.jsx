@@ -17,42 +17,56 @@ const artists = [
 ];
 
 const artworks = [
-  { id: 'w1', title: 'גוף ושפה', artistId: 'a1', year: 2025, medium: 'צילום, דיו ומכחול על גוף', description: 'המילים, שנוצרות מתוך דיאלוג אינטואיטיבי עם המוזה המצולמת, אינן משמשות כתוספת צורנית או עיטורית, אלא כפעולה טקסית, אינטימית, בעלת ממד כמעט מאגי. הגוף הופך קנבס חי, והטקסט ללחש, שכבת תקשורת, הגנה או גילוי. הצילום לוכד את הרגע שבו נולדת זהות חדשה בין גוף לשפה, בין חוץ לפנים, בין זכר לנקבה.', exhibitionIds: ['e1'], media: [
-    { type: 'image', label: 'מבט קדמי', url: 'https://static.wixstatic.com/media/3e3f5c_9f8bdf75b4e64c9da6d7c57340c3b4a6~mv2.jpg' },
-    { type: 'image', label: 'פרט - כתב על גוף', url: 'https://static.wixstatic.com/media/3e3f5c_7aea5515de4346c7be5858e32500b1f0~mv2.jpg' },
-    { type: 'image', label: 'פרט נוסף', url: 'https://static.wixstatic.com/media/3e3f5c_cd6c8bf9f05f4811ac4d6c8d7fd94d01~mv2.jpg' },
-    { type: 'image', label: 'תיעוד תהליך', url: 'https://static.wixstatic.com/media/3e3f5c_f7dc503b9c324ce784700b639f3eef6d~mv2.jpg' },
-  ] },
-  { id: 'w2', title: 'תשע נשמות', artistId: 'a2', year: 2025, medium: 'מדיה מעורבת - צבעי שמן, אקריליק, גרפיט וקפה על קנוואס מודפס בלייזר', description: 'עבודה משותפת עם הנריקה רוטנברג. כחלק מהפרוייקט המשותף, תהליך חשיבה ארוך על כל קנוואס, איך ליצור סימביוזה בין שתי הנשמות ולייצר בכל ציור נשמה אחת משותפת. בחירה לגשת ליצירה עם דגש על המיתוס האומר כי לחתול יש תשע נשמות, תוך התייחסות לחיים המודרנים.', exhibitionIds: ['e1'], media: [
-    { type: 'image', label: 'מבט כללי', url: 'https://static.wixstatic.com/media/3e3f5c_e90d3845ab844e429bad3476217c025b~mv2.jpg' },
-    { type: 'image', label: 'פרט', url: 'https://static.wixstatic.com/media/3e3f5c_923d724a10194534ba2f17bc6b527196~mv2.jpg' },
-  ] },
-  { id: 'w3', title: 'גן החיות של התודעה', artistId: 'a3', year: 2025, medium: 'אומנות דיגיטלית, אקריל וצבעי פנדה על קנבס', description: 'אוסף יצירות שנולד מתת־מודע, מרחב פנימי של דימויים פראיים, קולות, קונפליקטים ודמויות שמופיעות כמעט למרות. למרות העושר והעומס החזותי, בלב הסדרה מתקיימת תחושת בדידות. היצירות מציגות את הרגע שבו האדם צופה על עצמו מבפנים, בתוך "גן חיות" בלתי צפוי ואף כאוטי.', exhibitionIds: ['e1'], media: [
-    { type: 'image', label: 'מבט כללי', url: 'https://static.wixstatic.com/media/3e3f5c_33e9bc48115a443f93955bd8d4c0f741~mv2.jpg' },
-    { type: 'image', label: 'פרט', url: 'https://static.wixstatic.com/media/3e3f5c_8cc3ed72100646498b56078fbe20379b~mv2.jpg' },
-  ] },
-  { id: 'w4', title: '100 דולר', artistId: 'a3', year: 2025, medium: 'אומנות דיגיטלית', description: 'יצירה שמציגה שטר של 100 דולר בגווני כחול־סגול, צבעוניות המדגישה את המתח בין העולם החומרי, הקר והמנוכר, לבין רמז לרובד רוחני ותודעתי. הדמויות המאוירות באפור מדגישות את דעיכת האנושי בתוך המערכת. סביב הדמות המרכזית מופיעים מלאך, שטן וארנב — סמלים של מצפון מתערער, פיתוי ואשליה.', exhibitionIds: ['e1'], media: [
-    { type: 'image', label: 'מבט כללי', url: 'https://static.wixstatic.com/media/3e3f5c_d41329c66b9644ddb5248ff888a3bf79~mv2.jpg' },
-  ] },
+  {
+    id: 'w1', title: 'גוף ושפה', artistId: 'a1', year: 2025, medium: 'צילום, דיו ומכחול על גוף', description: 'המילים, שנוצרות מתוך דיאלוג אינטואיטיבי עם המוזה המצולמת, אינן משמשות כתוספת צורנית או עיטורית, אלא כפעולה טקסית, אינטימית, בעלת ממד כמעט מאגי. הגוף הופך קנבס חי, והטקסט ללחש, שכבת תקשורת, הגנה או גילוי. הצילום לוכד את הרגע שבו נולדת זהות חדשה בין גוף לשפה, בין חוץ לפנים, בין זכר לנקבה.', exhibitionIds: ['e1'], media: [
+      { type: 'image', label: 'מבט קדמי', url: 'https://static.wixstatic.com/media/3e3f5c_9f8bdf75b4e64c9da6d7c57340c3b4a6~mv2.jpg' },
+      { type: 'image', label: 'פרט - כתב על גוף', url: 'https://static.wixstatic.com/media/3e3f5c_7aea5515de4346c7be5858e32500b1f0~mv2.jpg' },
+      { type: 'image', label: 'פרט נוסף', url: 'https://static.wixstatic.com/media/3e3f5c_cd6c8bf9f05f4811ac4d6c8d7fd94d01~mv2.jpg' },
+      { type: 'image', label: 'תיעוד תהליך', url: 'https://static.wixstatic.com/media/3e3f5c_f7dc503b9c324ce784700b639f3eef6d~mv2.jpg' },
+    ]
+  },
+  {
+    id: 'w2', title: 'תשע נשמות', artistId: 'a2', year: 2025, medium: 'מדיה מעורבת - צבעי שמן, אקריליק, גרפיט וקפה על קנוואס מודפס בלייזר', description: 'עבודה משותפת עם הנריקה רוטנברג. כחלק מהפרוייקט המשותף, תהליך חשיבה ארוך על כל קנוואס, איך ליצור סימביוזה בין שתי הנשמות ולייצר בכל ציור נשמה אחת משותפת. בחירה לגשת ליצירה עם דגש על המיתוס האומר כי לחתול יש תשע נשמות, תוך התייחסות לחיים המודרנים.', exhibitionIds: ['e1'], media: [
+      { type: 'image', label: 'מבט כללי', url: 'https://static.wixstatic.com/media/3e3f5c_e90d3845ab844e429bad3476217c025b~mv2.jpg' },
+      { type: 'image', label: 'פרט', url: 'https://static.wixstatic.com/media/3e3f5c_923d724a10194534ba2f17bc6b527196~mv2.jpg' },
+    ]
+  },
+  {
+    id: 'w3', title: 'גן החיות של התודעה', artistId: 'a3', year: 2025, medium: 'אומנות דיגיטלית, אקריל וצבעי פנדה על קנבס', description: 'אוסף יצירות שנולד מתת־מודע, מרחב פנימי של דימויים פראיים, קולות, קונפליקטים ודמויות שמופיעות כמעט למרות. למרות העושר והעומס החזותי, בלב הסדרה מתקיימת תחושת בדידות. היצירות מציגות את הרגע שבו האדם צופה על עצמו מבפנים, בתוך "גן חיות" בלתי צפוי ואף כאוטי.', exhibitionIds: ['e1'], media: [
+      { type: 'image', label: 'מבט כללי', url: 'https://static.wixstatic.com/media/3e3f5c_33e9bc48115a443f93955bd8d4c0f741~mv2.jpg' },
+      { type: 'image', label: 'פרט', url: 'https://static.wixstatic.com/media/3e3f5c_8cc3ed72100646498b56078fbe20379b~mv2.jpg' },
+    ]
+  },
+  {
+    id: 'w4', title: '100 דולר', artistId: 'a3', year: 2025, medium: 'אומנות דיגיטלית', description: 'יצירה שמציגה שטר של 100 דולר בגווני כחול־סגול, צבעוניות המדגישה את המתח בין העולם החומרי, הקר והמנוכר, לבין רמז לרובד רוחני ותודעתי. הדמויות המאוירות באפור מדגישות את דעיכת האנושי בתוך המערכת. סביב הדמות המרכזית מופיעים מלאך, שטן וארנב — סמלים של מצפון מתערער, פיתוי ואשליה.', exhibitionIds: ['e1'], media: [
+      { type: 'image', label: 'מבט כללי', url: 'https://static.wixstatic.com/media/3e3f5c_d41329c66b9644ddb5248ff888a3bf79~mv2.jpg' },
+    ]
+  },
   { id: 'w5', title: 'שק האגרוף', artistId: 'a3', year: 2025, medium: 'פיסול, מדיה מעורבת', description: 'שק האגרוף, המעוטר במסכות אצטקיות ובכתובות ברכה, מציב בלב חלל תוסס את מה שאנו נוטים להצניע: מסע ההתמודדות הפנימי. היצירה מעניקה לדפוסים הפנימיים צורה, פנים וסמלים, ומזמינה את הצופה לא רק להיאבק בהם, אלא להכיר בהם כשליחים של תודעה מבקשת ריפוי.', exhibitionIds: ['e1'], media: [{ type: 'image', label: 'מבט קדמי' }, { type: 'image', label: 'פרט - מסכות' }, { type: 'image', label: 'פרט - כתובות' }, { type: 'video', label: 'סביב היצירה' }] },
   { id: 'w6', title: 'קמעות', artistId: 'a5', year: 2025, medium: 'ציור וטקסט, טכניקה מעורבת', description: 'בתוך כל עבודה חבוי כתב־סתרים מקורי — מערכת קודים שנוצרה במיוחד עבור הסדרה, מעין לחישות חזותיות המשמשות כקמעות. כל קוד נכתב כטקס זימון, כהזמנה מדויקת לעבודה פנימית: הגנות, התמרה, בהירות. הציורים אינם ארכיאולוגיה של רוחניות, אלא פרשנות חיה ואקטואלית של טקסי מעבר.', exhibitionIds: ['e1'], media: [{ type: 'image', label: 'מבט כללי' }, { type: 'image', label: 'פרט - כתב סתרים' }, { type: 'image', label: 'פרט - סמלים' }] },
-  { id: 'w7', title: 'ליצן', artistId: 'a6', year: 2025, medium: 'צילום', description: 'העבודה מציגה תקריב מטושטש של פני ליצן — דימוי תרבותי המזוהה עם החצנה, תנועה ותגובה מיידית. הטשטוש מבטל זהות, מגדר והבעה כוללת, ומשאיר סימן חזותי טעון: אדום בוהק, מוגזם, כזה שנועד להיראות מרחוק. הליצן הוא דמות של כוח פרפורמטיבי, בעלת רישיון חברתי לחרוג.', exhibitionIds: ['e1'], media: [
-    { type: 'image', label: 'מבט כללי', url: 'https://static.wixstatic.com/media/3e3f5c_43cd1f7ecfcc4bc78ca2538f175aad2d~mv2.jpg' },
-  ] },
-  { id: 'w8', title: 'כאוס ושליטה', artistId: 'a7', year: 2025, medium: 'ציור - טכניקה מעורבת', description: 'ציורים שנוצרים במהירות ובאופן אינסטינקטיבי. תנועות המכחול פרועות אך מכוונות; חצופות אך מהפנטות. קומפוזיציה רנדומלית אך מלאה, מתח שמתקיים בין גסות לבין אסתטיקה, בין מקריות לבין דיוק פנימי. אמנות שמרגישים לפני שמבינים.', exhibitionIds: ['e1'], media: [
-    { type: 'image', label: 'מבט כללי', url: 'https://static.wixstatic.com/media/3e3f5c_4ce5eee9acdb48948a8ed374e79588dd~mv2.jpg' },
-    { type: 'image', label: 'פרט', url: 'https://static.wixstatic.com/media/3e3f5c_5a9e6d13284d4708a77a14521d6ae6b9~mv2.jpg' },
-  ] },
-  { id: 'w9', title: 'פופ וביקורת', artistId: 'a4', year: 2025, medium: 'מדיה מעורבת, חומרים עכשוויים', description: 'עבודות המשלבות בין חומרים עכשוויים לטכניקות מסורתיות והופכות אותם לאובייקטים חדים ומעוררי מחשבה. האסתטיקה הצבעונית והפופ־ארטית משמשת כעדשה ביקורתית על התרבות המערבית ועל המרדף המודרני.', exhibitionIds: ['e1'], media: [
-    { type: 'image', label: 'מבט כללי', url: 'https://static.wixstatic.com/media/3e3f5c_456455c259914d0c90878d43e32d9871~mv2.jpg' },
-    { type: 'image', label: 'פרט', url: 'https://static.wixstatic.com/media/3e3f5c_7157c8d9b35e4212a0db4634173652ee~mv2.jpg' },
-    { type: 'image', label: 'בהצבה', url: 'https://static.wixstatic.com/media/3e3f5c_3310c18f67c54be19c86d1c2b61cfcc9~mv2.jpg' },
-    { type: 'image', label: 'פרט נוסף', url: 'https://static.wixstatic.com/media/3e3f5c_9bf8871285474864b669c78a9710f585~mv2.jpg' },
-  ] },
+  {
+    id: 'w7', title: 'ליצן', artistId: 'a6', year: 2025, medium: 'צילום', description: 'העבודה מציגה תקריב מטושטש של פני ליצן — דימוי תרבותי המזוהה עם החצנה, תנועה ותגובה מיידית. הטשטוש מבטל זהות, מגדר והבעה כוללת, ומשאיר סימן חזותי טעון: אדום בוהק, מוגזם, כזה שנועד להיראות מרחוק. הליצן הוא דמות של כוח פרפורמטיבי, בעלת רישיון חברתי לחרוג.', exhibitionIds: ['e1'], media: [
+      { type: 'image', label: 'מבט כללי', url: 'https://static.wixstatic.com/media/3e3f5c_43cd1f7ecfcc4bc78ca2538f175aad2d~mv2.jpg' },
+    ]
+  },
+  {
+    id: 'w8', title: 'כאוס ושליטה', artistId: 'a7', year: 2025, medium: 'ציור - טכניקה מעורבת', description: 'ציורים שנוצרים במהירות ובאופן אינסטינקטיבי. תנועות המכחול פרועות אך מכוונות; חצופות אך מהפנטות. קומפוזיציה רנדומלית אך מלאה, מתח שמתקיים בין גסות לבין אסתטיקה, בין מקריות לבין דיוק פנימי. אמנות שמרגישים לפני שמבינים.', exhibitionIds: ['e1'], media: [
+      { type: 'image', label: 'מבט כללי', url: 'https://static.wixstatic.com/media/3e3f5c_4ce5eee9acdb48948a8ed374e79588dd~mv2.jpg' },
+      { type: 'image', label: 'פרט', url: 'https://static.wixstatic.com/media/3e3f5c_5a9e6d13284d4708a77a14521d6ae6b9~mv2.jpg' },
+    ]
+  },
+  {
+    id: 'w9', title: 'פופ וביקורת', artistId: 'a4', year: 2025, medium: 'מדיה מעורבת, חומרים עכשוויים', description: 'עבודות המשלבות בין חומרים עכשוויים לטכניקות מסורתיות והופכות אותם לאובייקטים חדים ומעוררי מחשבה. האסתטיקה הצבעונית והפופ־ארטית משמשת כעדשה ביקורתית על התרבות המערבית ועל המרדף המודרני.', exhibitionIds: ['e1'], media: [
+      { type: 'image', label: 'מבט כללי', url: 'https://static.wixstatic.com/media/3e3f5c_456455c259914d0c90878d43e32d9871~mv2.jpg' },
+      { type: 'image', label: 'פרט', url: 'https://static.wixstatic.com/media/3e3f5c_7157c8d9b35e4212a0db4634173652ee~mv2.jpg' },
+      { type: 'image', label: 'בהצבה', url: 'https://static.wixstatic.com/media/3e3f5c_3310c18f67c54be19c86d1c2b61cfcc9~mv2.jpg' },
+      { type: 'image', label: 'פרט נוסף', url: 'https://static.wixstatic.com/media/3e3f5c_9bf8871285474864b669c78a9710f585~mv2.jpg' },
+    ]
+  },
 ];
 
 const exhibitions = [
-  { id: 'e2', title: 'How Many Partners Have You Had?', curator: 'קורין אברהם', startDate: 'TBD', endDate: 'TBD', status: 'call', description: 'קול קורא לאמנים! תערוכה חדשה בנושא יחסים, אינטימיות וקשרים אנושיים בעידן המודרני. אנחנו מחפשים אמנים ויצירות מכל תחומי האומנות. שלחו תמונה של היצירה, שם היצירה, שם אמן ואת הסיפור שמאחוריה.', artistIds: [], artworkIds: [], location: 'TBD' },
+  { id: 'e2', title: 'How Many Partners Have You Had?', curator: 'קורין אברהם', startDate: 'TBD', endDate: 'TBD', status: 'call', description: 'קול קורא לאמנים! תערוכה חדשה בנושא יחסים, אינטימיות וקשרים אנושיים בעידן המודרני. אנחנו מחפשים אמנים ויצירות מכל תחומי האומנות. שלחו תמונה של היצירה, שם היצירה, שם אמן ואת הסיפור שמאחוריה.', artistIds: [], artworkIds: [], location: 'TBD', coverImage: 'https://static.wixstatic.com/media/3e3f5c_62808fb6a7544742b3e307fd868dcf99~mv2.jpeg' },
   { id: 'e1', title: 'Loneliness in a Vibrant Environment', curator: 'קורין אברהם', startDate: '28.12.2025', endDate: '28.02.2026', status: 'current', description: 'בדידות אינה תמיד שקט. לעיתים היא מתרחשת דווקא במקומות הרועשים ביותר — שפע, צבע, תנועה, דימויים ואנשים. זו בדידות שאינה נובעת מהיעדר, אלא מעודף. מעודף גירויים, מעודף מסכות, מעודף קולות שמטשטשים את הקול הפנימי. התערוכה מבקשת להתבונן ברגע שבו אדם נמצא בלב ההמולה ועדיין מרגיש לבד. לא כקריסה, אלא כמצב תודעתי. כהשהיה. כהתפכחות. העבודות נעות בין גוף לשפה, בין חומר לרגש, בין פיתוי לנחמה, בין משחקיות לפצע.', artistIds: ['a1', 'a2', 'a3', 'a4', 'a5', 'a6', 'a7'], artworkIds: ['w1', 'w2', 'w3', 'w4', 'w5', 'w6', 'w7', 'w8', 'w9'], location: 'כיכר המדינה, ז\'בוטינסקי 131, תל אביב' },
 ];
 
@@ -109,6 +123,7 @@ const galleries = [
 
 // ===== HELPER: get first image URL from an exhibition's artworks =====
 const getExhibitionCoverUrl = (ex) => {
+  if (ex.coverImage) return ex.coverImage;
   for (const wid of ex.artworkIds) {
     const w = artworks.find((a) => a.id === wid);
     if (w) {
@@ -118,6 +133,8 @@ const getExhibitionCoverUrl = (ex) => {
   }
   return null;
 };
+
+const isEnglish = (text) => /^[A-Za-z]/.test(text);
 
 // ===== ICONS =====
 const Icons = {
@@ -147,13 +164,13 @@ const Icons = {
     </svg>
   ),
   calendar: () => (
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#888" strokeWidth="2" strokeLinecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#888" strokeWidth="2" strokeLinecap="round"><rect x="3" y="4" width="18" height="18" rx="2" /><path d="M16 2v4M8 2v4M3 10h18" /></svg>
   ),
   location: () => (
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#888" strokeWidth="2" strokeLinecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#888" strokeWidth="2" strokeLinecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" /><circle cx="12" cy="10" r="3" /></svg>
   ),
   curator: () => (
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#888" strokeWidth="2" strokeLinecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a6 6 0 016-6h4a6 6 0 016 6v1"/></svg>
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#888" strokeWidth="2" strokeLinecap="round"><circle cx="12" cy="8" r="4" /><path d="M4 21v-1a6 6 0 016-6h4a6 6 0 016 6v1" /></svg>
   ),
   home: (active) => (
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={active ? "#1a1a1a" : "#999"} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -162,37 +179,37 @@ const Icons = {
   ),
   search: () => (
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#999" strokeWidth="2" strokeLinecap="round">
-      <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
+      <circle cx="11" cy="11" r="8" /><path d="M21 21l-4.35-4.35" />
     </svg>
   ),
   instagram: () => (
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/>
+      <rect x="2" y="2" width="20" height="20" rx="5" /><circle cx="12" cy="12" r="5" /><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none" />
     </svg>
   ),
   facebook: () => (
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
+      <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
     </svg>
   ),
   tiktok: () => (
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M9 12a4 4 0 104 4V4a5 5 0 005 5"/>
+      <path d="M9 12a4 4 0 104 4V4a5 5 0 005 5" />
     </svg>
   ),
   whatsapp: () => (
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/>
+      <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z" />
     </svg>
   ),
   website: () => (
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/>
+      <circle cx="12" cy="12" r="10" /><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z" />
     </svg>
   ),
   emailIcon: () => (
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/>
+      <rect x="2" y="4" width="20" height="16" rx="2" /><path d="M22 7l-10 7L2 7" />
     </svg>
   ),
 };
@@ -555,6 +572,77 @@ export default function ArtGalleryApp() {
     return () => observer.disconnect();
   }, [nav.page]);
 
+  // Direction-lock: distinguish horizontal carousel swipes from vertical page scrolls.
+  // Once the dominant axis is determined (after a small threshold), the opposite axis is
+  // locked out for the remainder of the gesture so the two don't fight each other.
+  useEffect(() => {
+    if (nav.page !== "home") return;
+
+    let startX = 0, startY = 0;
+    let lockedAxis = null;       // 'x' | 'y' | null
+    let activeCarousel = null;   // the carousel element being touched
+
+    const onTouchStart = (e) => {
+      const t = e.touches[0];
+      startX = t.clientX;
+      startY = t.clientY;
+      lockedAxis = null;
+      activeCarousel = e.currentTarget;
+    };
+
+    const onTouchMove = (e) => {
+      const t = e.touches[0];
+      const dx = Math.abs(t.clientX - startX);
+      const dy = Math.abs(t.clientY - startY);
+
+      if (!lockedAxis && (dx > 8 || dy > 8)) {
+        lockedAxis = dx > dy ? 'x' : 'y';
+
+        if (lockedAxis === 'x') {
+          // Horizontal: disable vertical scroll-snap so the page doesn't jump
+          document.documentElement.style.scrollSnapType = "none";
+          // Freeze the page's vertical scroll position
+          document.documentElement.style.overflowY = "hidden";
+        } else {
+          // Vertical: freeze the carousel's horizontal scroll so it doesn't slide
+          if (activeCarousel) {
+            activeCarousel.style.overflowX = "hidden";
+          }
+        }
+      }
+    };
+
+    const onTouchEnd = () => {
+      if (lockedAxis === 'x') {
+        document.documentElement.style.overflowY = "";
+        // Delay snap restoration so inertial scroll can settle
+        setTimeout(() => {
+          document.documentElement.style.scrollSnapType = "y proximity";
+        }, 350);
+      } else if (lockedAxis === 'y' && activeCarousel) {
+        activeCarousel.style.overflowX = "auto";
+      }
+      lockedAxis = null;
+      activeCarousel = null;
+    };
+
+    const carousels = document.querySelectorAll('.carousel-scroll');
+    carousels.forEach(el => {
+      el.addEventListener("touchstart", onTouchStart, { passive: true });
+      el.addEventListener("touchmove", onTouchMove, { passive: true });
+      el.addEventListener("touchend", onTouchEnd, { passive: true });
+    });
+    return () => {
+      carousels.forEach(el => {
+        el.removeEventListener("touchstart", onTouchStart);
+        el.removeEventListener("touchmove", onTouchMove);
+        el.removeEventListener("touchend", onTouchEnd);
+      });
+      document.documentElement.style.scrollSnapType = "";
+      document.documentElement.style.overflowY = "";
+    };
+  }, [nav.page]);
+
   const scrollToTop = () => {
     window.scrollTo(0, 0);
   };
@@ -657,27 +745,33 @@ export default function ArtGalleryApp() {
   // ===== HOME PAGE =====
   const renderHome = () => (
     <div style={{ backgroundColor: "#0a0a0a" }}>
-      {/* Hero */}
-      <div className="home-section" style={{ height: "calc(100vh - 42px)", minHeight: "calc(100vh - 42px)", padding: 0, position: "relative", overflow: "hidden", scrollSnapAlign: "start" }}>
+      {/* Hero — two snap points */}
+      <div className="home-section" style={{ height: "calc(100vh - 42px)", minHeight: "calc(100vh - 42px)", padding: 0, position: "relative", overflow: "clip", display: "flex", flexDirection: "column" }}>
         <img
           src="https://static.wixstatic.com/media/3e3f5c_8efc9803b8384a6cb0f5bd4b5c6f672e~mv2.jpg"
           alt="Erez Zielinski Rozen"
           style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "left 20%", display: "block" }}
         />
-        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.15) 40%, rgba(0,0,0,0.3) 100%)", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "flex-end", paddingBottom: 60, gap: 6 }}>
+        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.15) 40%, rgba(0,0,0,0.3) 100%)", pointerEvents: "none" }} />
+        {/* Snap point 1 — top of hero */}
+        <div style={{ scrollSnapAlign: "start" }} />
+        {/* Spacer */}
+        <div style={{ flex: 1 }} />
+        {/* Snap point 2 — above the welcome text */}
+        <div style={{ scrollSnapAlign: "start", position: "relative", zIndex: 1, display: "flex", flexDirection: "column", alignItems: "center", paddingTop: 40, paddingBottom: 60, gap: 6 }}>
           <div style={{ fontSize: 14, fontWeight: 400, color: "rgba(255,255,255,0.85)", letterSpacing: 2, textAlign: "center", marginBottom: 2 }}>ברוכים הבאים</div>
           <div style={{ fontSize: 32, fontWeight: 700, color: "#fff", letterSpacing: 3, textAlign: "center", textShadow: "0 2px 12px rgba(0,0,0,0.3)" }}>ZIELINSKI & ROZEN</div>
           <div style={{ fontSize: 16, fontWeight: 500, color: "rgba(255,255,255,0.9)", letterSpacing: 5, textAlign: "center" }}>THE ART GALLERY</div>
           {/* Scroll hint */}
           <div style={{ marginTop: 24, animation: "scrollHint 2s ease-in-out infinite, fadeIn 2s ease 1s both" }}>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.4)" strokeWidth="1.5" strokeLinecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.4)" strokeWidth="1.5" strokeLinecap="round"><polyline points="6 9 12 15 18 9" /></svg>
           </div>
         </div>
       </div>
 
-      {/* About + Nav + Exhibitions + Artists */}
-      <div className="home-section" style={{ padding: "0", justifyContent: "flex-start", backgroundColor: "#0e0e0e", scrollSnapAlign: "start" }}>
-        <div style={{ padding: "40px 20px 36px", borderBottom: "1px solid rgba(200,180,140,0.1)" }}>
+      {/* About */}
+      <div className="home-section home-section-auto" style={{ padding: "0", justifyContent: "flex-start", backgroundColor: "#0e0e0e", scrollSnapAlign: "start" }}>
+        <div style={{ padding: "40px 20px 36px" }}>
           <div style={{ display: "flex", gap: 18, alignItems: "flex-start" }}>
             <div style={{ flexShrink: 0, width: 100, height: 130, borderRadius: 4, overflow: "hidden", border: "1px solid rgba(200,180,140,0.15)" }}>
               <img src="https://images.squarespace-cdn.com/content/v1/5b6a0c9c7106997328d0b426/1683114779329-4A26HC728NYDAIUHYI4D/Erez%2BRozenR1-02879-007A.jpg" alt="ארז זילינסקי־רוזן" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
@@ -690,13 +784,16 @@ export default function ArtGalleryApp() {
             </div>
           </div>
         </div>
-        {/* Exhibitions */}
-        <div style={{ padding: "48px 0 12px" }}>
+      </div>
+
+      {/* Exhibitions + Artists */}
+      <div className="home-section home-section-auto" style={{ padding: "0", justifyContent: "flex-start", backgroundColor: "#0e0e0e", scrollSnapAlign: "start" }}>
+        <div style={{ padding: "28px 0 12px", borderTop: "1px solid rgba(200,180,140,0.1)" }}>
           <div onClick={() => navigate("exhibitions")} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 20px", marginBottom: 12, cursor: "pointer" }}>
             <div style={{ fontSize: 15, fontWeight: 600, color: "#c8b99a", letterSpacing: 4, textTransform: "uppercase" }}>תערוכות</div>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9a8e7a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9a8e7a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6" /></svg>
           </div>
-          <div style={{ display: "flex", gap: 12, overflowX: "auto", paddingLeft: 20, paddingRight: 20, scrollbarWidth: "none", scrollSnapType: "x mandatory", WebkitOverflowScrolling: "touch", touchAction: "pan-x" }}>
+          <div className="carousel-scroll" style={{ display: "flex", gap: 12, overflowX: "auto", paddingLeft: 20, paddingRight: 20, scrollbarWidth: "none", scrollSnapType: "x mandatory", WebkitOverflowScrolling: "touch", touchAction: "manipulation", overscrollBehaviorX: "contain" }}>
             {exhibitions.map(ex => {
               const coverUrl = getExhibitionCoverUrl(ex);
               return (
@@ -704,49 +801,48 @@ export default function ArtGalleryApp() {
                   <div style={{ width: 230, height: 140, overflow: "hidden", border: "1px solid rgba(200,180,140,0.15)" }}>
                     {coverUrl ? <img src={coverUrl} alt={ex.title} style={{ width: "100%", height: "100%", objectFit: "cover" }} /> : <div style={{ width: "100%", height: "100%", backgroundColor: "rgba(200,180,140,0.08)" }} />}
                   </div>
-                  <div style={{ fontSize: 11, color: "#ede8e0", marginTop: 6, lineHeight: 1.3, direction: "ltr" }}>{ex.title.length > 28 ? ex.title.substring(0, 28) + "…" : ex.title}</div>
+                  <div style={{ fontSize: 11, color: "#ede8e0", marginTop: 6, lineHeight: 1.3, direction: isEnglish(ex.title) ? "ltr" : "rtl" }}>{ex.title.length > 28 ? ex.title.substring(0, 28) + "…" : ex.title}</div>
                 </div>
               );
             })}
             <div onClick={() => navigate("exhibitions")} style={{ flexShrink: 0, width: 230, cursor: "pointer", scrollSnapAlign: "center" }}>
               <div style={{ width: 230, height: 140, overflow: "hidden", border: "1px solid rgba(200,180,140,0.15)", display: "flex", alignItems: "center", justifyContent: "center", backgroundColor: "rgba(200,180,140,0.06)" }}>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#a89a82" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="17" y1="17" x2="7" y2="7"/><polyline points="17 7 7 7 7 17"/></svg>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#a89a82" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="17" y1="17" x2="7" y2="7" /><polyline points="17 7 7 7 7 17" /></svg>
               </div>
               <div style={{ fontSize: 11, color: "#a89a82", marginTop: 6, lineHeight: 1.3, textAlign: "center" }}>עוד</div>
             </div>
           </div>
         </div>
 
-        {/* Artists */}
         <div style={{ padding: "24px 0 16px" }}>
           <div onClick={() => navigate("artists")} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 20px", marginBottom: 12, cursor: "pointer" }}>
             <div style={{ fontSize: 15, fontWeight: 600, color: "#c8b99a", letterSpacing: 4, textTransform: "uppercase" }}>אמנים</div>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9a8e7a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9a8e7a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6" /></svg>
           </div>
-        <div style={{ display: "flex", gap: 16, overflowX: "auto", paddingLeft: 20, paddingRight: 20, scrollbarWidth: "none", scrollSnapType: "x mandatory", WebkitOverflowScrolling: "touch", touchAction: "pan-x" }}>
-          {artists.map(ar => (
-            <div key={ar.id} onClick={() => navigate("artist", ar.id)} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 6, cursor: "pointer", flexShrink: 0, scrollSnapAlign: "center" }}>
-              <div style={{ width: 80, height: 80, borderRadius: "50%", overflow: "hidden", border: "1.5px solid rgba(200,180,140,0.25)" }}>
-                {ar.img ? <img src={ar.img} alt={ar.name} style={{ width: "100%", height: "100%", objectFit: "cover" }} /> : <div style={{ width: "100%", height: "100%", backgroundColor: "rgba(200,180,140,0.1)" }} />}
+          <div className="carousel-scroll" style={{ display: "flex", gap: 16, overflowX: "auto", paddingLeft: 20, paddingRight: 20, scrollbarWidth: "none", scrollSnapType: "x mandatory", WebkitOverflowScrolling: "touch", touchAction: "manipulation", overscrollBehaviorX: "contain" }}>
+            {artists.map(ar => (
+              <div key={ar.id} onClick={() => navigate("artist", ar.id)} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 6, cursor: "pointer", flexShrink: 0, scrollSnapAlign: "center" }}>
+                <div style={{ width: 80, height: 80, borderRadius: "50%", overflow: "hidden", border: "1.5px solid rgba(200,180,140,0.25)" }}>
+                  {ar.img ? <img src={ar.img} alt={ar.name} style={{ width: "100%", height: "100%", objectFit: "cover" }} /> : <div style={{ width: "100%", height: "100%", backgroundColor: "rgba(200,180,140,0.1)" }} />}
+                </div>
+                <div style={{ fontSize: 11, color: "#a89a82", textAlign: "center", maxWidth: 72, lineHeight: 1.2 }}>{ar.name.split(" ")[0]}</div>
               </div>
-              <div style={{ fontSize: 11, color: "#a89a82", textAlign: "center", maxWidth: 72, lineHeight: 1.2 }}>{ar.name.split(" ")[0]}</div>
+            ))}
+            <div onClick={() => navigate("artists")} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 6, cursor: "pointer", flexShrink: 0, scrollSnapAlign: "center" }}>
+              <div style={{ width: 80, height: 80, borderRadius: "50%", border: "1.5px solid rgba(200,180,140,0.25)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#a89a82" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="17" y1="17" x2="7" y2="7" /><polyline points="17 7 7 7 7 17" /></svg>
+              </div>
+              <div style={{ fontSize: 11, color: "#a89a82", textAlign: "center", maxWidth: 72, lineHeight: 1.2 }}>עוד</div>
             </div>
-          ))}
-          <div onClick={() => navigate("artists")} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 6, cursor: "pointer", flexShrink: 0, scrollSnapAlign: "center" }}>
-            <div style={{ width: 80, height: 80, borderRadius: "50%", border: "1.5px solid rgba(200,180,140,0.25)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#a89a82" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="17" y1="17" x2="7" y2="7"/><polyline points="17 7 7 7 7 17"/></svg>
-            </div>
-            <div style={{ fontSize: 11, color: "#a89a82", textAlign: "center", maxWidth: 72, lineHeight: 1.2 }}>עוד</div>
           </div>
         </div>
       </div>
-      </div>
 
       {/* Artworks grid */}
-      <div className="home-section" style={{ padding: "28px 20px 0", backgroundColor: "#0a0a0a" }}>
+      <div className="home-section" style={{ padding: "28px 20px 0", backgroundColor: "#0a0a0a", scrollSnapAlign: "start" }}>
         <div onClick={() => navigate("art")} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 18, cursor: "pointer" }}>
           <div style={{ fontSize: 15, fontWeight: 600, color: "#c8b99a", letterSpacing: 4, textTransform: "uppercase" }}>אמנות</div>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9a8e7a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9a8e7a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6" /></svg>
         </div>
         <div style={{ position: "relative" }}>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 8 }}>
@@ -765,53 +861,53 @@ export default function ArtGalleryApp() {
 
       {/* Galleries + Blog */}
       <div className="home-section" style={{ padding: "0", justifyContent: "flex-start", backgroundColor: "#0e0e0e", scrollSnapAlign: "start" }}>
-      <div id="galleries-section" style={{ padding: "28px 24px 16px" }}>
-        <div style={{ display: "flex", alignItems: "center", padding: "0", marginBottom: 20 }}>
-          <div style={{ fontSize: 15, fontWeight: 600, color: "#c8b99a", letterSpacing: 4, textTransform: "uppercase" }}>הגלריות</div>
-        </div>
-        {galleries.map((g, i) => (
-          <div key={i} style={{ display: "flex", alignItems: "center", gap: 14, padding: "16px 0", borderBottom: i < galleries.length - 1 ? "1px solid rgba(200,180,140,0.08)" : "none" }}>
-            <div style={{ width: 48, height: 48, backgroundColor: "rgba(200,180,140,0.08)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(200,180,140,0.35)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
-            </div>
-            <div style={{ flex: 1 }}>
-              <div style={{ fontWeight: 500, fontSize: 14, color: "#ede8e0", marginBottom: 3 }}>{g.name}</div>
-              <div style={{ fontSize: 12, color: "#a89a82", marginBottom: 2 }}>{g.address}</div>
-              <div style={{ fontSize: 11, color: "#8a7e6c" }}>{g.hours}</div>
-            </div>
-            <div onClick={(e) => { e.stopPropagation(); window.open(g.mapUrl, '_blank'); }} style={{ width: 32, height: 32, borderRadius: "50%", border: "1px solid rgba(200,180,140,0.2)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, cursor: "pointer" }}>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="#a89a82"><path d="m21.41 10.59-7.99-8c-.78-.78-2.05-.78-2.83 0l-8.01 8c-.78.78-.78 2.05 0 2.83l8.01 8c.78.78 2.05.78 2.83 0l7.99-8c.79-.79.79-2.05 0-2.83zM13.5 14.5V12H10v3H8v-4c0-.55.45-1 1-1h4.5V7.5L17 11l-3.5 3.5z"/></svg>
-            </div>
+        <div id="galleries-section" style={{ padding: "28px 24px 16px" }}>
+          <div style={{ display: "flex", alignItems: "center", padding: "0", marginBottom: 20 }}>
+            <div style={{ fontSize: 15, fontWeight: 600, color: "#c8b99a", letterSpacing: 4, textTransform: "uppercase" }}>הגלריות</div>
           </div>
-        ))}
-      </div>
-
-      {/* Blog scroll */}
-      <div style={{ padding: "28px 0 16px" }}>
-        <div onClick={() => navigate("blog")} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 20px", marginBottom: 18, cursor: "pointer" }}>
-          <div style={{ fontSize: 15, fontWeight: 600, color: "#c8b99a", letterSpacing: 4, textTransform: "uppercase" }}>בלוג</div>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9a8e7a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-        </div>
-        <div style={{ display: "flex", gap: 12, overflowX: "auto", paddingLeft: 20, paddingRight: 20, scrollbarWidth: "none", scrollSnapType: "x mandatory", WebkitOverflowScrolling: "touch", touchAction: "pan-x" }}>
-          {blogPosts.slice(0, 3).map(post => (
-            <div key={post.id} onClick={() => navigate("post", post.id)} style={{ flexShrink: 0, width: 200, cursor: "pointer", scrollSnapAlign: "center" }}>
-              <div style={{ width: 200, height: 120, overflow: "hidden", border: "1px solid rgba(200,180,140,0.15)", backgroundColor: "rgba(200,180,140,0.06)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgba(200,180,140,0.25)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16v16H4z" /><path d="M8 8h8M8 12h8M8 16h4" /></svg>
+          {galleries.map((g, i) => (
+            <div key={i} style={{ display: "flex", alignItems: "center", gap: 14, padding: "16px 0", borderBottom: i < galleries.length - 1 ? "1px solid rgba(200,180,140,0.08)" : "none" }}>
+              <div style={{ width: 48, height: 48, backgroundColor: "rgba(200,180,140,0.08)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(200,180,140,0.35)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" /><circle cx="8.5" cy="8.5" r="1.5" /><path d="m21 15-5-5L5 21" /></svg>
               </div>
-              <div style={{ fontSize: 12, color: "#ede8e0", marginTop: 6, lineHeight: 1.4 }}>{post.title.length > 36 ? post.title.substring(0, 36) + "…" : post.title}</div>
-              <div style={{ fontSize: 10, color: "#8a7e6c", marginTop: 3 }}>{post.date}</div>
+              <div style={{ flex: 1 }}>
+                <div style={{ fontWeight: 500, fontSize: 14, color: "#ede8e0", marginBottom: 3 }}>{g.name}</div>
+                <div style={{ fontSize: 12, color: "#a89a82", marginBottom: 2 }}>{g.address}</div>
+                <div style={{ fontSize: 11, color: "#8a7e6c" }}>{g.hours}</div>
+              </div>
+              <div onClick={(e) => { e.stopPropagation(); window.open(g.mapUrl, '_blank'); }} style={{ width: 32, height: 32, borderRadius: "50%", border: "1px solid rgba(200,180,140,0.2)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, cursor: "pointer" }}>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="#a89a82"><path d="m21.41 10.59-7.99-8c-.78-.78-2.05-.78-2.83 0l-8.01 8c-.78.78-.78 2.05 0 2.83l8.01 8c.78.78 2.05.78 2.83 0l7.99-8c.79-.79.79-2.05 0-2.83zM13.5 14.5V12H10v3H8v-4c0-.55.45-1 1-1h4.5V7.5L17 11l-3.5 3.5z" /></svg>
+              </div>
             </div>
           ))}
-          <div onClick={() => navigate("blog")} style={{ flexShrink: 0, width: 200, cursor: "pointer", scrollSnapAlign: "center" }}>
-            <div style={{ width: 200, height: 120, overflow: "hidden", border: "1px solid rgba(200,180,140,0.15)", display: "flex", alignItems: "center", justifyContent: "center", backgroundColor: "rgba(200,180,140,0.06)" }}>
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#a89a82" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="17" y1="17" x2="7" y2="7"/><polyline points="17 7 7 7 7 17"/></svg>
+        </div>
+
+        {/* Blog scroll */}
+        <div style={{ padding: "28px 0 16px" }}>
+          <div onClick={() => navigate("blog")} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 20px", marginBottom: 18, cursor: "pointer" }}>
+            <div style={{ fontSize: 15, fontWeight: 600, color: "#c8b99a", letterSpacing: 4, textTransform: "uppercase" }}>בלוג</div>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9a8e7a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6" /></svg>
+          </div>
+          <div className="carousel-scroll" style={{ display: "flex", gap: 12, overflowX: "auto", paddingLeft: 20, paddingRight: 20, scrollbarWidth: "none", scrollSnapType: "x mandatory", WebkitOverflowScrolling: "touch", touchAction: "manipulation", overscrollBehaviorX: "contain" }}>
+            {blogPosts.slice(0, 3).map(post => (
+              <div key={post.id} onClick={() => navigate("post", post.id)} style={{ flexShrink: 0, width: 200, cursor: "pointer", scrollSnapAlign: "center" }}>
+                <div style={{ width: 200, height: 120, overflow: "hidden", border: "1px solid rgba(200,180,140,0.15)", backgroundColor: "rgba(200,180,140,0.06)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgba(200,180,140,0.25)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16v16H4z" /><path d="M8 8h8M8 12h8M8 16h4" /></svg>
+                </div>
+                <div style={{ fontSize: 12, color: "#ede8e0", marginTop: 6, lineHeight: 1.4 }}>{post.title.length > 36 ? post.title.substring(0, 36) + "…" : post.title}</div>
+                <div style={{ fontSize: 10, color: "#8a7e6c", marginTop: 3 }}>{post.date}</div>
+              </div>
+            ))}
+            <div onClick={() => navigate("blog")} style={{ flexShrink: 0, width: 200, cursor: "pointer", scrollSnapAlign: "center" }}>
+              <div style={{ width: 200, height: 120, overflow: "hidden", border: "1px solid rgba(200,180,140,0.15)", display: "flex", alignItems: "center", justifyContent: "center", backgroundColor: "rgba(200,180,140,0.06)" }}>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#a89a82" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="17" y1="17" x2="7" y2="7" /><polyline points="17 7 7 7 7 17" /></svg>
+              </div>
+              <div style={{ fontSize: 11, color: "#a89a82", marginTop: 6, lineHeight: 1.3, textAlign: "center" }}>עוד</div>
             </div>
-            <div style={{ fontSize: 11, color: "#a89a82", marginTop: 6, lineHeight: 1.3, textAlign: "center" }}>עוד</div>
           </div>
         </div>
-      </div>
-      <div style={{ height: 48 }} />
-      <Footer navigate={navigate} goHome={goHome} />
+        <div style={{ height: 48 }} />
+        <Footer navigate={navigate} goHome={goHome} />
       </div>
     </div>
   );
@@ -830,7 +926,7 @@ export default function ArtGalleryApp() {
                 <div style={{ textAlign: "center", marginBottom: 8 }}>
                   <StatusBadge status={ex.status} />
                 </div>
-                <h2 style={{ fontSize: 22, fontWeight: 700, margin: "0 0 6px", color: "#1a1a1a", textAlign: "center", direction: "ltr" }}>{ex.title}</h2>
+                <h2 style={{ fontSize: 22, fontWeight: 700, margin: "0 0 6px", color: "#1a1a1a", textAlign: "center", direction: isEnglish(ex.title) ? "ltr" : "rtl" }}>{ex.title}</h2>
                 <div style={{ display: "flex", gap: 14, alignItems: "center", color: "#888", fontSize: 14, margin: "8px 0 4px", flexWrap: "wrap" }}>
                   <span style={{ display: "flex", alignItems: "center", gap: 4 }}>{Icons.calendar()} {ex.startDate} — {ex.endDate}</span>
                   <span style={{ display: "flex", alignItems: "center", gap: 4 }}>{Icons.location()} {ex.location}</span>
@@ -887,9 +983,9 @@ export default function ArtGalleryApp() {
     const q = artSearch.trim().toLowerCase();
     const filtered = q
       ? artworks.filter(w => {
-          const ar = getArtist(w.artistId);
-          return w.title.includes(artSearch.trim()) || w.title.toLowerCase().includes(q) || (ar && (ar.name.includes(artSearch.trim()) || ar.nameEn.toLowerCase().includes(q))) || (w.medium && w.medium.includes(artSearch.trim()));
-        })
+        const ar = getArtist(w.artistId);
+        return w.title.includes(artSearch.trim()) || w.title.toLowerCase().includes(q) || (ar && (ar.name.includes(artSearch.trim()) || ar.nameEn.toLowerCase().includes(q))) || (w.medium && w.medium.includes(artSearch.trim()));
+      })
       : artworks;
 
     return (
@@ -1200,6 +1296,7 @@ export default function ArtGalleryApp() {
         @keyframes scrollHint { 0%, 100% { transform: translateY(0); opacity: 0.4; } 50% { transform: translateY(8px); opacity: 1; } }
         @keyframes sectionReveal { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
         .home-section { min-height: calc(100vh - 42px); display: flex; flex-direction: column; justify-content: center; opacity: 0; }
+        .home-section.home-section-auto { min-height: auto; }
         .home-section.section-visible > * { animation: sectionReveal 0.7s ease both; }
         .home-section.section-visible { opacity: 1; }
         .home-section:first-child { opacity: 1; }
@@ -1209,24 +1306,24 @@ export default function ArtGalleryApp() {
       {/* HEADER - sticky */}
       <div style={{ position: "sticky", top: 0, zIndex: 10 }}>
         <div style={{ ...styles.header, position: "relative", top: 0, justifyContent: "space-between", padding: "0 14px" }}>
-        {/* Grunge texture overlay */}
-        {textureUrl && <div style={{ position: "absolute", inset: 0, backgroundImage: `url("${textureUrl}")`, backgroundRepeat: "repeat", backgroundSize: "200% auto", opacity: 0.18, pointerEvents: "none", mixBlendMode: "soft-light" }} />}
-        <svg style={{ position: "absolute", width: 0, height: 0 }}><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="4" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter></svg>
-        <div style={{ position: "absolute", inset: 0, filter: "url(#noise)", opacity: 0.08, pointerEvents: "none", mixBlendMode: "multiply" }} />
-        {/* Location icon - right side (RTL) */}
-        <button onClick={goToGalleries} style={{ background: "none", border: "none", cursor: "pointer", padding: 4, position: "relative", zIndex: 1, display: "flex", alignItems: "center" }}>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="#e8e4df"><path d="m21.41 10.59-7.99-8c-.78-.78-2.05-.78-2.83 0l-8.01 8c-.78.78-.78 2.05 0 2.83l8.01 8c.78.78 2.05.78 2.83 0l7.99-8c.79-.79.79-2.05 0-2.83zM13.5 14.5V12H10v3H8v-4c0-.55.45-1 1-1h4.5V7.5L17 11l-3.5 3.5z"/></svg>
-        </button>
-        {/* Logo - center */}
-        <div onClick={goHome} style={{ position: "absolute", left: "50%", transform: "translateX(-50%)", display: "flex", alignItems: "center", cursor: "pointer", zIndex: 1 }}>
-          <span style={{ direction: "ltr", unicodeBidi: "bidi-override", fontWeight: 700, fontSize: 13, letterSpacing: 2.5, whiteSpace: "nowrap" }}>ZIELINSKI & ROZEN <span style={{ color: "#fff", fontWeight: 800 }}>| ART</span></span>
-        </div>
-        {/* Hamburger - left side (RTL) */}
-        <button onClick={() => setMenuOpen(prev => !prev)} style={{ background: "none", border: "none", cursor: "pointer", padding: 4, position: "relative", zIndex: 1, display: "flex", flexDirection: "column", gap: 4 }}>
-          <span style={{ display: "block", width: 20, height: 1.5, backgroundColor: "#e8e4df", borderRadius: 1, transition: "all 0.3s", transformOrigin: "center", transform: menuOpen ? "translateY(5.5px) rotate(45deg)" : "none" }} />
-          <span style={{ display: "block", width: 20, height: 1.5, backgroundColor: "#e8e4df", borderRadius: 1, transition: "all 0.3s", opacity: menuOpen ? 0 : 1 }} />
-          <span style={{ display: "block", width: 20, height: 1.5, backgroundColor: "#e8e4df", borderRadius: 1, transition: "all 0.3s", transformOrigin: "center", transform: menuOpen ? "translateY(-5.5px) rotate(-45deg)" : "none" }} />
-        </button>
+          {/* Grunge texture overlay */}
+          {textureUrl && <div style={{ position: "absolute", inset: 0, backgroundImage: `url("${textureUrl}")`, backgroundRepeat: "repeat", backgroundSize: "200% auto", opacity: 0.18, pointerEvents: "none", mixBlendMode: "soft-light" }} />}
+          <svg style={{ position: "absolute", width: 0, height: 0 }}><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="4" stitchTiles="stitch" /><feColorMatrix type="saturate" values="0" /></filter></svg>
+          <div style={{ position: "absolute", inset: 0, filter: "url(#noise)", opacity: 0.08, pointerEvents: "none", mixBlendMode: "multiply" }} />
+          {/* Location icon - right side (RTL) */}
+          <button onClick={goToGalleries} style={{ background: "none", border: "none", cursor: "pointer", padding: 4, position: "relative", zIndex: 1, display: "flex", alignItems: "center" }}>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="#e8e4df"><path d="m21.41 10.59-7.99-8c-.78-.78-2.05-.78-2.83 0l-8.01 8c-.78.78-.78 2.05 0 2.83l8.01 8c.78.78 2.05.78 2.83 0l7.99-8c.79-.79.79-2.05 0-2.83zM13.5 14.5V12H10v3H8v-4c0-.55.45-1 1-1h4.5V7.5L17 11l-3.5 3.5z" /></svg>
+          </button>
+          {/* Logo - center */}
+          <div onClick={goHome} style={{ position: "absolute", left: "50%", transform: "translateX(-50%)", display: "flex", alignItems: "center", cursor: "pointer", zIndex: 1 }}>
+            <span style={{ direction: "ltr", unicodeBidi: "bidi-override", fontWeight: 700, fontSize: 13, letterSpacing: 2.5, whiteSpace: "nowrap" }}>ZIELINSKI & ROZEN <span style={{ color: "#fff", fontWeight: 800 }}>| ART</span></span>
+          </div>
+          {/* Hamburger - left side (RTL) */}
+          <button onClick={() => setMenuOpen(prev => !prev)} style={{ background: "none", border: "none", cursor: "pointer", padding: 4, position: "relative", zIndex: 1, display: "flex", flexDirection: "column", gap: 4 }}>
+            <span style={{ display: "block", width: 20, height: 1.5, backgroundColor: "#e8e4df", borderRadius: 1, transition: "all 0.3s", transformOrigin: "center", transform: menuOpen ? "translateY(5.5px) rotate(45deg)" : "none" }} />
+            <span style={{ display: "block", width: 20, height: 1.5, backgroundColor: "#e8e4df", borderRadius: 1, transition: "all 0.3s", opacity: menuOpen ? 0 : 1 }} />
+            <span style={{ display: "block", width: 20, height: 1.5, backgroundColor: "#e8e4df", borderRadius: 1, transition: "all 0.3s", transformOrigin: "center", transform: menuOpen ? "translateY(-5.5px) rotate(-45deg)" : "none" }} />
+          </button>
         </div>
       </div>
 
@@ -1252,7 +1349,7 @@ export default function ArtGalleryApp() {
             onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(232,228,223,0.7)")}
           >
             <span>חזרה לאתר הבית</span>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="7" y1="17" x2="17" y2="7" /><polyline points="7 7 17 7 17 17" /></svg>
           </a>
           {[
             { key: "home", label: "בית", onClick: goHome },
