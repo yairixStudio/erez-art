@@ -417,7 +417,7 @@ const ParsedContent = ({ content, navigate }) => {
 
 // ===== BREADCRUMB =====
 const Breadcrumb = ({ crumbs, title }) => (
-  <div style={{ padding: "14px 20px 8px", position: "sticky", top: 42, backgroundColor: "rgba(250,248,245,0.95)", backdropFilter: "blur(20px)", WebkitBackdropFilter: "blur(20px)", zIndex: 5 }}>
+  <div style={{ padding: "14px 20px 8px", position: "sticky", top: 70, backgroundColor: "rgba(250,248,245,0.95)", backdropFilter: "blur(20px)", WebkitBackdropFilter: "blur(20px)", zIndex: 5 }}>
     <div style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 12, color: "#999", flexWrap: "wrap" }}>
       {crumbs.map((c, i) => (
         <span key={i} style={{ display: "flex", alignItems: "center", gap: 6 }}>
@@ -521,7 +521,7 @@ export default function ArtGalleryApp() {
         <img
           src="https://static.wixstatic.com/media/3e3f5c_8efc9803b8384a6cb0f5bd4b5c6f672e~mv2.jpg"
           alt="Erez Zielinski Rozen"
-          style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 20%", display: "block" }}
+          style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "left 20%", display: "block" }}
         />
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.15) 40%, rgba(0,0,0,0.3) 100%)", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "flex-end", paddingBottom: 48, gap: 6 }}>
           <div style={{ fontSize: 14, fontWeight: 400, color: "rgba(255,255,255,0.85)", letterSpacing: 2, textAlign: "center", marginBottom: 2 }}>ברוכים הבאים</div>
@@ -1074,13 +1074,20 @@ export default function ArtGalleryApp() {
         ::-webkit-scrollbar { display: none; }
       `}</style>
 
+      {/* TOP BAR */}
+      <div style={{ backgroundColor: "#000", padding: "6px 12px", display: "flex", alignItems: "center", justifyContent: "flex-start", position: "sticky", top: 0, zIndex: 11 }}>
+        <a href="https://www.zrp.co.il" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: 4, color: "#999", fontSize: 10, fontWeight: 400, textDecoration: "none", letterSpacing: 0.5 }}>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#999" strokeWidth="2" strokeLinecap="round"><polyline points="9 18 15 12 9 6"/></svg>
+          חזרה לאתר הבית
+        </a>
+      </div>
+
       {/* HEADER */}
-      <div style={{ ...styles.header, padding: "0 12px", justifyContent: "space-between" }}>
+      <div style={{ ...styles.header, justifyContent: "center" }}>
         {/* Grunge texture overlay */}
         {textureUrl && <div style={{ position: "absolute", inset: 0, backgroundImage: `url("${textureUrl}")`, backgroundRepeat: "repeat", backgroundSize: "200% auto", opacity: 0.18, pointerEvents: "none", mixBlendMode: "soft-light" }} />}
         <svg style={{ position: "absolute", width: 0, height: 0 }}><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="4" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter></svg>
         <div style={{ position: "absolute", inset: 0, filter: "url(#noise)", opacity: 0.08, pointerEvents: "none", mixBlendMode: "multiply" }} />
-        <a href="https://www.zrp.co.il" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", justifyContent: "center", padding: "5px 14px", backgroundColor: "rgba(255,255,255,0.15)", borderRadius: 4, color: "#e8e4df", fontSize: 10, fontWeight: 600, textDecoration: "none", letterSpacing: 1, position: "relative", zIndex: 1 }}>חנות</a>
         <div onClick={goHome} style={{ display: "flex", alignItems: "center", cursor: "pointer", position: "relative", zIndex: 1 }}>
           <span style={{ direction: "ltr", unicodeBidi: "bidi-override" }}>ZIELINSKI & ROZEN <span style={{ color: "#fff" }}>| ART</span></span>
         </div>
@@ -1138,7 +1145,7 @@ const styles = {
     cursor: "pointer",
     flexShrink: 0,
     position: "sticky",
-    top: 0,
+    top: 28,
     zIndex: 10,
     overflow: "hidden",
   },
