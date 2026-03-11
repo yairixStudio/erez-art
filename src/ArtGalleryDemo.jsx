@@ -433,6 +433,23 @@ const Breadcrumb = ({ crumbs, title }) => (
   </div>
 );
 
+const PageHero = ({ crumbs, title }) => (
+  <div style={{ height: "30vh", minHeight: 180, backgroundColor: "#111", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 12 }}>
+    <div style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 12, color: "rgba(200,180,140,0.6)" }}>
+      {crumbs.map((c, i) => (
+        <span key={i} style={{ display: "flex", alignItems: "center", gap: 6 }}>
+          {i > 0 && <span style={{ color: "rgba(200,180,140,0.3)" }}>&lsaquo;</span>}
+          <span onClick={c.onClick} style={{ cursor: c.onClick ? "pointer" : "default", color: c.onClick ? "rgba(200,180,140,0.6)" : "#c8b99a", transition: "color 0.2s" }}
+            onMouseEnter={(e) => c.onClick && (e.target.style.color = "#c8b99a")}
+            onMouseLeave={(e) => c.onClick && (e.target.style.color = "rgba(200,180,140,0.6)")}
+          >{c.label}</span>
+        </span>
+      ))}
+    </div>
+    <h1 style={{ fontSize: 32, fontWeight: 700, color: "#ede8e0", margin: 0, letterSpacing: 1, lineHeight: 1.2 }}>{title}</h1>
+  </div>
+);
+
 // ===== FOOTER =====
 const Footer = ({ navigate, goHome }) => {
   const [email, setEmail] = useState("");
@@ -776,8 +793,7 @@ export default function ArtGalleryApp() {
   // ===== EXHIBITIONS LIST =====
   const renderExhibitions = () => (
     <TexturedContainer style={styles.listContainer}>
-      <Breadcrumb crumbs={[{ label: "בית", onClick: goHome }, { label: "תערוכות" }]} title="תערוכות" />
-      <div style={{ fontSize: 15, color: "#999", padding: "0 20px", marginBottom: 20 }}>תערוכות עבר, הווה ועתיד בגלריות זילינסקי רוזן</div>
+      <PageHero crumbs={[{ label: "בית", onClick: goHome }, { label: "תערוכות" }]} title="תערוכות" />
       <div style={{ display: "flex", flexDirection: "column", gap: 32 }}>
         {exhibitions.map((ex) => {
           const coverUrl = getExhibitionCoverUrl(ex);
@@ -816,8 +832,7 @@ export default function ArtGalleryApp() {
 
     return (
       <TexturedContainer style={styles.listContainer}>
-        <Breadcrumb crumbs={[{ label: "בית", onClick: goHome }, { label: "אמנים" }]} title="אמנים" />
-        <div style={{ fontSize: 15, color: "#999", padding: "0 20px", marginBottom: 16 }}>היוצרים שמאחורי העבודות</div>
+        <PageHero crumbs={[{ label: "בית", onClick: goHome }, { label: "אמנים" }]} title="אמנים" />
         <SearchInput value={artistSearch} onChange={setArtistSearch} placeholder="חיפוש אמנים..." />
         <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
           {filtered.length === 0 && (
@@ -853,8 +868,7 @@ export default function ArtGalleryApp() {
 
     return (
       <TexturedContainer style={styles.listContainer}>
-        <Breadcrumb crumbs={[{ label: "בית", onClick: goHome }, { label: "אומנות" }]} title="אומנות" />
-        <div style={{ fontSize: 15, color: "#999", padding: "0 20px", marginBottom: 16 }}>יצירות מקוריות מהתערוכות שלנו</div>
+        <PageHero crumbs={[{ label: "בית", onClick: goHome }, { label: "אומנות" }]} title="אומנות" />
         <SearchInput value={artSearch} onChange={setArtSearch} placeholder="חיפוש יצירות, אמנים..." />
         {filtered.length === 0 && (
           <div style={{ textAlign: "center", padding: "40px 0", color: "#999", fontSize: 14 }}>לא נמצאו תוצאות</div>
@@ -882,8 +896,7 @@ export default function ArtGalleryApp() {
   // ===== BLOG LIST =====
   const renderBlog = () => (
     <TexturedContainer style={styles.listContainer}>
-      <Breadcrumb crumbs={[{ label: "בית", onClick: goHome }, { label: "בלוג" }]} title="בלוג" />
-      <div style={{ fontSize: 15, color: "#999", padding: "0 20px", marginBottom: 20 }}>כתבות, ראיונות והצצה מאחורי הקלעים</div>
+      <PageHero crumbs={[{ label: "בית", onClick: goHome }, { label: "בלוג" }]} title="בלוג" />
       <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
         {blogPosts.map((p) => (
           <div key={p.id} onClick={() => navigate("post", p.id)} style={{ cursor: "pointer" }}>
