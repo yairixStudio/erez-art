@@ -658,7 +658,7 @@ export default function ArtGalleryApp() {
   const renderHome = () => (
     <div style={{ backgroundColor: "#0a0a0a" }}>
       {/* Hero */}
-      <div className="home-section" style={{ height: "calc(100vh - 42px)", minHeight: "calc(100vh - 42px)", padding: 0, position: "relative", overflow: "hidden" }}>
+      <div className="home-section" style={{ height: "calc(100vh - 42px)", minHeight: "calc(100vh - 42px)", padding: 0, position: "relative", overflow: "hidden", scrollSnapAlign: "start" }}>
         <img
           src="https://static.wixstatic.com/media/3e3f5c_8efc9803b8384a6cb0f5bd4b5c6f672e~mv2.jpg"
           alt="Erez Zielinski Rozen"
@@ -676,7 +676,7 @@ export default function ArtGalleryApp() {
       </div>
 
       {/* About + Nav + Exhibitions + Artists */}
-      <div className="home-section" style={{ padding: "0", justifyContent: "flex-start", backgroundColor: "#0e0e0e" }}>
+      <div className="home-section" style={{ padding: "0", justifyContent: "flex-start", backgroundColor: "#0e0e0e", scrollSnapAlign: "start" }}>
         <div style={{ padding: "40px 20px 36px", borderBottom: "1px solid rgba(200,180,140,0.1)" }}>
           <div style={{ display: "flex", gap: 18, alignItems: "flex-start" }}>
             <div style={{ flexShrink: 0, width: 100, height: 130, borderRadius: 4, overflow: "hidden", border: "1px solid rgba(200,180,140,0.15)" }}>
@@ -764,7 +764,7 @@ export default function ArtGalleryApp() {
       </div>
 
       {/* Galleries + Blog */}
-      <div className="home-section" style={{ padding: "0", justifyContent: "flex-start", backgroundColor: "#0e0e0e" }}>
+      <div className="home-section" style={{ padding: "0", justifyContent: "flex-start", backgroundColor: "#0e0e0e", scrollSnapAlign: "start" }}>
       <div id="galleries-section" style={{ padding: "28px 24px 16px" }}>
         <div style={{ display: "flex", alignItems: "center", padding: "0", marginBottom: 20 }}>
           <div style={{ fontSize: 15, fontWeight: 600, color: "#c8b99a", letterSpacing: 4, textTransform: "uppercase" }}>הגלריות</div>
@@ -1194,6 +1194,7 @@ export default function ArtGalleryApp() {
     <div ref={(el) => { deviceRef.current = el; }} style={styles.device}>
       <style>{`
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Ezmel', 'DIN Next', sans-serif; -webkit-tap-highlight-color: transparent; }
+        ${nav.page === "home" ? "html { scroll-snap-type: y proximity; scroll-padding-top: 42px; }" : ""}
         @keyframes slideIn { from { opacity: 0; transform: translateX(-12px); } to { opacity: 1; transform: translateX(0); } }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
         @keyframes scrollHint { 0%, 100% { transform: translateY(0); opacity: 0.4; } 50% { transform: translateY(8px); opacity: 1; } }
