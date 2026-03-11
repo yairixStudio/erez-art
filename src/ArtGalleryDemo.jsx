@@ -1076,8 +1076,12 @@ export default function ArtGalleryApp() {
 
       {/* HEADER */}
       <div style={{ ...styles.header, padding: "0 12px", justifyContent: "space-between" }}>
-        <a href="https://www.zrp.co.il" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", justifyContent: "center", padding: "5px 14px", backgroundColor: "rgba(255,255,255,0.15)", borderRadius: 4, color: "#e8e4df", fontSize: 10, fontWeight: 600, textDecoration: "none", letterSpacing: 1 }}>חנות</a>
-        <div onClick={goHome} style={{ display: "flex", alignItems: "center", cursor: "pointer" }}>
+        {/* Grunge texture overlay */}
+        {textureUrl && <div style={{ position: "absolute", inset: 0, backgroundImage: `url("${textureUrl}")`, backgroundRepeat: "repeat", backgroundSize: "200% auto", opacity: 0.18, pointerEvents: "none", mixBlendMode: "soft-light" }} />}
+        <svg style={{ position: "absolute", width: 0, height: 0 }}><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="4" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter></svg>
+        <div style={{ position: "absolute", inset: 0, filter: "url(#noise)", opacity: 0.08, pointerEvents: "none", mixBlendMode: "multiply" }} />
+        <a href="https://www.zrp.co.il" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", justifyContent: "center", padding: "5px 14px", backgroundColor: "rgba(255,255,255,0.15)", borderRadius: 4, color: "#e8e4df", fontSize: 10, fontWeight: 600, textDecoration: "none", letterSpacing: 1, position: "relative", zIndex: 1 }}>חנות</a>
+        <div onClick={goHome} style={{ display: "flex", alignItems: "center", cursor: "pointer", position: "relative", zIndex: 1 }}>
           <span style={{ direction: "ltr", unicodeBidi: "bidi-override" }}>ZIELINSKI & ROZEN <span style={{ color: "#fff" }}>| ART</span></span>
         </div>
       </div>
@@ -1136,7 +1140,7 @@ const styles = {
     position: "sticky",
     top: 0,
     zIndex: 10,
-    zIndex: 10,
+    overflow: "hidden",
   },
   content: {
     position: "relative",
