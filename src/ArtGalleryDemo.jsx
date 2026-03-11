@@ -499,23 +499,23 @@ export default function ArtGalleryApp() {
   const renderHome = () => (
     <div style={{ animation: "fadeIn 0.2s ease", backgroundColor: "#0a0a0a" }}>
       {/* Hero */}
-      <div style={{ position: "relative", width: "100%", overflow: "hidden" }}>
+      <div style={{ position: "relative", width: "100%", height: "75vh", maxHeight: 600, overflow: "hidden" }}>
         <img
           src="https://static.wixstatic.com/media/3e3f5c_8efc9803b8384a6cb0f5bd4b5c6f672e~mv2.jpg"
           alt="Erez Zielinski Rozen"
-          style={{ width: "100%", height: "auto", display: "block" }}
+          style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 20%", display: "block" }}
         />
-        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.35) 100%)", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 6 }}>
-          <div style={{ fontSize: 13, fontWeight: 400, color: "rgba(255,255,255,0.85)", letterSpacing: 2, textAlign: "center", marginBottom: 2 }}>ברוכים הבאים</div>
-          <div style={{ fontSize: 28, fontWeight: 700, color: "#fff", letterSpacing: 3, textAlign: "center", textShadow: "0 2px 12px rgba(0,0,0,0.3)" }}>ZIELINSKI & ROZEN</div>
-          <div style={{ fontSize: 15, fontWeight: 500, color: "rgba(255,255,255,0.9)", letterSpacing: 5, textAlign: "center" }}>THE ART GALLERY</div>
+        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.15) 40%, rgba(0,0,0,0.3) 100%)", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "flex-end", paddingBottom: 48, gap: 6 }}>
+          <div style={{ fontSize: 14, fontWeight: 400, color: "rgba(255,255,255,0.85)", letterSpacing: 2, textAlign: "center", marginBottom: 2 }}>ברוכים הבאים</div>
+          <div style={{ fontSize: 32, fontWeight: 700, color: "#fff", letterSpacing: 3, textAlign: "center", textShadow: "0 2px 12px rgba(0,0,0,0.3)" }}>ZIELINSKI & ROZEN</div>
+          <div style={{ fontSize: 16, fontWeight: 500, color: "rgba(255,255,255,0.9)", letterSpacing: 5, textAlign: "center" }}>THE ART GALLERY</div>
         </div>
       </div>
 
       {/* Nav bar */}
       {/* About */}
       <div style={{ padding: "32px 24px", borderBottom: "1px solid rgba(200,180,140,0.1)" }}>
-        <p style={{ fontSize: 14, lineHeight: 1.9, color: "#bfb5a3", margin: 0, textAlign: "center" }}>
+        <p style={{ fontSize: 16, lineHeight: 1.9, color: "#bfb5a3", margin: 0, textAlign: "center" }}>
           ארז זילינסקי־רוזן הוא קודם כול אמן. עולם הבישום עבורו הוא קנבס בלתי נראה שנבנה משכבות של רגש וזיכרון. הגלריות הן מקום שבו האמנות מתרחשת — ופועלות ללא מטרות רווח. כל ההכנסות חוזרות לאמנים.
         </p>
         <div style={{ textAlign: "center", marginTop: 16 }}>
@@ -542,7 +542,7 @@ export default function ArtGalleryApp() {
       {/* Exhibitions scroll */}
       <div style={{ padding: "28px 0 16px" }}>
         <div onClick={() => navigate("exhibitions")} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 20px", marginBottom: 18, cursor: "pointer" }}>
-          <div style={{ fontSize: 10, fontWeight: 400, color: "#9a8e7a", letterSpacing: 4, textTransform: "uppercase" }}>תערוכות</div>
+          <div style={{ fontSize: 12, fontWeight: 400, color: "#9a8e7a", letterSpacing: 4, textTransform: "uppercase" }}>תערוכות</div>
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9a8e7a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
         </div>
         <div style={{ display: "flex", gap: 12, overflowX: "auto", paddingLeft: 20, paddingRight: 20, scrollbarWidth: "none", scrollSnapType: "x mandatory", WebkitOverflowScrolling: "touch" }}>
@@ -570,7 +570,7 @@ export default function ArtGalleryApp() {
       {/* Artists scroll */}
       <div style={{ padding: "28px 0 16px" }}>
         <div onClick={() => navigate("artists")} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 20px", marginBottom: 18, cursor: "pointer" }}>
-          <div style={{ fontSize: 10, fontWeight: 400, color: "#9a8e7a", letterSpacing: 4, textTransform: "uppercase" }}>אמנים</div>
+          <div style={{ fontSize: 12, fontWeight: 400, color: "#9a8e7a", letterSpacing: 4, textTransform: "uppercase" }}>אמנים</div>
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9a8e7a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
         </div>
         <div style={{ display: "flex", gap: 16, overflowX: "auto", paddingLeft: 20, paddingRight: 20, scrollbarWidth: "none", scrollSnapType: "x mandatory", WebkitOverflowScrolling: "touch" }}>
@@ -595,7 +595,7 @@ export default function ArtGalleryApp() {
       {/* Artworks grid */}
       <div style={{ padding: "28px 20px 16px" }}>
         <div onClick={() => navigate("art")} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 18, cursor: "pointer" }}>
-          <div style={{ fontSize: 10, fontWeight: 400, color: "#9a8e7a", letterSpacing: 4, textTransform: "uppercase" }}>אמנות</div>
+          <div style={{ fontSize: 12, fontWeight: 400, color: "#9a8e7a", letterSpacing: 4, textTransform: "uppercase" }}>אמנות</div>
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9a8e7a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
         </div>
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
@@ -614,7 +614,7 @@ export default function ArtGalleryApp() {
       {/* Galleries */}
       <div style={{ padding: "28px 24px 16px" }}>
         <div style={{ display: "flex", alignItems: "center", padding: "0", marginBottom: 20 }}>
-          <div style={{ fontSize: 10, fontWeight: 400, color: "#9a8e7a", letterSpacing: 4, textTransform: "uppercase" }}>הגלריות</div>
+          <div style={{ fontSize: 12, fontWeight: 400, color: "#9a8e7a", letterSpacing: 4, textTransform: "uppercase" }}>הגלריות</div>
         </div>
         {galleries.map((g, i) => (
           <div key={i} style={{ display: "flex", alignItems: "center", gap: 14, padding: "16px 0", borderBottom: i < galleries.length - 1 ? "1px solid rgba(200,180,140,0.08)" : "none" }}>
@@ -637,7 +637,7 @@ export default function ArtGalleryApp() {
       {/* Blog scroll */}
       <div style={{ padding: "28px 0 16px" }}>
         <div onClick={() => navigate("blog")} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 20px", marginBottom: 18, cursor: "pointer" }}>
-          <div style={{ fontSize: 10, fontWeight: 400, color: "#9a8e7a", letterSpacing: 4, textTransform: "uppercase" }}>בלוג</div>
+          <div style={{ fontSize: 12, fontWeight: 400, color: "#9a8e7a", letterSpacing: 4, textTransform: "uppercase" }}>בלוג</div>
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9a8e7a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
         </div>
         <div style={{ display: "flex", gap: 12, overflowX: "auto", paddingLeft: 20, paddingRight: 20, scrollbarWidth: "none", scrollSnapType: "x mandatory", WebkitOverflowScrolling: "touch" }}>
@@ -669,7 +669,7 @@ export default function ArtGalleryApp() {
         <button onClick={goHome} style={styles.backBtn}>{Icons.back()}</button>
         <h1 style={styles.pageTitle}>תערוכות</h1>
       </div>
-      <div style={{ fontSize: 13, color: "#999", marginBottom: 20, marginTop: -12 }}>תערוכות עבר, הווה ועתיד בגלריות זילינסקי רוזן</div>
+      <div style={{ fontSize: 15, color: "#999", marginBottom: 20, marginTop: -12 }}>תערוכות עבר, הווה ועתיד בגלריות זילינסקי רוזן</div>
       <div style={{ display: "flex", flexDirection: "column", gap: 32 }}>
         {exhibitions.map((ex) => {
           const coverUrl = getExhibitionCoverUrl(ex);
@@ -680,15 +680,15 @@ export default function ArtGalleryApp() {
                 <div style={{ textAlign: "center", marginBottom: 8 }}>
                   <StatusBadge status={ex.status} />
                 </div>
-                <h2 style={{ fontSize: 20, fontWeight: 700, margin: "0 0 6px", color: "#1a1a1a", textAlign: "center", direction: "ltr" }}>{ex.title}</h2>
-                <div style={{ display: "flex", gap: 14, alignItems: "center", color: "#888", fontSize: 12, margin: "8px 0 4px", flexWrap: "wrap" }}>
+                <h2 style={{ fontSize: 22, fontWeight: 700, margin: "0 0 6px", color: "#1a1a1a", textAlign: "center", direction: "ltr" }}>{ex.title}</h2>
+                <div style={{ display: "flex", gap: 14, alignItems: "center", color: "#888", fontSize: 14, margin: "8px 0 4px", flexWrap: "wrap" }}>
                   <span style={{ display: "flex", alignItems: "center", gap: 4 }}>{Icons.calendar()} {ex.startDate} — {ex.endDate}</span>
                   <span style={{ display: "flex", alignItems: "center", gap: 4 }}>{Icons.location()} {ex.location}</span>
                 </div>
-                <div style={{ fontSize: 12, color: "#aaa", marginBottom: 8 }}>
+                <div style={{ fontSize: 14, color: "#aaa", marginBottom: 8 }}>
                   <span style={{ display: "flex", alignItems: "center", gap: 4 }}>{Icons.curator()} אוצרת: {ex.curator}</span>
                 </div>
-                <p style={{ fontSize: 13, lineHeight: 1.6, color: "#7a756e", margin: 0 }}>
+                <p style={{ fontSize: 15, lineHeight: 1.6, color: "#7a756e", margin: 0 }}>
                   {ex.description.length > 100 ? ex.description.substring(0, 100) + "..." : ex.description}
                 </p>
               </div>
@@ -712,7 +712,7 @@ export default function ArtGalleryApp() {
           <button onClick={goHome} style={styles.backBtn}>{Icons.back()}</button>
           <h1 style={styles.pageTitle}>אמנים</h1>
         </div>
-        <div style={{ fontSize: 13, color: "#999", marginBottom: 16, marginTop: -12 }}>היוצרים שמאחורי העבודות</div>
+        <div style={{ fontSize: 15, color: "#999", marginBottom: 16, marginTop: -12 }}>היוצרים שמאחורי העבודות</div>
         <SearchInput value={artistSearch} onChange={setArtistSearch} placeholder="חיפוש אמנים..." />
         <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
           {filtered.length === 0 && (
@@ -724,8 +724,8 @@ export default function ArtGalleryApp() {
               <div key={ar.id} onClick={() => navigate("artist", ar.id)} style={styles.artistRow}>
                 <AvatarPlaceholder size={52} src={ar.img} />
                 <div style={{ flex: 1 }}>
-                  <div style={{ fontSize: 16, fontWeight: 600, color: "#1a1a1a" }}>{ar.name}</div>
-                  <div style={{ fontSize: 12, color: "#999", marginTop: 3 }}>{ar.nameEn} &middot; {workCount} יצירות</div>
+                  <div style={{ fontSize: 18, fontWeight: 600, color: "#1a1a1a" }}>{ar.name}</div>
+                  <div style={{ fontSize: 14, color: "#999", marginTop: 3 }}>{ar.nameEn} &middot; {workCount} יצירות</div>
                 </div>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ccc" strokeWidth="2" strokeLinecap="round"><polyline points="15 18 9 12 15 6" /></svg>
               </div>
@@ -752,7 +752,7 @@ export default function ArtGalleryApp() {
           <button onClick={goHome} style={styles.backBtn}>{Icons.back()}</button>
           <h1 style={styles.pageTitle}>אומנות</h1>
         </div>
-        <div style={{ fontSize: 13, color: "#999", marginBottom: 16, marginTop: -12 }}>יצירות מקוריות מהתערוכות שלנו</div>
+        <div style={{ fontSize: 15, color: "#999", marginBottom: 16, marginTop: -12 }}>יצירות מקוריות מהתערוכות שלנו</div>
         <SearchInput value={artSearch} onChange={setArtSearch} placeholder="חיפוש יצירות, אמנים..." />
         {filtered.length === 0 && (
           <div style={{ textAlign: "center", padding: "40px 0", color: "#999", fontSize: 14 }}>לא נמצאו תוצאות</div>
@@ -765,9 +765,9 @@ export default function ArtGalleryApp() {
               <div key={w.id} onClick={() => navigate("artwork", w.id)} style={{ cursor: "pointer", breakInside: "avoid", marginBottom: 16 }}>
                 <Placeholder height={140} rounded={10} src={thumbUrl} />
                 <div style={{ padding: "8px 2px 0" }}>
-                  <div style={{ fontSize: 14, fontWeight: 600, color: "#1a1a1a", lineHeight: 1.3 }}>{w.title}</div>
-                  <div style={{ fontSize: 11, color: "#999", marginTop: 3 }}>{ar?.name}</div>
-                  <div style={{ fontSize: 11, color: "#bbb" }}>{w.medium}</div>
+                  <div style={{ fontSize: 16, fontWeight: 600, color: "#1a1a1a", lineHeight: 1.3 }}>{w.title}</div>
+                  <div style={{ fontSize: 13, color: "#999", marginTop: 3 }}>{ar?.name}</div>
+                  <div style={{ fontSize: 13, color: "#bbb" }}>{w.medium}</div>
                 </div>
               </div>
             );
@@ -784,15 +784,15 @@ export default function ArtGalleryApp() {
         <button onClick={goHome} style={styles.backBtn}>{Icons.back()}</button>
         <h1 style={styles.pageTitle}>בלוג</h1>
       </div>
-      <div style={{ fontSize: 13, color: "#999", marginBottom: 20, marginTop: -12 }}>כתבות, ראיונות והצצה מאחורי הקלעים</div>
+      <div style={{ fontSize: 15, color: "#999", marginBottom: 20, marginTop: -12 }}>כתבות, ראיונות והצצה מאחורי הקלעים</div>
       <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
         {blogPosts.map((p) => (
           <div key={p.id} onClick={() => navigate("post", p.id)} style={{ cursor: "pointer" }}>
             <Placeholder height={170} rounded={12} />
             <div style={{ padding: "14px 4px 4px" }}>
-              <div style={{ fontSize: 11, color: "#999", marginBottom: 4 }}>{p.date} &middot; {p.author}</div>
-              <h2 style={{ fontSize: 18, fontWeight: 700, margin: "0 0 8px", color: "#1a1a1a", lineHeight: 1.4 }}>{p.title}</h2>
-              <p style={{ fontSize: 13, lineHeight: 1.6, color: "#7a756e", margin: 0 }}>{p.excerpt}</p>
+              <div style={{ fontSize: 13, color: "#999", marginBottom: 4 }}>{p.date} &middot; {p.author}</div>
+              <h2 style={{ fontSize: 20, fontWeight: 700, margin: "0 0 8px", color: "#1a1a1a", lineHeight: 1.4 }}>{p.title}</h2>
+              <p style={{ fontSize: 15, lineHeight: 1.6, color: "#7a756e", margin: 0 }}>{p.excerpt}</p>
             </div>
           </div>
         ))}
@@ -816,15 +816,15 @@ export default function ArtGalleryApp() {
           <div style={{ textAlign: "center", margin: "20px 0 8px" }}>
             <StatusBadge status={ex.status} />
           </div>
-          <h1 style={{ fontSize: 26, fontWeight: 700, margin: "0 0 6px", color: "#1a1a1a", lineHeight: 1.3, textAlign: "left", direction: "ltr" }}>{ex.title}</h1>
-          <div style={{ display: "flex", gap: 14, alignItems: "center", color: "#888", fontSize: 13, margin: "0 0 6px", flexWrap: "wrap" }}>
+          <h1 style={{ fontSize: 28, fontWeight: 700, margin: "0 0 6px", color: "#1a1a1a", lineHeight: 1.3, textAlign: "left", direction: "ltr" }}>{ex.title}</h1>
+          <div style={{ display: "flex", gap: 14, alignItems: "center", color: "#888", fontSize: 15, margin: "0 0 6px", flexWrap: "wrap" }}>
             <span style={{ display: "flex", alignItems: "center", gap: 4 }}>{Icons.calendar()} {ex.startDate} — {ex.endDate}</span>
             <span style={{ display: "flex", alignItems: "center", gap: 4 }}>{Icons.location()} {ex.location}</span>
           </div>
-          <div style={{ fontSize: 13, color: "#aaa", marginBottom: 16 }}>
+          <div style={{ fontSize: 15, color: "#aaa", marginBottom: 16 }}>
             <span style={{ display: "flex", alignItems: "center", gap: 4 }}>{Icons.curator()} אוצרת: {ex.curator}</span>
           </div>
-          <p style={{ fontSize: 15, lineHeight: 1.7, color: "#4a4540", margin: "0 0 20px" }}>{ex.description}</p>
+          <p style={{ fontSize: 16, lineHeight: 1.7, color: "#4a4540", margin: "0 0 20px" }}>{ex.description}</p>
 
           {ex.status === 'call' && (
             <button
@@ -925,8 +925,8 @@ export default function ArtGalleryApp() {
         <div style={{ backgroundColor: zoneBg, padding: "0 20px 24px" }}>
           <div style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
             <AvatarPlaceholder size={100} src={ar.img} />
-            <h1 style={{ fontSize: 26, fontWeight: 700, margin: "16px 0 4px", color: "#1a1a1a" }}>{ar.name}</h1>
-            <div style={{ fontSize: 13, color: "#999", marginBottom: 10 }}>{ar.nameEn}</div>
+            <h1 style={{ fontSize: 28, fontWeight: 700, margin: "16px 0 4px", color: "#1a1a1a" }}>{ar.name}</h1>
+            <div style={{ fontSize: 15, color: "#999", marginBottom: 10 }}>{ar.nameEn}</div>
             {socials.length > 0 && (
               <div style={{ display: "flex", gap: 6, marginBottom: 16 }}>
                 {socials.map((s, i) => (
@@ -941,7 +941,7 @@ export default function ArtGalleryApp() {
               </div>
             )}
           </div>
-          <p style={{ fontSize: 14, lineHeight: 1.7, color: "#6a6560", margin: 0, textAlign: "right" }}>{ar.bio}</p>
+          <p style={{ fontSize: 16, lineHeight: 1.7, color: "#6a6560", margin: 0, textAlign: "right" }}>{ar.bio}</p>
         </div>
 
         {/* Zone 2: Artworks — normal bg */}
@@ -954,8 +954,8 @@ export default function ArtGalleryApp() {
                 return (
                   <div key={w.id} onClick={() => navigate("artwork", w.id)} style={{ cursor: "pointer", breakInside: "avoid", marginBottom: 14 }}>
                     <Placeholder height={120} rounded={10} src={thumbUrl} />
-                    <div style={{ fontSize: 13, fontWeight: 600, marginTop: 8, color: "#1a1a1a" }}>{w.title}</div>
-                    <div style={{ fontSize: 11, color: "#999" }}>{w.year}</div>
+                    <div style={{ fontSize: 15, fontWeight: 600, marginTop: 8, color: "#1a1a1a" }}>{w.title}</div>
+                    <div style={{ fontSize: 13, color: "#999" }}>{w.year}</div>
                   </div>
                 );
               })}
@@ -993,13 +993,13 @@ export default function ArtGalleryApp() {
         </div>
         <div style={{ padding: "0 20px 120px" }}>
           <MediaSlideshow media={w.media} />
-          <h1 style={{ fontSize: 26, fontWeight: 700, margin: "20px 0 6px", color: "#1a1a1a", lineHeight: 1.3 }}>{w.title}</h1>
+          <h1 style={{ fontSize: 28, fontWeight: 700, margin: "20px 0 6px", color: "#1a1a1a", lineHeight: 1.3 }}>{w.title}</h1>
           <div style={{ display: "flex", gap: 12, alignItems: "center", marginBottom: 6, flexWrap: "wrap" }}>
             <Tag onClick={() => navigate("artist", w.artistId)}>{ar?.name}</Tag>
-            <span style={{ fontSize: 13, color: "#999" }}>{w.year}</span>
+            <span style={{ fontSize: 15, color: "#999" }}>{w.year}</span>
           </div>
-          <div style={{ fontSize: 13, color: "#aaa", marginBottom: 16 }}>{w.medium}</div>
-          <p style={{ fontSize: 15, lineHeight: 1.7, color: "#4a4540", margin: "0 0 20px" }}>{w.description}</p>
+          <div style={{ fontSize: 15, color: "#aaa", marginBottom: 16 }}>{w.medium}</div>
+          <p style={{ fontSize: 16, lineHeight: 1.7, color: "#4a4540", margin: "0 0 20px" }}>{w.description}</p>
 
           {exs.length > 0 && (
             <>
@@ -1030,14 +1030,14 @@ export default function ArtGalleryApp() {
         </div>
         <div style={{ padding: "0 20px 120px" }}>
           <Placeholder height={200} rounded={12} />
-          <div style={{ fontSize: 12, color: "#999", marginTop: 16 }}>{post.date} &middot; {post.author}</div>
-          <h1 style={{ fontSize: 24, fontWeight: 700, margin: "8px 0 16px", color: "#1a1a1a", lineHeight: 1.4 }}>{post.title}</h1>
+          <div style={{ fontSize: 14, color: "#999", marginTop: 16 }}>{post.date} &middot; {post.author}</div>
+          <h1 style={{ fontSize: 26, fontWeight: 700, margin: "8px 0 16px", color: "#1a1a1a", lineHeight: 1.4 }}>{post.title}</h1>
           {paragraphs.map((para, i) => {
             const showImg = imgIdx < post.imagePlaceholders && i > 0 && i % 2 === 0;
             if (showImg) imgIdx++;
             return (
               <div key={i}>
-                <p style={{ fontSize: 15, lineHeight: 1.8, color: "#4a4540", margin: "0 0 14px" }}>
+                <p style={{ fontSize: 16, lineHeight: 1.8, color: "#4a4540", margin: "0 0 14px" }}>
                   <ParsedContent content={para} navigate={navigate} />
                 </p>
                 {showImg && (
@@ -1163,8 +1163,8 @@ const styles = {
     display: "flex",
     alignItems: "center",
     justifyContent: "space-around",
-    backgroundColor: "#f5f0e4",
-    borderTop: "1px solid #e8e0d0",
+    backgroundColor: "#f0ece2",
+    borderTop: "1px solid #ddd5c5",
     zIndex: 100,
     paddingBottom: 2,
   },
