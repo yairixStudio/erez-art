@@ -634,7 +634,7 @@ export default function ArtGalleryApp() {
 
       {/* About + Nav + Exhibitions + Artists */}
       <div className="snap-section" style={{ padding: "0", justifyContent: "flex-start" }}>
-        <div style={{ padding: "32px 20px 28px", borderBottom: "1px solid rgba(200,180,140,0.1)" }}>
+        <div style={{ padding: "40px 20px 36px", borderBottom: "1px solid rgba(200,180,140,0.1)" }}>
           <div style={{ display: "flex", gap: 18, alignItems: "flex-start" }}>
             <div style={{ flexShrink: 0, width: 100, height: 130, borderRadius: 4, overflow: "hidden", border: "1px solid rgba(200,180,140,0.15)" }}>
               <img src="https://images.squarespace-cdn.com/content/v1/5b6a0c9c7106997328d0b426/1683114779329-4A26HC728NYDAIUHYI4D/Erez%2BRozenR1-02879-007A.jpg" alt="ארז זילינסקי־רוזן" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
@@ -715,7 +715,7 @@ export default function ArtGalleryApp() {
           </div>
           {/* Fade overlay on bottom row + CTA */}
           <div onClick={() => navigate("art")} style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "55%", background: "linear-gradient(to top, rgba(10,10,10,1) 0%, rgba(10,10,10,0.95) 30%, rgba(10,10,10,0) 100%)", display: "flex", alignItems: "flex-end", justifyContent: "center", paddingBottom: 24, cursor: "pointer" }}>
-            <span style={{ fontSize: 13, color: "#c8b99a", letterSpacing: 3, borderBottom: "1px solid rgba(200,180,140,0.3)", paddingBottom: 4 }}>צפייה בכל העבודות</span>
+            <span style={{ fontSize: 13, color: "#0a0a0a", letterSpacing: 2, backgroundColor: "#c8b99a", padding: "10px 28px", fontWeight: 600 }}>צפייה בכל העבודות</span>
           </div>
         </div>
       </div>
@@ -767,11 +767,7 @@ export default function ArtGalleryApp() {
           </div>
         </div>
       </div>
-      </div>
-
-      {/* Footer */}
-      <div className="snap-section" style={{ padding: 0, justifyContent: "flex-end" }}>
-        <Footer navigate={navigate} goHome={goHome} />
+      <Footer navigate={navigate} goHome={goHome} />
       </div>
     </div>
   );
