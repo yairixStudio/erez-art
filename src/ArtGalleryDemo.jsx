@@ -122,23 +122,23 @@ const getExhibitionCoverUrl = (ex) => {
 // ===== ICONS =====
 const Icons = {
   exhibitions: (active) => (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={active ? "#e8e4df" : "#7a756e"} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-      <rect x="3" y="3" width="7" height="7" rx="1" /><rect x="14" y="3" width="7" height="7" rx="1" /><rect x="3" y="14" width="7" height="7" rx="1" /><rect x="14" y="14" width="7" height="7" rx="1" />
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={active ? "#1a1a1a" : "#999"} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="2" y="7" width="20" height="14" rx="1" /><path d="M12 3v4M6 7V5M18 7V5" />
     </svg>
   ),
   artists: (active) => (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={active ? "#e8e4df" : "#7a756e"} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-      <circle cx="12" cy="8" r="4" /><path d="M4 21v-1a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v1" />
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={active ? "#1a1a1a" : "#999"} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="12" cy="8" r="3.5" /><path d="M5.5 21v-.5a6.5 6.5 0 0113 0v.5" />
     </svg>
   ),
   art: (active) => (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={active ? "#e8e4df" : "#7a756e"} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7S2 12 2 12z" /><circle cx="12" cy="12" r="3" />
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={active ? "#1a1a1a" : "#999"} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="3" y="3" width="18" height="18" rx="2" /><circle cx="8.5" cy="8.5" r="1.5" /><path d="M21 15l-5-5L5 21" />
     </svg>
   ),
   blog: (active) => (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={active ? "#e8e4df" : "#7a756e"} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M4 4h16v16H4z" /><path d="M8 8h8M8 12h8M8 16h4" />
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={active ? "#1a1a1a" : "#999"} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" /><path d="M8 9h8M8 13h5" />
     </svg>
   ),
   back: () => (
@@ -156,7 +156,7 @@ const Icons = {
     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#888" strokeWidth="2" strokeLinecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a6 6 0 016-6h4a6 6 0 016 6v1"/></svg>
   ),
   home: (active) => (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={active ? "#e8e4df" : "#7a756e"} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={active ? "#1a1a1a" : "#999"} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
       <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /><polyline points="9 22 9 12 15 12 15 22" />
     </svg>
   ),
@@ -1086,11 +1086,11 @@ export default function ArtGalleryApp() {
       `}</style>
 
       {/* HEADER */}
-      <div style={{ ...styles.header, padding: 0 }}>
-        <div onClick={goHome} style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", height: "100%", cursor: "pointer" }}>
-          <span style={{ direction: "ltr", unicodeBidi: "bidi-override" }}>ZIELINSKI AND ROZEN <span style={{ color: "#fff" }}>| ART</span></span>
+      <div style={{ ...styles.header, padding: "0 12px", justifyContent: "space-between" }}>
+        <a href="https://www.zrp.co.il" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", justifyContent: "center", padding: "5px 14px", backgroundColor: "rgba(255,255,255,0.15)", borderRadius: 4, color: "#e8e4df", fontSize: 10, fontWeight: 600, textDecoration: "none", letterSpacing: 1 }}>חנות</a>
+        <div onClick={goHome} style={{ display: "flex", alignItems: "center", cursor: "pointer" }}>
+          <span style={{ direction: "ltr", unicodeBidi: "bidi-override" }}>ZIELINSKI & ROZEN <span style={{ color: "#fff" }}>| ART</span></span>
         </div>
-        <a href="https://www.zrp.co.il" target="_blank" rel="noopener noreferrer" style={{ position: "absolute", left: 0, top: 0, height: "100%", display: "flex", alignItems: "center", justifyContent: "center", padding: "0 10px", backgroundColor: "rgba(0,0,0,0.25)", color: "#e8e4df", fontSize: 10, fontWeight: 600, textDecoration: "none", letterSpacing: 1 }}>לחנות</a>
       </div>
 
       {/* CONTENT */}
@@ -1106,7 +1106,7 @@ export default function ArtGalleryApp() {
             <button
               key={t.key}
               onClick={() => navigate(t.key)}
-              style={{ ...styles.tabBtn, color: active ? "#e8e4df" : "#7a756e" }}
+              style={{ ...styles.tabBtn, color: active ? "#1a1a1a" : "#999" }}
             >
               {t.icon(active)}
               <span style={{ fontSize: 10, fontWeight: active ? 700 : 500, marginTop: 3, transition: "all 0.2s" }}>{t.label}</span>
@@ -1163,8 +1163,8 @@ const styles = {
     display: "flex",
     alignItems: "center",
     justifyContent: "space-around",
-    backgroundColor: "#000",
-    borderTop: "none",
+    backgroundColor: "#f5f0e4",
+    borderTop: "1px solid #e8e0d0",
     zIndex: 100,
     paddingBottom: 2,
   },
@@ -1185,7 +1185,7 @@ const styles = {
     width: 20,
     height: 3,
     borderRadius: 2,
-    backgroundColor: "#e8e4df",
+    backgroundColor: "#1a1a1a",
   },
   listContainer: {
     padding: "8px 20px 120px",
