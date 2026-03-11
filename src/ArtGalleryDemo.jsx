@@ -1241,6 +1241,18 @@ export default function ArtGalleryApp() {
         {textureUrl && <div style={{ position: "absolute", inset: 0, backgroundImage: `url("${textureUrl}")`, backgroundRepeat: "repeat", backgroundSize: "200% auto", opacity: 0.18, pointerEvents: "none", mixBlendMode: "soft-light", zIndex: 0 }} />}
         <div style={{ position: "absolute", inset: 0, filter: "url(#noise)", opacity: 0.08, pointerEvents: "none", mixBlendMode: "multiply", zIndex: 0 }} />
         <div style={{ padding: "8px 0", position: "relative", zIndex: 1 }}>
+          <a href="https://www.zrp.co.il" target="_blank" rel="noopener noreferrer" style={{
+            display: "flex", alignItems: "center", justifyContent: "space-between", width: "100%", padding: "14px 24px",
+            background: "none", cursor: "pointer", textDecoration: "none",
+            color: "rgba(232,228,223,0.7)", fontSize: 16, fontWeight: 400,
+            borderBottom: "1px solid rgba(255,255,255,0.06)", transition: "color 0.2s",
+          }}
+            onMouseEnter={(e) => (e.currentTarget.style.color = "#fff")}
+            onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(232,228,223,0.7)")}
+          >
+            <span>חזרה לאתר הבית</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+          </a>
           {[
             { key: "home", label: "בית", onClick: goHome },
             { key: "exhibitions", label: "תערוכות", onClick: () => navigate("exhibitions") },
@@ -1260,14 +1272,6 @@ export default function ArtGalleryApp() {
               onMouseLeave={(e) => (e.target.style.color = nav.page === item.key ? "#fff" : "rgba(232,228,223,0.7)")}
             >{item.label}</button>
           ))}
-          <a href="https://www.zrp.co.il" target="_blank" rel="noopener noreferrer" style={{
-            display: "flex", alignItems: "center", gap: 6, padding: "14px 24px",
-            color: "rgba(200,180,140,0.6)", fontSize: 13, textDecoration: "none",
-            borderTop: "1px solid rgba(255,255,255,0.06)", marginTop: 4,
-          }}>
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="rgba(200,180,140,0.6)" strokeWidth="2" strokeLinecap="round"><polyline points="9 18 15 12 9 6"/></svg>
-            חזרה לאתר הבית
-          </a>
         </div>
       </div>
 
