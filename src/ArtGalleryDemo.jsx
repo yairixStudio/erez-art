@@ -615,7 +615,7 @@ export default function ArtGalleryApp() {
   const renderHome = () => (
     <div style={{ backgroundColor: "#0a0a0a" }}>
       {/* Hero */}
-      <div className="snap-section" style={{ minHeight: "calc(100vh - 68px)", padding: 0, position: "relative", overflow: "hidden" }}>
+      <div className="snap-section" style={{ height: "calc(100vh - 68px)", minHeight: "calc(100vh - 68px)", padding: 0, position: "relative", overflow: "hidden" }}>
         <img
           src="https://static.wixstatic.com/media/3e3f5c_8efc9803b8384a6cb0f5bd4b5c6f672e~mv2.jpg"
           alt="Erez Zielinski Rozen"
@@ -639,20 +639,6 @@ export default function ArtGalleryApp() {
             ארז זילינסקי־רוזן הוא קודם כול אמן. עולם הבישום עבורו הוא קנבס בלתי נראה שנבנה משכבות של רגש וזיכרון. הגלריות הן מקום שבו האמנות מתרחשת — ופועלות ללא מטרות רווח. כל ההכנסות חוזרות לאמנים.
           </p>
         </div>
-        <div style={{ display: "flex", gap: 10, padding: "12px 20px" }}>
-          {[
-            { key: "exhibitions", label: "תערוכות", icon: Icons.exhibitions },
-            { key: "artists", label: "אמנים", icon: Icons.artists },
-            { key: "art", label: "אומנות", icon: Icons.art },
-            { key: "blog", label: "בלוג", icon: Icons.blog },
-          ].map((item) => (
-            <div key={item.key} onClick={() => navigate(item.key)} style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", gap: 4, cursor: "pointer", padding: "10px 0", border: "1px solid rgba(200,180,140,0.15)" }}>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c8b99a" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">{item.icon(false).props.children}</svg>
-              <div style={{ fontSize: 11, fontWeight: 400, color: "#c8b99a", letterSpacing: 1, lineHeight: 1 }}>{item.label}</div>
-            </div>
-          ))}
-        </div>
-
         {/* Exhibitions */}
         <div style={{ padding: "16px 0 8px" }}>
           <div onClick={() => navigate("exhibitions")} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 20px", marginBottom: 12, cursor: "pointer" }}>
@@ -1158,7 +1144,7 @@ export default function ArtGalleryApp() {
   };
 
   return (
-    <div ref={(el) => { deviceRef.current = el; }} style={{ ...styles.device, ...(nav.page === "home" ? { height: "100vh", overflowY: "auto", scrollSnapType: "y mandatory", scrollBehavior: "smooth" } : {}) }}>
+    <div ref={(el) => { deviceRef.current = el; }} style={{ ...styles.device, ...(nav.page === "home" ? { height: "100vh", overflowY: "auto", scrollSnapType: "y mandatory", scrollBehavior: "smooth", scrollPaddingTop: 68 } : {}) }}>
       <style>{`
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Ezmel', 'DIN Next', sans-serif; -webkit-tap-highlight-color: transparent; }
         @keyframes slideIn { from { opacity: 0; transform: translateX(-12px); } to { opacity: 1; transform: translateX(0); } }
