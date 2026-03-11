@@ -417,7 +417,7 @@ const ParsedContent = ({ content, navigate }) => {
 
 // ===== BREADCRUMB =====
 const Breadcrumb = ({ crumbs, title }) => (
-  <div style={{ padding: "14px 20px 8px", position: "sticky", top: 68, backgroundColor: "rgba(250,248,245,0.95)", backdropFilter: "blur(20px)", WebkitBackdropFilter: "blur(20px)", zIndex: 5 }}>
+  <div style={{ padding: "14px 20px 8px", position: "sticky", top: 42, backgroundColor: "rgba(250,248,245,0.95)", backdropFilter: "blur(20px)", WebkitBackdropFilter: "blur(20px)", zIndex: 5 }}>
     <div style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 12, color: "#999", flexWrap: "wrap" }}>
       {crumbs.map((c, i) => (
         <span key={i} style={{ display: "flex", alignItems: "center", gap: 6 }}>
@@ -556,8 +556,7 @@ export default function ArtGalleryApp() {
   }, [nav.page]);
 
   const scrollToTop = () => {
-    if (deviceRef.current) deviceRef.current.scrollTo(0, 0);
-    else window.scrollTo(0, 0);
+    window.scrollTo(0, 0);
   };
 
   const navigate = (type, id = null) => {
@@ -659,7 +658,7 @@ export default function ArtGalleryApp() {
   const renderHome = () => (
     <div style={{ backgroundColor: "#0a0a0a" }}>
       {/* Hero */}
-      <div className="home-section" style={{ height: "calc(100vh - 68px)", minHeight: "calc(100vh - 68px)", padding: 0, position: "relative", overflow: "hidden" }}>
+      <div className="home-section" style={{ height: "calc(100vh - 42px)", minHeight: "calc(100vh - 42px)", padding: 0, position: "relative", overflow: "hidden" }}>
         <img
           src="https://static.wixstatic.com/media/3e3f5c_8efc9803b8384a6cb0f5bd4b5c6f672e~mv2.jpg"
           alt="Erez Zielinski Rozen"
@@ -1192,29 +1191,22 @@ export default function ArtGalleryApp() {
   };
 
   return (
-    <div ref={(el) => { deviceRef.current = el; }} style={{ ...styles.device, ...(nav.page === "home" ? { height: "100vh", overflowY: "auto", WebkitOverflowScrolling: "touch" } : {}) }}>
+    <div ref={(el) => { deviceRef.current = el; }} style={styles.device}>
       <style>{`
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Ezmel', 'DIN Next', sans-serif; -webkit-tap-highlight-color: transparent; }
         @keyframes slideIn { from { opacity: 0; transform: translateX(-12px); } to { opacity: 1; transform: translateX(0); } }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
         @keyframes scrollHint { 0%, 100% { transform: translateY(0); opacity: 0.4; } 50% { transform: translateY(8px); opacity: 1; } }
         @keyframes sectionReveal { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
-        ::-webkit-scrollbar { display: none; }
-        .home-section { min-height: calc(100vh - 68px); display: flex; flex-direction: column; justify-content: center; opacity: 0; }
+        .home-section { min-height: calc(100vh - 42px); display: flex; flex-direction: column; justify-content: center; opacity: 0; }
         .home-section.section-visible > * { animation: sectionReveal 0.7s ease both; }
         .home-section.section-visible { opacity: 1; }
         .home-section:first-child { opacity: 1; }
         .home-section:first-child > * { animation: sectionReveal 0.7s ease both; }
       `}</style>
 
-      {/* TOP BAR + HEADER wrapper for sticky */}
+      {/* HEADER - sticky */}
       <div style={{ position: "sticky", top: 0, zIndex: 10 }}>
-        <div style={{ backgroundColor: "#000", padding: "6px 12px", display: "flex", alignItems: "center", justifyContent: "flex-start" }}>
-          <a href="https://www.zrp.co.il" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: 4, color: "#999", fontSize: 10, fontWeight: 400, textDecoration: "none", letterSpacing: 0.5 }}>
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#999" strokeWidth="2" strokeLinecap="round"><polyline points="9 18 15 12 9 6"/></svg>
-            חזרה לאתר הבית
-          </a>
-        </div>
         <div style={{ ...styles.header, position: "relative", top: 0, justifyContent: "space-between", padding: "0 14px" }}>
         {/* Grunge texture overlay */}
         {textureUrl && <div style={{ position: "absolute", inset: 0, backgroundImage: `url("${textureUrl}")`, backgroundRepeat: "repeat", backgroundSize: "200% auto", opacity: 0.18, pointerEvents: "none", mixBlendMode: "soft-light" }} />}
@@ -1239,7 +1231,7 @@ export default function ArtGalleryApp() {
 
       {/* DROPDOWN MENU */}
       <div style={{
-        position: "sticky", top: 68, zIndex: 9,
+        position: "sticky", top: 42, zIndex: 9,
         maxHeight: menuOpen ? 300 : 0,
         overflow: "hidden",
         transition: "max-height 0.35s ease",
@@ -1268,6 +1260,14 @@ export default function ArtGalleryApp() {
               onMouseLeave={(e) => (e.target.style.color = nav.page === item.key ? "#fff" : "rgba(232,228,223,0.7)")}
             >{item.label}</button>
           ))}
+          <a href="https://www.zrp.co.il" target="_blank" rel="noopener noreferrer" style={{
+            display: "flex", alignItems: "center", gap: 6, padding: "14px 24px",
+            color: "rgba(200,180,140,0.6)", fontSize: 13, textDecoration: "none",
+            borderTop: "1px solid rgba(255,255,255,0.06)", marginTop: 4,
+          }}>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="rgba(200,180,140,0.6)" strokeWidth="2" strokeLinecap="round"><polyline points="9 18 15 12 9 6"/></svg>
+            חזרה לאתר הבית
+          </a>
         </div>
       </div>
 
@@ -1309,7 +1309,7 @@ const styles = {
     cursor: "pointer",
     flexShrink: 0,
     position: "sticky",
-    top: 28,
+    top: 0,
     zIndex: 10,
     overflow: "hidden",
   },
