@@ -665,25 +665,25 @@ export default function ArtGalleryApp() {
           </div>
         </div>
         {/* Exhibitions */}
-        <div style={{ padding: "24px 0 12px" }}>
+        <div style={{ padding: "48px 0 12px" }}>
           <div onClick={() => navigate("exhibitions")} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 20px", marginBottom: 12, cursor: "pointer" }}>
             <div style={{ fontSize: 12, fontWeight: 400, color: "#9a8e7a", letterSpacing: 4, textTransform: "uppercase" }}>תערוכות</div>
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9a8e7a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
           </div>
-          <div style={{ display: "flex", gap: 12, overflowX: "auto", paddingLeft: 20, paddingRight: 20, scrollbarWidth: "none", scrollSnapType: "x mandatory", WebkitOverflowScrolling: "touch" }}>
+          <div className="swipe-hint" style={{ display: "flex", gap: 12, overflowX: "auto", paddingLeft: 20, paddingRight: 20, scrollbarWidth: "none", scrollSnapType: "x mandatory", WebkitOverflowScrolling: "touch" }}>
             {exhibitions.map(ex => {
               const coverUrl = getExhibitionCoverUrl(ex);
               return (
-                <div key={ex.id} onClick={() => navigate("exhibition", ex.id)} style={{ flexShrink: 0, width: 200, cursor: "pointer", scrollSnapAlign: "center" }}>
-                  <div style={{ width: 200, height: 120, overflow: "hidden", border: "1px solid rgba(200,180,140,0.15)" }}>
+                <div key={ex.id} onClick={() => navigate("exhibition", ex.id)} style={{ flexShrink: 0, width: 230, cursor: "pointer", scrollSnapAlign: "center" }}>
+                  <div style={{ width: 230, height: 140, overflow: "hidden", border: "1px solid rgba(200,180,140,0.15)" }}>
                     {coverUrl ? <img src={coverUrl} alt={ex.title} style={{ width: "100%", height: "100%", objectFit: "cover" }} /> : <div style={{ width: "100%", height: "100%", backgroundColor: "rgba(200,180,140,0.08)" }} />}
                   </div>
                   <div style={{ fontSize: 11, color: "#ede8e0", marginTop: 6, lineHeight: 1.3, direction: "ltr" }}>{ex.title.length > 28 ? ex.title.substring(0, 28) + "…" : ex.title}</div>
                 </div>
               );
             })}
-            <div onClick={() => navigate("exhibitions")} style={{ flexShrink: 0, width: 200, cursor: "pointer", scrollSnapAlign: "center" }}>
-              <div style={{ width: 200, height: 120, overflow: "hidden", border: "1px solid rgba(200,180,140,0.15)", display: "flex", alignItems: "center", justifyContent: "center", backgroundColor: "rgba(200,180,140,0.06)" }}>
+            <div onClick={() => navigate("exhibitions")} style={{ flexShrink: 0, width: 230, cursor: "pointer", scrollSnapAlign: "center" }}>
+              <div style={{ width: 230, height: 140, overflow: "hidden", border: "1px solid rgba(200,180,140,0.15)", display: "flex", alignItems: "center", justifyContent: "center", backgroundColor: "rgba(200,180,140,0.06)" }}>
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#a89a82" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="17" y1="17" x2="7" y2="7"/><polyline points="17 7 7 7 7 17"/></svg>
               </div>
               <div style={{ fontSize: 11, color: "#a89a82", marginTop: 6, lineHeight: 1.3, textAlign: "center" }}>עוד</div>
@@ -697,17 +697,17 @@ export default function ArtGalleryApp() {
             <div style={{ fontSize: 12, fontWeight: 400, color: "#9a8e7a", letterSpacing: 4, textTransform: "uppercase" }}>אמנים</div>
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9a8e7a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
           </div>
-        <div style={{ display: "flex", gap: 16, overflowX: "auto", paddingLeft: 20, paddingRight: 20, scrollbarWidth: "none", scrollSnapType: "x mandatory", WebkitOverflowScrolling: "touch" }}>
+        <div className="swipe-hint" style={{ display: "flex", gap: 16, overflowX: "auto", paddingLeft: 20, paddingRight: 20, scrollbarWidth: "none", scrollSnapType: "x mandatory", WebkitOverflowScrolling: "touch" }}>
           {artists.map(ar => (
             <div key={ar.id} onClick={() => navigate("artist", ar.id)} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 6, cursor: "pointer", flexShrink: 0, scrollSnapAlign: "center" }}>
-              <div style={{ width: 72, height: 72, borderRadius: "50%", overflow: "hidden", border: "1.5px solid rgba(200,180,140,0.25)" }}>
+              <div style={{ width: 80, height: 80, borderRadius: "50%", overflow: "hidden", border: "1.5px solid rgba(200,180,140,0.25)" }}>
                 {ar.img ? <img src={ar.img} alt={ar.name} style={{ width: "100%", height: "100%", objectFit: "cover" }} /> : <div style={{ width: "100%", height: "100%", backgroundColor: "rgba(200,180,140,0.1)" }} />}
               </div>
               <div style={{ fontSize: 11, color: "#a89a82", textAlign: "center", maxWidth: 72, lineHeight: 1.2 }}>{ar.name.split(" ")[0]}</div>
             </div>
           ))}
           <div onClick={() => navigate("artists")} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 6, cursor: "pointer", flexShrink: 0, scrollSnapAlign: "center" }}>
-            <div style={{ width: 72, height: 72, borderRadius: "50%", border: "1.5px solid rgba(200,180,140,0.25)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+            <div style={{ width: 80, height: 80, borderRadius: "50%", border: "1.5px solid rgba(200,180,140,0.25)", display: "flex", alignItems: "center", justifyContent: "center" }}>
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#a89a82" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="17" y1="17" x2="7" y2="7"/><polyline points="17 7 7 7 7 17"/></svg>
             </div>
             <div style={{ fontSize: 11, color: "#a89a82", textAlign: "center", maxWidth: 72, lineHeight: 1.2 }}>עוד</div>
@@ -1172,6 +1172,10 @@ export default function ArtGalleryApp() {
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
         @keyframes snapReveal { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes scrollHint { 0%, 100% { transform: translateY(0); opacity: 0.4; } 50% { transform: translateY(8px); opacity: 1; } }
+        @keyframes swipeHint { 0% { transform: translateX(0); } 40% { transform: translateX(-18px); } 70% { transform: translateX(0); } 100% { transform: translateX(0); } }
+        .swipe-hint > *:nth-child(1) { animation: swipeHint 3s ease 1.5s 1 both; }
+        .swipe-hint > *:nth-child(2) { animation: swipeHint 3s ease 1.6s 1 both; }
+        .swipe-hint > *:nth-child(3) { animation: swipeHint 3s ease 1.7s 1 both; }
         ::-webkit-scrollbar { display: none; }
         .snap-section { scroll-snap-align: start; min-height: calc(100vh - 68px); display: flex; flex-direction: column; justify-content: center; }
         .snap-section > * { animation: snapReveal 0.6s ease both; }
