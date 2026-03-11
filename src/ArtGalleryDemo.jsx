@@ -632,64 +632,60 @@ export default function ArtGalleryApp() {
         </div>
       </div>
 
-      {/* About + Nav */}
-      <div className="snap-section" style={{ padding: "0" }}>
-        <div style={{ padding: "32px 24px", borderBottom: "1px solid rgba(200,180,140,0.1)" }}>
+      {/* About + Nav + Exhibitions + Artists */}
+      <div className="snap-section" style={{ padding: "0", justifyContent: "flex-start" }}>
+        <div style={{ padding: "24px 24px 16px", borderBottom: "1px solid rgba(200,180,140,0.1)" }}>
           <p style={{ fontSize: 16, lineHeight: 1.9, color: "#bfb5a3", margin: 0, textAlign: "center" }}>
             ארז זילינסקי־רוזן הוא קודם כול אמן. עולם הבישום עבורו הוא קנבס בלתי נראה שנבנה משכבות של רגש וזיכרון. הגלריות הן מקום שבו האמנות מתרחשת — ופועלות ללא מטרות רווח. כל ההכנסות חוזרות לאמנים.
           </p>
-          <div style={{ textAlign: "center", marginTop: 16 }}>
-            <div style={{ width: 24, height: 1, backgroundColor: "rgba(200,180,140,0.3)", margin: "0 auto" }} />
-          </div>
         </div>
-        <div style={{ display: "flex", gap: 10, padding: "16px 20px" }}>
+        <div style={{ display: "flex", gap: 10, padding: "12px 20px" }}>
           {[
             { key: "exhibitions", label: "תערוכות", icon: Icons.exhibitions },
             { key: "artists", label: "אמנים", icon: Icons.artists },
             { key: "art", label: "אומנות", icon: Icons.art },
             { key: "blog", label: "בלוג", icon: Icons.blog },
           ].map((item) => (
-            <div key={item.key} onClick={() => navigate(item.key)} style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", gap: 4, cursor: "pointer", padding: "12px 0", border: "1px solid rgba(200,180,140,0.15)" }}>
+            <div key={item.key} onClick={() => navigate(item.key)} style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", gap: 4, cursor: "pointer", padding: "10px 0", border: "1px solid rgba(200,180,140,0.15)" }}>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c8b99a" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">{item.icon(false).props.children}</svg>
               <div style={{ fontSize: 11, fontWeight: 400, color: "#c8b99a", letterSpacing: 1, lineHeight: 1 }}>{item.label}</div>
             </div>
           ))}
         </div>
-      </div>
 
-      {/* Exhibitions scroll */}
-      <div className="snap-section" style={{ padding: "28px 0 16px" }}>
-        <div onClick={() => navigate("exhibitions")} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 20px", marginBottom: 18, cursor: "pointer" }}>
-          <div style={{ fontSize: 12, fontWeight: 400, color: "#9a8e7a", letterSpacing: 4, textTransform: "uppercase" }}>תערוכות</div>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9a8e7a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-        </div>
-        <div style={{ display: "flex", gap: 12, overflowX: "auto", paddingLeft: 20, paddingRight: 20, scrollbarWidth: "none", scrollSnapType: "x mandatory", WebkitOverflowScrolling: "touch" }}>
-          {exhibitions.map(ex => {
-            const coverUrl = getExhibitionCoverUrl(ex);
-            return (
-              <div key={ex.id} onClick={() => navigate("exhibition", ex.id)} style={{ flexShrink: 0, width: 200, cursor: "pointer", scrollSnapAlign: "center" }}>
-                <div style={{ width: 200, height: 120, overflow: "hidden", border: "1px solid rgba(200,180,140,0.15)" }}>
-                  {coverUrl ? <img src={coverUrl} alt={ex.title} style={{ width: "100%", height: "100%", objectFit: "cover" }} /> : <div style={{ width: "100%", height: "100%", backgroundColor: "rgba(200,180,140,0.08)" }} />}
+        {/* Exhibitions */}
+        <div style={{ padding: "16px 0 8px" }}>
+          <div onClick={() => navigate("exhibitions")} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 20px", marginBottom: 12, cursor: "pointer" }}>
+            <div style={{ fontSize: 12, fontWeight: 400, color: "#9a8e7a", letterSpacing: 4, textTransform: "uppercase" }}>תערוכות</div>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9a8e7a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+          </div>
+          <div style={{ display: "flex", gap: 12, overflowX: "auto", paddingLeft: 20, paddingRight: 20, scrollbarWidth: "none", scrollSnapType: "x mandatory", WebkitOverflowScrolling: "touch" }}>
+            {exhibitions.map(ex => {
+              const coverUrl = getExhibitionCoverUrl(ex);
+              return (
+                <div key={ex.id} onClick={() => navigate("exhibition", ex.id)} style={{ flexShrink: 0, width: 200, cursor: "pointer", scrollSnapAlign: "center" }}>
+                  <div style={{ width: 200, height: 120, overflow: "hidden", border: "1px solid rgba(200,180,140,0.15)" }}>
+                    {coverUrl ? <img src={coverUrl} alt={ex.title} style={{ width: "100%", height: "100%", objectFit: "cover" }} /> : <div style={{ width: "100%", height: "100%", backgroundColor: "rgba(200,180,140,0.08)" }} />}
+                  </div>
+                  <div style={{ fontSize: 11, color: "#ede8e0", marginTop: 6, lineHeight: 1.3, direction: "ltr" }}>{ex.title.length > 28 ? ex.title.substring(0, 28) + "…" : ex.title}</div>
                 </div>
-                <div style={{ fontSize: 11, color: "#ede8e0", marginTop: 6, lineHeight: 1.3, direction: "ltr" }}>{ex.title.length > 28 ? ex.title.substring(0, 28) + "…" : ex.title}</div>
+              );
+            })}
+            <div onClick={() => navigate("exhibitions")} style={{ flexShrink: 0, width: 200, cursor: "pointer", scrollSnapAlign: "center" }}>
+              <div style={{ width: 200, height: 120, overflow: "hidden", border: "1px solid rgba(200,180,140,0.15)", display: "flex", alignItems: "center", justifyContent: "center", backgroundColor: "rgba(200,180,140,0.06)" }}>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#a89a82" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="17" y1="17" x2="7" y2="7"/><polyline points="17 7 7 7 7 17"/></svg>
               </div>
-            );
-          })}
-          <div onClick={() => navigate("exhibitions")} style={{ flexShrink: 0, width: 200, cursor: "pointer", scrollSnapAlign: "center" }}>
-            <div style={{ width: 200, height: 120, overflow: "hidden", border: "1px solid rgba(200,180,140,0.15)", display: "flex", alignItems: "center", justifyContent: "center", backgroundColor: "rgba(200,180,140,0.06)" }}>
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#a89a82" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="17" y1="17" x2="7" y2="7"/><polyline points="17 7 7 7 7 17"/></svg>
+              <div style={{ fontSize: 11, color: "#a89a82", marginTop: 6, lineHeight: 1.3, textAlign: "center" }}>עוד</div>
             </div>
-            <div style={{ fontSize: 11, color: "#a89a82", marginTop: 6, lineHeight: 1.3, textAlign: "center" }}>עוד</div>
           </div>
         </div>
-      </div>
 
-      {/* Artists scroll */}
-      <div className="snap-section" style={{ padding: "28px 0 16px" }}>
-        <div onClick={() => navigate("artists")} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 20px", marginBottom: 18, cursor: "pointer" }}>
-          <div style={{ fontSize: 12, fontWeight: 400, color: "#9a8e7a", letterSpacing: 4, textTransform: "uppercase" }}>אמנים</div>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9a8e7a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-        </div>
+        {/* Artists */}
+        <div style={{ padding: "16px 0 8px" }}>
+          <div onClick={() => navigate("artists")} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 20px", marginBottom: 12, cursor: "pointer" }}>
+            <div style={{ fontSize: 12, fontWeight: 400, color: "#9a8e7a", letterSpacing: 4, textTransform: "uppercase" }}>אמנים</div>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9a8e7a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+          </div>
         <div style={{ display: "flex", gap: 16, overflowX: "auto", paddingLeft: 20, paddingRight: 20, scrollbarWidth: "none", scrollSnapType: "x mandatory", WebkitOverflowScrolling: "touch" }}>
           {artists.map(ar => (
             <div key={ar.id} onClick={() => navigate("artist", ar.id)} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 6, cursor: "pointer", flexShrink: 0, scrollSnapAlign: "center" }}>
@@ -706,6 +702,7 @@ export default function ArtGalleryApp() {
             <div style={{ fontSize: 10, color: "#a89a82", textAlign: "center", maxWidth: 64, lineHeight: 1.2 }}>עוד</div>
           </div>
         </div>
+      </div>
       </div>
 
       {/* Artworks grid */}
@@ -726,8 +723,9 @@ export default function ArtGalleryApp() {
         </div>
       </div>
 
-      {/* Galleries */}
-      <div id="galleries-section" className="snap-section" style={{ padding: "28px 24px 16px" }}>
+      {/* Galleries + Blog */}
+      <div className="snap-section" style={{ padding: "0", justifyContent: "flex-start" }}>
+      <div id="galleries-section" style={{ padding: "28px 24px 16px" }}>
         <div style={{ display: "flex", alignItems: "center", padding: "0", marginBottom: 20 }}>
           <div style={{ fontSize: 12, fontWeight: 400, color: "#9a8e7a", letterSpacing: 4, textTransform: "uppercase" }}>הגלריות</div>
         </div>
@@ -749,7 +747,7 @@ export default function ArtGalleryApp() {
       </div>
 
       {/* Blog scroll */}
-      <div className="snap-section" style={{ padding: "28px 0 16px", justifyContent: "flex-start" }}>
+      <div style={{ padding: "28px 0 16px" }}>
         <div onClick={() => navigate("blog")} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 20px", marginBottom: 18, cursor: "pointer" }}>
           <div style={{ fontSize: 12, fontWeight: 400, color: "#9a8e7a", letterSpacing: 4, textTransform: "uppercase" }}>בלוג</div>
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9a8e7a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
@@ -771,6 +769,7 @@ export default function ArtGalleryApp() {
             <div style={{ fontSize: 11, color: "#a89a82", marginTop: 6, lineHeight: 1.3, textAlign: "center" }}>עוד</div>
           </div>
         </div>
+      </div>
       </div>
 
       {/* Footer */}
