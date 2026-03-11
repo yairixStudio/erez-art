@@ -676,7 +676,7 @@ export default function ArtGalleryApp() {
       </div>
 
       {/* About + Nav + Exhibitions + Artists */}
-      <div className="home-section" style={{ padding: "0", justifyContent: "flex-start" }}>
+      <div className="home-section" style={{ padding: "0", justifyContent: "flex-start", backgroundColor: "#0e0e0e" }}>
         <div style={{ padding: "40px 20px 36px", borderBottom: "1px solid rgba(200,180,140,0.1)" }}>
           <div style={{ display: "flex", gap: 18, alignItems: "flex-start" }}>
             <div style={{ flexShrink: 0, width: 100, height: 130, borderRadius: 4, overflow: "hidden", border: "1px solid rgba(200,180,140,0.15)" }}>
@@ -693,7 +693,7 @@ export default function ArtGalleryApp() {
         {/* Exhibitions */}
         <div style={{ padding: "48px 0 12px" }}>
           <div onClick={() => navigate("exhibitions")} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 20px", marginBottom: 12, cursor: "pointer" }}>
-            <div style={{ fontSize: 12, fontWeight: 400, color: "#9a8e7a", letterSpacing: 4, textTransform: "uppercase" }}>תערוכות</div>
+            <div style={{ fontSize: 15, fontWeight: 600, color: "#c8b99a", letterSpacing: 4, textTransform: "uppercase" }}>תערוכות</div>
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9a8e7a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
           </div>
           <div style={{ display: "flex", gap: 12, overflowX: "auto", paddingLeft: 20, paddingRight: 20, scrollbarWidth: "none", scrollSnapType: "x mandatory", WebkitOverflowScrolling: "touch", touchAction: "pan-x" }}>
@@ -720,7 +720,7 @@ export default function ArtGalleryApp() {
         {/* Artists */}
         <div style={{ padding: "24px 0 16px" }}>
           <div onClick={() => navigate("artists")} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 20px", marginBottom: 12, cursor: "pointer" }}>
-            <div style={{ fontSize: 12, fontWeight: 400, color: "#9a8e7a", letterSpacing: 4, textTransform: "uppercase" }}>אמנים</div>
+            <div style={{ fontSize: 15, fontWeight: 600, color: "#c8b99a", letterSpacing: 4, textTransform: "uppercase" }}>אמנים</div>
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9a8e7a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
           </div>
         <div style={{ display: "flex", gap: 16, overflowX: "auto", paddingLeft: 20, paddingRight: 20, scrollbarWidth: "none", scrollSnapType: "x mandatory", WebkitOverflowScrolling: "touch", touchAction: "pan-x" }}>
@@ -743,9 +743,9 @@ export default function ArtGalleryApp() {
       </div>
 
       {/* Artworks grid */}
-      <div className="home-section" style={{ padding: "28px 20px 0" }}>
+      <div className="home-section" style={{ padding: "28px 20px 0", backgroundColor: "#0a0a0a" }}>
         <div onClick={() => navigate("art")} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 18, cursor: "pointer" }}>
-          <div style={{ fontSize: 12, fontWeight: 400, color: "#9a8e7a", letterSpacing: 4, textTransform: "uppercase" }}>אמנות</div>
+          <div style={{ fontSize: 15, fontWeight: 600, color: "#c8b99a", letterSpacing: 4, textTransform: "uppercase" }}>אמנות</div>
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9a8e7a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
         </div>
         <div style={{ position: "relative" }}>
@@ -757,17 +757,17 @@ export default function ArtGalleryApp() {
             ))}
           </div>
           {/* Fade overlay on bottom row + CTA */}
-          <div onClick={() => navigate("art")} style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "55%", background: "linear-gradient(to top, rgba(10,10,10,1) 0%, rgba(10,10,10,0.95) 30%, rgba(10,10,10,0) 100%)", display: "flex", alignItems: "flex-end", justifyContent: "center", paddingBottom: 24, cursor: "pointer" }}>
+          <div onClick={() => navigate("art")} style={{ position: "absolute", bottom: 0, left: -20, right: -20, height: "55%", background: "linear-gradient(to top, #0a0a0a 0%, rgba(10,10,10,0.95) 30%, rgba(10,10,10,0) 100%)", display: "flex", alignItems: "flex-end", justifyContent: "center", paddingBottom: 24, cursor: "pointer" }}>
             <span style={{ fontSize: 13, color: "#0a0a0a", letterSpacing: 2, backgroundColor: "#c8b99a", padding: "10px 28px", fontWeight: 600 }}>צפייה בכל העבודות</span>
           </div>
         </div>
       </div>
 
       {/* Galleries + Blog */}
-      <div className="home-section" style={{ padding: "0", justifyContent: "flex-start" }}>
+      <div className="home-section" style={{ padding: "0", justifyContent: "flex-start", backgroundColor: "#0e0e0e" }}>
       <div id="galleries-section" style={{ padding: "28px 24px 16px" }}>
         <div style={{ display: "flex", alignItems: "center", padding: "0", marginBottom: 20 }}>
-          <div style={{ fontSize: 12, fontWeight: 400, color: "#9a8e7a", letterSpacing: 4, textTransform: "uppercase" }}>הגלריות</div>
+          <div style={{ fontSize: 15, fontWeight: 600, color: "#c8b99a", letterSpacing: 4, textTransform: "uppercase" }}>הגלריות</div>
         </div>
         {galleries.map((g, i) => (
           <div key={i} style={{ display: "flex", alignItems: "center", gap: 14, padding: "16px 0", borderBottom: i < galleries.length - 1 ? "1px solid rgba(200,180,140,0.08)" : "none" }}>
@@ -789,7 +789,7 @@ export default function ArtGalleryApp() {
       {/* Blog scroll */}
       <div style={{ padding: "28px 0 16px" }}>
         <div onClick={() => navigate("blog")} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 20px", marginBottom: 18, cursor: "pointer" }}>
-          <div style={{ fontSize: 12, fontWeight: 400, color: "#9a8e7a", letterSpacing: 4, textTransform: "uppercase" }}>בלוג</div>
+          <div style={{ fontSize: 15, fontWeight: 600, color: "#c8b99a", letterSpacing: 4, textTransform: "uppercase" }}>בלוג</div>
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9a8e7a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
         </div>
         <div style={{ display: "flex", gap: 12, overflowX: "auto", paddingLeft: 20, paddingRight: 20, scrollbarWidth: "none", scrollSnapType: "x mandatory", WebkitOverflowScrolling: "touch", touchAction: "pan-x" }}>
