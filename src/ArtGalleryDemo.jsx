@@ -433,6 +433,85 @@ const Breadcrumb = ({ crumbs, title }) => (
   </div>
 );
 
+// ===== FOOTER =====
+const Footer = ({ navigate, goHome }) => {
+  const [email, setEmail] = useState("");
+  const [subscribed, setSubscribed] = useState(false);
+
+  const handleSubscribe = (e) => {
+    e.preventDefault();
+    if (email.trim()) {
+      setSubscribed(true);
+      setEmail("");
+    }
+  };
+
+  return (
+    <footer style={{ backgroundColor: "#111", padding: "40px 24px 20px", borderTop: "1px solid rgba(200,180,140,0.15)" }}>
+      {/* Newsletter */}
+      <div style={{ marginBottom: 32, textAlign: "center" }}>
+        <div style={{ fontSize: 12, fontWeight: 400, color: "#9a8e7a", letterSpacing: 4, textTransform: "uppercase", marginBottom: 12 }}>ניוזלטר</div>
+        <p style={{ fontSize: 14, color: "#8a7e6c", marginBottom: 16, lineHeight: 1.6 }}>הישארו מעודכנים על תערוכות חדשות, אמנים ואירועים</p>
+        {subscribed ? (
+          <div style={{ fontSize: 14, color: "#c8b99a" }}>תודה על ההרשמה!</div>
+        ) : (
+          <form onSubmit={handleSubscribe} style={{ display: "flex", gap: 8, maxWidth: 300, margin: "0 auto" }}>
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="כתובת אימייל"
+              required
+              style={{ flex: 1, padding: "10px 14px", borderRadius: 4, border: "1px solid rgba(200,180,140,0.2)", backgroundColor: "rgba(255,255,255,0.05)", color: "#e8e4df", fontSize: 13, outline: "none", direction: "ltr" }}
+            />
+            <button type="submit" style={{ padding: "10px 18px", borderRadius: 4, border: "none", backgroundColor: "#2A4C39", color: "#e8e4df", fontSize: 12, fontWeight: 600, cursor: "pointer", letterSpacing: 1, whiteSpace: "nowrap" }}>הרשמה</button>
+          </form>
+        )}
+      </div>
+
+      {/* Divider */}
+      <div style={{ height: 1, backgroundColor: "rgba(200,180,140,0.1)", marginBottom: 28 }} />
+
+      {/* Links */}
+      <div style={{ display: "flex", justifyContent: "center", gap: 24, marginBottom: 28, flexWrap: "wrap" }}>
+        {[
+          { label: "בית", onClick: goHome },
+          { label: "תערוכות", onClick: () => navigate("exhibitions") },
+          { label: "אמנים", onClick: () => navigate("artists") },
+          { label: "אומנות", onClick: () => navigate("art") },
+          { label: "בלוג", onClick: () => navigate("blog") },
+        ].map((item) => (
+          <span key={item.label} onClick={item.onClick} style={{ fontSize: 13, color: "#8a7e6c", cursor: "pointer", transition: "color 0.2s" }}
+            onMouseEnter={(e) => (e.target.style.color = "#c8b99a")}
+            onMouseLeave={(e) => (e.target.style.color = "#8a7e6c")}
+          >{item.label}</span>
+        ))}
+      </div>
+
+      {/* Divider */}
+      <div style={{ height: 1, backgroundColor: "rgba(200,180,140,0.1)", marginBottom: 28 }} />
+
+      {/* About ZRP */}
+      <div style={{ textAlign: "center", marginBottom: 24 }}>
+        <div style={{ fontSize: 11, color: "#6a6560", lineHeight: 1.7, maxWidth: 300, margin: "0 auto" }}>
+          Zielinski & Rozen — בית בישום ואמנות. הגלריות פועלות ללא מטרות רווח, כל ההכנסות חוזרות לאמנים.
+        </div>
+        <a href="https://www.zrp.co.il" target="_blank" rel="noopener noreferrer" style={{ fontSize: 11, color: "#9a8e7a", textDecoration: "none", marginTop: 8, display: "inline-block" }}
+          onMouseEnter={(e) => (e.target.style.color = "#c8b99a")}
+          onMouseLeave={(e) => (e.target.style.color = "#9a8e7a")}
+        >zrp.co.il &larr;</a>
+      </div>
+
+      {/* Credits */}
+      <div style={{ textAlign: "center", paddingTop: 16, borderTop: "1px solid rgba(200,180,140,0.06)" }}>
+        <span style={{ fontSize: 10, color: "#4a4540" }}>
+          UI/UX by <a href="https://yairix.com" target="_blank" rel="noopener noreferrer" style={{ color: "#6a6560", textDecoration: "none" }}>yairix.com</a>
+        </span>
+      </div>
+    </footer>
+  );
+};
+
 // ===== MAIN APP =====
 export default function ArtGalleryApp() {
   const [nav, setNav] = useState({ page: "home", id: null, history: [] });
@@ -442,10 +521,17 @@ export default function ArtGalleryApp() {
 
   const currentTab = ["exhibitions", "artists", "art", "blog"].includes(nav.page) ? nav.page : null;
 
+  const deviceRef = { current: null };
+
+  const scrollToTop = () => {
+    if (deviceRef.current) deviceRef.current.scrollTo(0, 0);
+    else window.scrollTo(0, 0);
+  };
+
   const navigate = (type, id = null) => {
     setMenuOpen(false);
     setNav(prev => ({ page: type, id, history: [...prev.history, { page: prev.page, id: prev.id }] }));
-    window.scrollTo(0, 0);
+    setTimeout(scrollToTop, 0);
   };
 
   const goBack = () => {
@@ -454,13 +540,13 @@ export default function ArtGalleryApp() {
       const last = history.pop() || { page: "home", id: null };
       return { page: last.page, id: last.id, history };
     });
-    window.scrollTo(0, 0);
+    setTimeout(scrollToTop, 0);
   };
 
   const goHome = () => {
     setMenuOpen(false);
     setNav({ page: "home", id: null, history: [] });
-    window.scrollTo(0, 0);
+    setTimeout(scrollToTop, 0);
   };
 
   const goToGalleries = () => {
@@ -468,8 +554,8 @@ export default function ArtGalleryApp() {
     setNav({ page: "home", id: null, history: [] });
     setTimeout(() => {
       const el = document.getElementById("galleries-section");
-      if (el) el.scrollIntoView({ behavior: "smooth" });
-    }, 100);
+      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 150);
   };
 
   const getArtist = (id) => artists.find((a) => a.id === id);
@@ -527,50 +613,52 @@ export default function ArtGalleryApp() {
 
   // ===== HOME PAGE =====
   const renderHome = () => (
-    <div style={{ animation: "fadeIn 0.2s ease", backgroundColor: "#0a0a0a" }}>
+    <div style={{ backgroundColor: "#0a0a0a" }}>
       {/* Hero */}
-      <div style={{ position: "relative", width: "100%", height: "75vh", maxHeight: 600, overflow: "hidden" }}>
+      <div className="snap-section" style={{ minHeight: "calc(100vh - 68px)", padding: 0, position: "relative", overflow: "hidden" }}>
         <img
           src="https://static.wixstatic.com/media/3e3f5c_8efc9803b8384a6cb0f5bd4b5c6f672e~mv2.jpg"
           alt="Erez Zielinski Rozen"
-          style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "left 20%", display: "block" }}
+          style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "left 20%", display: "block" }}
         />
-        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.15) 40%, rgba(0,0,0,0.3) 100%)", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "flex-end", paddingBottom: 48, gap: 6 }}>
+        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.15) 40%, rgba(0,0,0,0.3) 100%)", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "flex-end", paddingBottom: 60, gap: 6 }}>
           <div style={{ fontSize: 14, fontWeight: 400, color: "rgba(255,255,255,0.85)", letterSpacing: 2, textAlign: "center", marginBottom: 2 }}>ברוכים הבאים</div>
           <div style={{ fontSize: 32, fontWeight: 700, color: "#fff", letterSpacing: 3, textAlign: "center", textShadow: "0 2px 12px rgba(0,0,0,0.3)" }}>ZIELINSKI & ROZEN</div>
           <div style={{ fontSize: 16, fontWeight: 500, color: "rgba(255,255,255,0.9)", letterSpacing: 5, textAlign: "center" }}>THE ART GALLERY</div>
-        </div>
-      </div>
-
-      {/* Nav bar */}
-      {/* About */}
-      <div style={{ padding: "32px 24px", borderBottom: "1px solid rgba(200,180,140,0.1)" }}>
-        <p style={{ fontSize: 16, lineHeight: 1.9, color: "#bfb5a3", margin: 0, textAlign: "center" }}>
-          ארז זילינסקי־רוזן הוא קודם כול אמן. עולם הבישום עבורו הוא קנבס בלתי נראה שנבנה משכבות של רגש וזיכרון. הגלריות הן מקום שבו האמנות מתרחשת — ופועלות ללא מטרות רווח. כל ההכנסות חוזרות לאמנים.
-        </p>
-        <div style={{ textAlign: "center", marginTop: 16 }}>
-          <div style={{ width: 24, height: 1, backgroundColor: "rgba(200,180,140,0.3)", margin: "0 auto" }} />
-        </div>
-      </div>
-
-      {/* Nav buttons */}
-      <div style={{ display: "flex", gap: 10, padding: "16px 20px" }}>
-        {[
-          { key: "exhibitions", label: "תערוכות", icon: Icons.exhibitions },
-          { key: "artists", label: "אמנים", icon: Icons.artists },
-          { key: "art", label: "אומנות", icon: Icons.art },
-          { key: "blog", label: "בלוג", icon: Icons.blog },
-        ].map((item) => (
-          <div key={item.key} onClick={() => navigate(item.key)} style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", gap: 4, cursor: "pointer", padding: "12px 0", border: "1px solid rgba(200,180,140,0.15)" }}>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c8b99a" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">{item.icon(false).props.children}</svg>
-            <div style={{ fontSize: 11, fontWeight: 400, color: "#c8b99a", letterSpacing: 1, lineHeight: 1 }}>{item.label}</div>
+          {/* Scroll hint */}
+          <div style={{ marginTop: 24, animation: "fadeIn 2s ease 1s both" }}>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.4)" strokeWidth="1.5" strokeLinecap="round"><polyline points="6 9 12 15 18 9"/></svg>
           </div>
-        ))}
+        </div>
       </div>
-      <div style={{ height: 1, backgroundColor: "rgba(200,180,140,0.12)" }} />
+
+      {/* About + Nav */}
+      <div className="snap-section" style={{ padding: "0" }}>
+        <div style={{ padding: "32px 24px", borderBottom: "1px solid rgba(200,180,140,0.1)" }}>
+          <p style={{ fontSize: 16, lineHeight: 1.9, color: "#bfb5a3", margin: 0, textAlign: "center" }}>
+            ארז זילינסקי־רוזן הוא קודם כול אמן. עולם הבישום עבורו הוא קנבס בלתי נראה שנבנה משכבות של רגש וזיכרון. הגלריות הן מקום שבו האמנות מתרחשת — ופועלות ללא מטרות רווח. כל ההכנסות חוזרות לאמנים.
+          </p>
+          <div style={{ textAlign: "center", marginTop: 16 }}>
+            <div style={{ width: 24, height: 1, backgroundColor: "rgba(200,180,140,0.3)", margin: "0 auto" }} />
+          </div>
+        </div>
+        <div style={{ display: "flex", gap: 10, padding: "16px 20px" }}>
+          {[
+            { key: "exhibitions", label: "תערוכות", icon: Icons.exhibitions },
+            { key: "artists", label: "אמנים", icon: Icons.artists },
+            { key: "art", label: "אומנות", icon: Icons.art },
+            { key: "blog", label: "בלוג", icon: Icons.blog },
+          ].map((item) => (
+            <div key={item.key} onClick={() => navigate(item.key)} style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", gap: 4, cursor: "pointer", padding: "12px 0", border: "1px solid rgba(200,180,140,0.15)" }}>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c8b99a" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">{item.icon(false).props.children}</svg>
+              <div style={{ fontSize: 11, fontWeight: 400, color: "#c8b99a", letterSpacing: 1, lineHeight: 1 }}>{item.label}</div>
+            </div>
+          ))}
+        </div>
+      </div>
 
       {/* Exhibitions scroll */}
-      <div style={{ padding: "28px 0 16px" }}>
+      <div className="snap-section" style={{ padding: "28px 0 16px" }}>
         <div onClick={() => navigate("exhibitions")} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 20px", marginBottom: 18, cursor: "pointer" }}>
           <div style={{ fontSize: 12, fontWeight: 400, color: "#9a8e7a", letterSpacing: 4, textTransform: "uppercase" }}>תערוכות</div>
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9a8e7a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
@@ -595,10 +683,9 @@ export default function ArtGalleryApp() {
           </div>
         </div>
       </div>
-      <div style={{ height: 1, backgroundColor: "rgba(200,180,140,0.12)" }} />
 
       {/* Artists scroll */}
-      <div style={{ padding: "28px 0 16px" }}>
+      <div className="snap-section" style={{ padding: "28px 0 16px" }}>
         <div onClick={() => navigate("artists")} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 20px", marginBottom: 18, cursor: "pointer" }}>
           <div style={{ fontSize: 12, fontWeight: 400, color: "#9a8e7a", letterSpacing: 4, textTransform: "uppercase" }}>אמנים</div>
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9a8e7a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
@@ -620,10 +707,9 @@ export default function ArtGalleryApp() {
           </div>
         </div>
       </div>
-      <div style={{ height: 1, backgroundColor: "rgba(200,180,140,0.12)" }} />
 
       {/* Artworks grid */}
-      <div style={{ padding: "28px 20px 16px" }}>
+      <div className="snap-section" style={{ padding: "28px 20px 16px" }}>
         <div onClick={() => navigate("art")} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 18, cursor: "pointer" }}>
           <div style={{ fontSize: 12, fontWeight: 400, color: "#9a8e7a", letterSpacing: 4, textTransform: "uppercase" }}>אמנות</div>
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9a8e7a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
@@ -639,10 +725,9 @@ export default function ArtGalleryApp() {
           <span style={{ fontSize: 12, color: "#a89a82", letterSpacing: 2 }}>עוד</span>
         </div>
       </div>
-      <div style={{ height: 1, backgroundColor: "rgba(200,180,140,0.12)" }} />
 
       {/* Galleries */}
-      <div id="galleries-section" style={{ padding: "28px 24px 16px" }}>
+      <div id="galleries-section" className="snap-section" style={{ padding: "28px 24px 16px" }}>
         <div style={{ display: "flex", alignItems: "center", padding: "0", marginBottom: 20 }}>
           <div style={{ fontSize: 12, fontWeight: 400, color: "#9a8e7a", letterSpacing: 4, textTransform: "uppercase" }}>הגלריות</div>
         </div>
@@ -662,10 +747,9 @@ export default function ArtGalleryApp() {
           </div>
         ))}
       </div>
-      <div style={{ height: 1, backgroundColor: "rgba(200,180,140,0.12)" }} />
 
       {/* Blog scroll */}
-      <div style={{ padding: "28px 0 16px" }}>
+      <div className="snap-section" style={{ padding: "28px 0 16px", justifyContent: "flex-start" }}>
         <div onClick={() => navigate("blog")} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 20px", marginBottom: 18, cursor: "pointer" }}>
           <div style={{ fontSize: 12, fontWeight: 400, color: "#9a8e7a", letterSpacing: 4, textTransform: "uppercase" }}>בלוג</div>
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9a8e7a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
@@ -688,7 +772,11 @@ export default function ArtGalleryApp() {
           </div>
         </div>
       </div>
-      <div style={{ height: 130 }} />
+
+      {/* Footer */}
+      <div className="snap-section" style={{ padding: 0, justifyContent: "flex-end" }}>
+        <Footer navigate={navigate} goHome={goHome} />
+      </div>
     </div>
   );
 
@@ -1071,12 +1159,15 @@ export default function ArtGalleryApp() {
   };
 
   return (
-    <div style={styles.device}>
+    <div ref={(el) => { deviceRef.current = el; }} style={{ ...styles.device, ...(nav.page === "home" ? { height: "100vh", overflowY: "auto", scrollSnapType: "y mandatory", scrollBehavior: "smooth" } : {}) }}>
       <style>{`
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Ezmel', 'DIN Next', sans-serif; -webkit-tap-highlight-color: transparent; }
         @keyframes slideIn { from { opacity: 0; transform: translateX(-12px); } to { opacity: 1; transform: translateX(0); } }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes snapReveal { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
         ::-webkit-scrollbar { display: none; }
+        .snap-section { scroll-snap-align: start; min-height: calc(100vh - 68px); display: flex; flex-direction: column; justify-content: center; }
+        .snap-section > * { animation: snapReveal 0.6s ease both; }
       `}</style>
 
       {/* TOP BAR + HEADER wrapper for sticky */}
@@ -1143,6 +1234,7 @@ export default function ArtGalleryApp() {
       {/* CONTENT */}
       <div style={styles.content}>
         {renderPage()}
+        {nav.page !== "home" && <Footer navigate={navigate} goHome={goHome} />}
       </div>
 
       {/* Menu overlay - closes menu when clicking outside */}
