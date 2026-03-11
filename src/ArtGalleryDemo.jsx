@@ -560,6 +560,18 @@ export default function ArtGalleryApp() {
     setTimeout(scrollToTop, 0);
   };
 
+  // Dynamic page title for SEO
+  useEffect(() => {
+    const base = "Zielinski & Rozen Art";
+    const titles = { home: base, exhibitions: `תערוכות | ${base}`, artists: `אמנים | ${base}`, art: `אומנות | ${base}`, blog: `בלוג | ${base}` };
+    if (titles[nav.page]) { document.title = titles[nav.page]; }
+    else if (nav.page === "exhibition") { const ex = exhibitions.find(e => e.id === nav.id); document.title = ex ? `${ex.title} | ${base}` : base; }
+    else if (nav.page === "artist") { const ar = artists.find(a => a.id === nav.id); document.title = ar ? `${ar.name} | ${base}` : base; }
+    else if (nav.page === "artwork") { const w = artworks.find(a => a.id === nav.id); document.title = w ? `${w.title} | ${base}` : base; }
+    else if (nav.page === "post") { const p = blogPosts.find(b => b.id === nav.id); document.title = p ? `${p.title} | ${base}` : base; }
+    else { document.title = base; }
+  }, [nav.page, nav.id]);
+
   const goHome = () => {
     setMenuOpen(false);
     setNav({ page: "home", id: null, history: [] });
