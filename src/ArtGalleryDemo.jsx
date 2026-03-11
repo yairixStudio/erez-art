@@ -451,7 +451,7 @@ const Breadcrumb = ({ crumbs, title }) => (
 );
 
 const PageHero = ({ crumbs, title }) => (
-  <div style={{ height: 100, backgroundColor: "#111", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 8, margin: "15px 15px 30px", borderRadius: 6 }}>
+  <div style={{ height: 100, backgroundColor: "#111", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 8, margin: "0 0 30px", borderRadius: 0 }}>
     <div style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 12, color: "rgba(200,180,140,0.6)" }}>
       {crumbs.map((c, i) => (
         <span key={i} style={{ display: "flex", alignItems: "center", gap: 6 }}>
@@ -546,9 +546,35 @@ const Footer = ({ navigate, goHome }) => {
   );
 };
 
+// ===== URL ROUTING =====
+const pageToPath = (page, id) => {
+  switch (page) {
+    case 'home': return '/';
+    case 'exhibitions': return '/exhibitions';
+    case 'artists': return '/artists';
+    case 'art': return '/art';
+    case 'blog': return '/blog';
+    case 'exhibition': return `/exhibition/${id}`;
+    case 'artist': return `/artist/${id}`;
+    case 'artwork': return `/artwork/${id}`;
+    case 'post': return `/post/${id}`;
+    default: return '/';
+  }
+};
+
+const pathToNav = (pathname) => {
+  const parts = pathname.split('/').filter(Boolean);
+  if (parts.length === 0) return { page: 'home', id: null };
+  const base = parts[0];
+  const id = parts[1] || null;
+  const routes = { exhibitions: 'exhibitions', artists: 'artists', art: 'art', blog: 'blog', exhibition: 'exhibition', artist: 'artist', artwork: 'artwork', post: 'post' };
+  if (routes[base]) return { page: routes[base], id };
+  return { page: 'home', id: null };
+};
+
 // ===== MAIN APP =====
 export default function ArtGalleryApp() {
-  const [nav, setNav] = useState({ page: "home", id: null, history: [] });
+  const [nav, setNav] = useState(() => ({ ...pathToNav(window.location.pathname), history: [] }));
   const [menuOpen, setMenuOpen] = useState(false);
   const [artistSearch, setArtistSearch] = useState("");
   const [artSearch, setArtSearch] = useState("");
@@ -556,6 +582,17 @@ export default function ArtGalleryApp() {
   const currentTab = ["exhibitions", "artists", "art", "blog"].includes(nav.page) ? nav.page : null;
 
   const deviceRef = { current: null };
+
+  // Sync browser back/forward buttons
+  useEffect(() => {
+    const onPopState = () => {
+      const { page, id } = pathToNav(window.location.pathname);
+      setNav({ page, id, history: [] });
+      window.scrollTo(0, 0);
+    };
+    window.addEventListener('popstate', onPopState);
+    return () => window.removeEventListener('popstate', onPopState);
+  }, []);
 
   // Intersection Observer for section reveal animations
   useEffect(() => {
@@ -572,94 +609,20 @@ export default function ArtGalleryApp() {
     return () => observer.disconnect();
   }, [nav.page]);
 
-  // Direction-lock: distinguish horizontal carousel swipes from vertical page scrolls.
-  // Once the dominant axis is determined (after a small threshold), the opposite axis is
-  // locked out for the remainder of the gesture so the two don't fight each other.
-  useEffect(() => {
-    if (nav.page !== "home") return;
-
-    let startX = 0, startY = 0;
-    let lockedAxis = null;       // 'x' | 'y' | null
-    let activeCarousel = null;   // the carousel element being touched
-
-    const onTouchStart = (e) => {
-      const t = e.touches[0];
-      startX = t.clientX;
-      startY = t.clientY;
-      lockedAxis = null;
-      activeCarousel = e.currentTarget;
-    };
-
-    const onTouchMove = (e) => {
-      const t = e.touches[0];
-      const dx = Math.abs(t.clientX - startX);
-      const dy = Math.abs(t.clientY - startY);
-
-      if (!lockedAxis && (dx > 8 || dy > 8)) {
-        lockedAxis = dx > dy ? 'x' : 'y';
-
-        if (lockedAxis === 'x') {
-          // Horizontal: disable vertical scroll-snap so the page doesn't jump
-          document.documentElement.style.scrollSnapType = "none";
-          // Freeze the page's vertical scroll position
-          document.documentElement.style.overflowY = "hidden";
-        } else {
-          // Vertical: freeze the carousel's horizontal scroll so it doesn't slide
-          if (activeCarousel) {
-            activeCarousel.style.overflowX = "hidden";
-          }
-        }
-      }
-    };
-
-    const onTouchEnd = () => {
-      if (lockedAxis === 'x') {
-        document.documentElement.style.overflowY = "";
-        // Delay snap restoration so inertial scroll can settle
-        setTimeout(() => {
-          document.documentElement.style.scrollSnapType = "y proximity";
-        }, 350);
-      } else if (lockedAxis === 'y' && activeCarousel) {
-        activeCarousel.style.overflowX = "auto";
-      }
-      lockedAxis = null;
-      activeCarousel = null;
-    };
-
-    const carousels = document.querySelectorAll('.carousel-scroll');
-    carousels.forEach(el => {
-      el.addEventListener("touchstart", onTouchStart, { passive: true });
-      el.addEventListener("touchmove", onTouchMove, { passive: true });
-      el.addEventListener("touchend", onTouchEnd, { passive: true });
-    });
-    return () => {
-      carousels.forEach(el => {
-        el.removeEventListener("touchstart", onTouchStart);
-        el.removeEventListener("touchmove", onTouchMove);
-        el.removeEventListener("touchend", onTouchEnd);
-      });
-      document.documentElement.style.scrollSnapType = "";
-      document.documentElement.style.overflowY = "";
-    };
-  }, [nav.page]);
-
   const scrollToTop = () => {
     window.scrollTo(0, 0);
   };
 
   const navigate = (type, id = null) => {
     setMenuOpen(false);
+    const path = pageToPath(type, id);
+    window.history.pushState(null, '', path);
     setNav(prev => ({ page: type, id, history: [...prev.history, { page: prev.page, id: prev.id }] }));
     setTimeout(scrollToTop, 0);
   };
 
   const goBack = () => {
-    setNav(prev => {
-      const history = [...prev.history];
-      const last = history.pop() || { page: "home", id: null };
-      return { page: last.page, id: last.id, history };
-    });
-    setTimeout(scrollToTop, 0);
+    window.history.back();
   };
 
   // Dynamic page title for SEO
@@ -676,12 +639,14 @@ export default function ArtGalleryApp() {
 
   const goHome = () => {
     setMenuOpen(false);
+    window.history.pushState(null, '', '/');
     setNav({ page: "home", id: null, history: [] });
     setTimeout(scrollToTop, 0);
   };
 
   const goToGalleries = () => {
     setMenuOpen(false);
+    window.history.pushState(null, '', '/');
     setNav({ page: "home", id: null, history: [] });
     setTimeout(() => {
       const el = document.getElementById("galleries-section");
@@ -770,7 +735,7 @@ export default function ArtGalleryApp() {
       </div>
 
       {/* About */}
-      <div className="home-section home-section-auto" style={{ padding: "0", justifyContent: "flex-start", backgroundColor: "#0e0e0e", scrollSnapAlign: "start" }}>
+      <div className="home-section home-section-auto" style={{ padding: "0", justifyContent: "flex-start", backgroundColor: "#0e0e0e" }}>
         <div style={{ padding: "40px 20px 36px" }}>
           <div style={{ display: "flex", gap: 18, alignItems: "flex-start" }}>
             <div style={{ flexShrink: 0, width: 100, height: 130, borderRadius: 4, overflow: "hidden", border: "1px solid rgba(200,180,140,0.15)" }}>
@@ -787,7 +752,7 @@ export default function ArtGalleryApp() {
       </div>
 
       {/* Exhibitions + Artists */}
-      <div className="home-section home-section-auto" style={{ padding: "0", justifyContent: "flex-start", backgroundColor: "#0e0e0e", scrollSnapAlign: "start" }}>
+      <div className="home-section home-section-auto" style={{ padding: "0", justifyContent: "flex-start", backgroundColor: "#0e0e0e" }}>
         <div style={{ padding: "28px 0 12px", borderTop: "1px solid rgba(200,180,140,0.1)" }}>
           <div onClick={() => navigate("exhibitions")} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 20px", marginBottom: 12, cursor: "pointer" }}>
             <div style={{ fontSize: 15, fontWeight: 600, color: "#c8b99a", letterSpacing: 4, textTransform: "uppercase" }}>תערוכות</div>
@@ -839,7 +804,7 @@ export default function ArtGalleryApp() {
       </div>
 
       {/* Artworks grid */}
-      <div className="home-section" style={{ padding: "28px 20px 0", backgroundColor: "#0a0a0a", scrollSnapAlign: "start" }}>
+      <div className="home-section" style={{ padding: "28px 20px 0", backgroundColor: "#0a0a0a" }}>
         <div onClick={() => navigate("art")} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 18, cursor: "pointer" }}>
           <div style={{ fontSize: 15, fontWeight: 600, color: "#c8b99a", letterSpacing: 4, textTransform: "uppercase" }}>אמנות</div>
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9a8e7a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6" /></svg>
@@ -860,7 +825,7 @@ export default function ArtGalleryApp() {
       </div>
 
       {/* Galleries + Blog */}
-      <div className="home-section" style={{ padding: "0", justifyContent: "flex-start", backgroundColor: "#0e0e0e", scrollSnapAlign: "start" }}>
+      <div className="home-section" style={{ padding: "0", justifyContent: "flex-start", backgroundColor: "#0e0e0e" }}>
         <div id="galleries-section" style={{ padding: "28px 24px 16px" }}>
           <div style={{ display: "flex", alignItems: "center", padding: "0", marginBottom: 20 }}>
             <div style={{ fontSize: 15, fontWeight: 600, color: "#c8b99a", letterSpacing: 4, textTransform: "uppercase" }}>הגלריות</div>
@@ -914,9 +879,9 @@ export default function ArtGalleryApp() {
 
   // ===== EXHIBITIONS LIST =====
   const renderExhibitions = () => (
-    <TexturedContainer style={styles.listContainer}>
+    <TexturedContainer style={{ paddingBottom: 120 }}>
       <PageHero crumbs={[{ label: "בית", onClick: goHome }, { label: "תערוכות" }]} title="תערוכות" />
-      <div style={{ display: "flex", flexDirection: "column", gap: 32 }}>
+      <div style={{ display: "flex", flexDirection: "column", gap: 32, padding: "0 20px" }}>
         {exhibitions.map((ex) => {
           const coverUrl = getExhibitionCoverUrl(ex);
           return (
@@ -953,8 +918,9 @@ export default function ArtGalleryApp() {
       : artists;
 
     return (
-      <TexturedContainer style={styles.listContainer}>
+      <TexturedContainer style={{ paddingBottom: 120 }}>
         <PageHero crumbs={[{ label: "בית", onClick: goHome }, { label: "אמנים" }]} title="אמנים" />
+        <div style={{ padding: "0 20px" }}>
         <SearchInput value={artistSearch} onChange={setArtistSearch} placeholder="חיפוש אמנים..." />
         <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
           {filtered.length === 0 && (
@@ -974,6 +940,7 @@ export default function ArtGalleryApp() {
             );
           })}
         </div>
+        </div>
       </TexturedContainer>
     );
   };
@@ -989,8 +956,9 @@ export default function ArtGalleryApp() {
       : artworks;
 
     return (
-      <TexturedContainer style={styles.listContainer}>
+      <TexturedContainer style={{ paddingBottom: 120 }}>
         <PageHero crumbs={[{ label: "בית", onClick: goHome }, { label: "אומנות" }]} title="אומנות" />
+        <div style={{ padding: "0 20px" }}>
         <SearchInput value={artSearch} onChange={setArtSearch} placeholder="חיפוש יצירות, אמנים..." />
         {filtered.length === 0 && (
           <div style={{ textAlign: "center", padding: "40px 0", color: "#999", fontSize: 14 }}>לא נמצאו תוצאות</div>
@@ -1011,15 +979,16 @@ export default function ArtGalleryApp() {
             );
           })}
         </div>
+        </div>
       </TexturedContainer>
     );
   };
 
   // ===== BLOG LIST =====
   const renderBlog = () => (
-    <TexturedContainer style={styles.listContainer}>
+    <TexturedContainer style={{ paddingBottom: 120 }}>
       <PageHero crumbs={[{ label: "בית", onClick: goHome }, { label: "בלוג" }]} title="בלוג" />
-      <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
+      <div style={{ display: "flex", flexDirection: "column", gap: 20, padding: "0 20px" }}>
         {blogPosts.map((p) => (
           <div key={p.id} onClick={() => navigate("post", p.id)} style={{ cursor: "pointer" }}>
             <Placeholder height={170} rounded={12} />
