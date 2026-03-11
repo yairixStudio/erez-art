@@ -434,7 +434,7 @@ const Breadcrumb = ({ crumbs, title }) => (
 );
 
 const PageHero = ({ crumbs, title }) => (
-  <div style={{ height: "30vh", minHeight: 180, backgroundColor: "#111", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 12 }}>
+  <div style={{ height: 100, backgroundColor: "#111", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 8, margin: "15px 15px 30px", borderRadius: 6 }}>
     <div style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 12, color: "rgba(200,180,140,0.6)" }}>
       {crumbs.map((c, i) => (
         <span key={i} style={{ display: "flex", alignItems: "center", gap: 6 }}>
@@ -446,7 +446,7 @@ const PageHero = ({ crumbs, title }) => (
         </span>
       ))}
     </div>
-    <h1 style={{ fontSize: 32, fontWeight: 700, color: "#ede8e0", margin: 0, letterSpacing: 1, lineHeight: 1.2 }}>{title}</h1>
+    <h1 style={{ fontSize: 26, fontWeight: 700, color: "#ede8e0", margin: 0, letterSpacing: 1, lineHeight: 1.2 }}>{title}</h1>
   </div>
 );
 
@@ -1214,7 +1214,9 @@ export default function ArtGalleryApp() {
         transition: "max-height 0.35s ease",
         backgroundColor: "#2A4C39",
       }}>
-        <div style={{ padding: "8px 0" }}>
+        {textureUrl && <div style={{ position: "absolute", inset: 0, backgroundImage: `url("${textureUrl}")`, backgroundRepeat: "repeat", backgroundSize: "200% auto", opacity: 0.18, pointerEvents: "none", mixBlendMode: "soft-light", zIndex: 0 }} />}
+        <div style={{ position: "absolute", inset: 0, filter: "url(#noise)", opacity: 0.08, pointerEvents: "none", mixBlendMode: "multiply", zIndex: 0 }} />
+        <div style={{ padding: "8px 0", position: "relative", zIndex: 1 }}>
           {[
             { key: "home", label: "בית", onClick: goHome },
             { key: "exhibitions", label: "תערוכות", onClick: () => navigate("exhibitions") },
