@@ -643,7 +643,7 @@ export default function ArtGalleryApp() {
           <div style={{ fontSize: 32, fontWeight: 700, color: "#fff", letterSpacing: 3, textAlign: "center", textShadow: "0 2px 12px rgba(0,0,0,0.3)" }}>ZIELINSKI & ROZEN</div>
           <div style={{ fontSize: 16, fontWeight: 500, color: "rgba(255,255,255,0.9)", letterSpacing: 5, textAlign: "center" }}>THE ART GALLERY</div>
           {/* Scroll hint */}
-          <div style={{ marginTop: 24, animation: "fadeIn 2s ease 1s both" }}>
+          <div style={{ marginTop: 24, animation: "scrollHint 2s ease-in-out infinite, fadeIn 2s ease 1s both" }}>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.4)" strokeWidth="1.5" strokeLinecap="round"><polyline points="6 9 12 15 18 9"/></svg>
           </div>
         </div>
@@ -1171,6 +1171,7 @@ export default function ArtGalleryApp() {
         @keyframes slideIn { from { opacity: 0; transform: translateX(-12px); } to { opacity: 1; transform: translateX(0); } }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
         @keyframes snapReveal { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes scrollHint { 0%, 100% { transform: translateY(0); opacity: 0.4; } 50% { transform: translateY(8px); opacity: 1; } }
         ::-webkit-scrollbar { display: none; }
         .snap-section { scroll-snap-align: start; min-height: calc(100vh - 68px); display: flex; flex-direction: column; justify-content: center; }
         .snap-section > * { animation: snapReveal 0.6s ease both; }
