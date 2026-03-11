@@ -417,7 +417,7 @@ const ParsedContent = ({ content, navigate }) => {
 
 // ===== BREADCRUMB =====
 const Breadcrumb = ({ crumbs, title }) => (
-  <div style={{ padding: "14px 20px 8px", position: "sticky", top: 70, backgroundColor: "rgba(250,248,245,0.95)", backdropFilter: "blur(20px)", WebkitBackdropFilter: "blur(20px)", zIndex: 5 }}>
+  <div style={{ padding: "14px 20px 8px", position: "sticky", top: 68, backgroundColor: "rgba(250,248,245,0.95)", backdropFilter: "blur(20px)", WebkitBackdropFilter: "blur(20px)", zIndex: 5 }}>
     <div style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 12, color: "#999", flexWrap: "wrap" }}>
       {crumbs.map((c, i) => (
         <span key={i} style={{ display: "flex", alignItems: "center", gap: 6 }}>
@@ -436,12 +436,14 @@ const Breadcrumb = ({ crumbs, title }) => (
 // ===== MAIN APP =====
 export default function ArtGalleryApp() {
   const [nav, setNav] = useState({ page: "home", id: null, history: [] });
+  const [menuOpen, setMenuOpen] = useState(false);
   const [artistSearch, setArtistSearch] = useState("");
   const [artSearch, setArtSearch] = useState("");
 
   const currentTab = ["exhibitions", "artists", "art", "blog"].includes(nav.page) ? nav.page : null;
 
   const navigate = (type, id = null) => {
+    setMenuOpen(false);
     setNav(prev => ({ page: type, id, history: [...prev.history, { page: prev.page, id: prev.id }] }));
     window.scrollTo(0, 0);
   };
@@ -456,8 +458,18 @@ export default function ArtGalleryApp() {
   };
 
   const goHome = () => {
+    setMenuOpen(false);
     setNav({ page: "home", id: null, history: [] });
     window.scrollTo(0, 0);
+  };
+
+  const goToGalleries = () => {
+    setMenuOpen(false);
+    setNav({ page: "home", id: null, history: [] });
+    setTimeout(() => {
+      const el = document.getElementById("galleries-section");
+      if (el) el.scrollIntoView({ behavior: "smooth" });
+    }, 100);
   };
 
   const getArtist = (id) => artists.find((a) => a.id === id);
@@ -630,7 +642,7 @@ export default function ArtGalleryApp() {
       <div style={{ height: 1, backgroundColor: "rgba(200,180,140,0.12)" }} />
 
       {/* Galleries */}
-      <div style={{ padding: "28px 24px 16px" }}>
+      <div id="galleries-section" style={{ padding: "28px 24px 16px" }}>
         <div style={{ display: "flex", alignItems: "center", padding: "0", marginBottom: 20 }}>
           <div style={{ fontSize: 12, fontWeight: 400, color: "#9a8e7a", letterSpacing: 4, textTransform: "uppercase" }}>הגלריות</div>
         </div>
@@ -1058,13 +1070,6 @@ export default function ArtGalleryApp() {
     }
   };
 
-  const tabs = [
-    { key: "exhibitions", label: "תערוכות", icon: Icons.exhibitions },
-    { key: "artists", label: "אמנים", icon: Icons.artists },
-    { key: "art", label: "אומנות", icon: Icons.art },
-    { key: "blog", label: "בלוג", icon: Icons.blog },
-  ];
-
   return (
     <div style={styles.device}>
       <style>{`
@@ -1074,22 +1079,64 @@ export default function ArtGalleryApp() {
         ::-webkit-scrollbar { display: none; }
       `}</style>
 
-      {/* TOP BAR */}
-      <div style={{ backgroundColor: "#000", padding: "6px 12px", display: "flex", alignItems: "center", justifyContent: "flex-start", position: "sticky", top: 0, zIndex: 11 }}>
-        <a href="https://www.zrp.co.il" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: 4, color: "#999", fontSize: 10, fontWeight: 400, textDecoration: "none", letterSpacing: 0.5 }}>
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#999" strokeWidth="2" strokeLinecap="round"><polyline points="9 18 15 12 9 6"/></svg>
-          חזרה לאתר הבית
-        </a>
-      </div>
-
-      {/* HEADER */}
-      <div style={{ ...styles.header, justifyContent: "center" }}>
+      {/* TOP BAR + HEADER wrapper for sticky */}
+      <div style={{ position: "sticky", top: 0, zIndex: 10 }}>
+        <div style={{ backgroundColor: "#000", padding: "6px 12px", display: "flex", alignItems: "center", justifyContent: "flex-start" }}>
+          <a href="https://www.zrp.co.il" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: 4, color: "#999", fontSize: 10, fontWeight: 400, textDecoration: "none", letterSpacing: 0.5 }}>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#999" strokeWidth="2" strokeLinecap="round"><polyline points="9 18 15 12 9 6"/></svg>
+            חזרה לאתר הבית
+          </a>
+        </div>
+        <div style={{ ...styles.header, position: "relative", top: 0, justifyContent: "space-between", padding: "0 14px" }}>
         {/* Grunge texture overlay */}
         {textureUrl && <div style={{ position: "absolute", inset: 0, backgroundImage: `url("${textureUrl}")`, backgroundRepeat: "repeat", backgroundSize: "200% auto", opacity: 0.18, pointerEvents: "none", mixBlendMode: "soft-light" }} />}
         <svg style={{ position: "absolute", width: 0, height: 0 }}><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="4" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter></svg>
         <div style={{ position: "absolute", inset: 0, filter: "url(#noise)", opacity: 0.08, pointerEvents: "none", mixBlendMode: "multiply" }} />
-        <div onClick={goHome} style={{ display: "flex", alignItems: "center", cursor: "pointer", position: "relative", zIndex: 1 }}>
-          <span style={{ direction: "ltr", unicodeBidi: "bidi-override" }}>ZIELINSKI & ROZEN <span style={{ color: "#fff" }}>| ART</span></span>
+        {/* Location icon - right side (RTL) */}
+        <button onClick={goToGalleries} style={{ background: "none", border: "none", cursor: "pointer", padding: 4, position: "relative", zIndex: 1, display: "flex", alignItems: "center" }}>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="#e8e4df"><path d="m21.41 10.59-7.99-8c-.78-.78-2.05-.78-2.83 0l-8.01 8c-.78.78-.78 2.05 0 2.83l8.01 8c.78.78 2.05.78 2.83 0l7.99-8c.79-.79.79-2.05 0-2.83zM13.5 14.5V12H10v3H8v-4c0-.55.45-1 1-1h4.5V7.5L17 11l-3.5 3.5z"/></svg>
+        </button>
+        {/* Logo - center */}
+        <div onClick={goHome} style={{ position: "absolute", left: "50%", transform: "translateX(-50%)", display: "flex", alignItems: "center", cursor: "pointer", zIndex: 1 }}>
+          <span style={{ direction: "ltr", unicodeBidi: "bidi-override", fontWeight: 700, fontSize: 13, letterSpacing: 2.5 }}>ZIELINSKI & ROZEN <span style={{ color: "#fff", fontWeight: 800 }}>| ART</span></span>
+        </div>
+        {/* Hamburger - left side (RTL) */}
+        <button onClick={() => setMenuOpen(prev => !prev)} style={{ background: "none", border: "none", cursor: "pointer", padding: 4, position: "relative", zIndex: 1, display: "flex", flexDirection: "column", gap: 4 }}>
+          <span style={{ display: "block", width: 20, height: 1.5, backgroundColor: "#e8e4df", borderRadius: 1, transition: "all 0.3s", transform: menuOpen ? "rotate(45deg) translate(2px, 2px)" : "none" }} />
+          <span style={{ display: "block", width: 20, height: 1.5, backgroundColor: "#e8e4df", borderRadius: 1, transition: "all 0.3s", opacity: menuOpen ? 0 : 1 }} />
+          <span style={{ display: "block", width: 20, height: 1.5, backgroundColor: "#e8e4df", borderRadius: 1, transition: "all 0.3s", transform: menuOpen ? "rotate(-45deg) translate(2px, -2px)" : "none" }} />
+        </button>
+        </div>
+      </div>
+
+      {/* DROPDOWN MENU */}
+      <div style={{
+        position: "sticky", top: 68, zIndex: 9,
+        maxHeight: menuOpen ? 300 : 0,
+        overflow: "hidden",
+        transition: "max-height 0.35s ease",
+        backgroundColor: "#2A4C39",
+      }}>
+        <div style={{ padding: "8px 0" }}>
+          {[
+            { key: "home", label: "בית", onClick: goHome },
+            { key: "exhibitions", label: "תערוכות", onClick: () => navigate("exhibitions") },
+            { key: "artists", label: "אמנים", onClick: () => navigate("artists") },
+            { key: "art", label: "אומנות", onClick: () => navigate("art") },
+            { key: "blog", label: "בלוג", onClick: () => navigate("blog") },
+          ].map((item) => (
+            <button key={item.key} onClick={item.onClick} style={{
+              display: "block", width: "100%", padding: "14px 24px",
+              background: "none", border: "none", cursor: "pointer",
+              color: nav.page === item.key ? "#fff" : "rgba(232,228,223,0.7)",
+              fontSize: 16, fontWeight: nav.page === item.key ? 600 : 400,
+              textAlign: "right", transition: "color 0.2s",
+              borderBottom: "1px solid rgba(255,255,255,0.06)",
+            }}
+              onMouseEnter={(e) => (e.target.style.color = "#fff")}
+              onMouseLeave={(e) => (e.target.style.color = nav.page === item.key ? "#fff" : "rgba(232,228,223,0.7)")}
+            >{item.label}</button>
+          ))}
         </div>
       </div>
 
@@ -1098,23 +1145,8 @@ export default function ArtGalleryApp() {
         {renderPage()}
       </div>
 
-      {/* BOTTOM TAB BAR */}
-      <div style={styles.tabBar}>
-        {tabs.map((t) => {
-          const active = currentTab === t.key;
-          return (
-            <button
-              key={t.key}
-              onClick={() => navigate(t.key)}
-              style={{ ...styles.tabBtn, color: active ? "#1a1a1a" : "#999" }}
-            >
-              {t.icon(active)}
-              <span style={{ fontSize: 10, fontWeight: active ? 700 : 500, marginTop: 3, transition: "all 0.2s" }}>{t.label}</span>
-              {active && <div style={styles.tabIndicator} />}
-            </button>
-          );
-        })}
-      </div>
+      {/* Menu overlay - closes menu when clicking outside */}
+      {menuOpen && <div onClick={() => setMenuOpen(false)} style={{ position: "fixed", inset: 0, zIndex: 8 }} />}
     </div>
   );
 }
@@ -1129,7 +1161,7 @@ const styles = {
     backgroundColor: "#faf8f5",
     position: "relative",
     direction: "rtl",
-    paddingBottom: 62,
+    paddingBottom: 0,
   },
   header: {
     height: 42,
