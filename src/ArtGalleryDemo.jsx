@@ -69,6 +69,7 @@ const blogPosts = [
   {
     id: 'p1', title: 'בדידות בסביבה תוססת: על התערוכה החדשה', date: '28.12.2025', author: 'קורין אברהם',
     excerpt: 'התערוכה מבקשת להתבונן ברגע שבו אדם נמצא בלב ההמולה ועדיין מרגיש לבד. לא כקריסה, אלא כמצב תודעתי.',
+    coverImage: 'https://static.wixstatic.com/media/3e3f5c_8efc9803b8384a6cb0f5bd4b5c6f672e~mv2.jpg',
     content: `{link:e1:התערוכה "בדידות בסביבה תוססת"} נפתחה בגלריה שלנו בכיכר המדינה, ומזמינה את הצופים לחוויה רב-חושית. האוצרת קורין אברהם בחרה שבעה אמנים שכל אחד מהם מציע נקודת מבט שונה על אותה חוויה אנושית: גוף שנוכח אך לא נענה, דימוי שמושך את העין אך מסתיר ריק.
 
 כבר בכניסה, עבודותיו של {link:a1:זוהר רון} תופסות את העין. ב{link:w1:"גוף ושפה"}, הכתב העברי מקבל חיים חדשים כחומר ויזואלי, הנכתב בדיו ומכחול ישירות על הגוף. המילים אינן עיטור — הן פעולה טקסית, אינטימית, בעלת ממד כמעט מאגי.
@@ -78,11 +79,16 @@ const blogPosts = [
 מנגד, {link:a3:הולי קדוש} מציגה את סדרת {link:w3:"גן החיות של התודעה"} — מרחב פנימי של דימויים פראיים שנולד מתת־מודע. לצידה, {link:w5:"שק האגרוף"} שלה מציב את מסע ההתמודדות הפנימי בלב חלל תוסס.
 
 {link:e1:התערוכה} פתוחה עד 28.2.2026. מומלץ בחום.`,
-    imagePlaceholders: 3
+    images: [
+      'https://static.wixstatic.com/media/3e3f5c_9f8bdf75b4e64c9da6d7c57340c3b4a6~mv2.jpg',
+      'https://static.wixstatic.com/media/3e3f5c_e90d3845ab844e429bad3476217c025b~mv2.jpg',
+      'https://static.wixstatic.com/media/3e3f5c_33e9bc48115a443f93955bd8d4c0f741~mv2.jpg',
+    ]
   },
   {
     id: 'p2', title: 'גוף, שפה ומסכות: על האמנים בתערוכה', date: '15.01.2026', author: 'צוות הגלריה',
     excerpt: 'מזוהר רון ועד רז רונן — הכרות עם שבעת האמנים שמציגים בתערוכת "בדידות בסביבה תוססת".',
+    coverImage: 'https://static.wixstatic.com/media/3e3f5c_43cd1f7ecfcc4bc78ca2538f175aad2d~mv2.jpg',
     content: `שבעה אמנים, שבע שפות חזותיות, חוויה אחת משותפת. {link:e1:התערוכה "בדידות בסביבה תוססת"} מאגדת יוצרים מגוונים שכולם עוסקים בשאלות של זהות, שייכות וחיפוש.
 
 {link:a6:זוהר שטרית}, צלם ובמאי, מציג את {link:w7:"ליצן"} — תקריב מטושטש של פני ליצן, דימוי תרבותי המזוהה עם החצנה. הטשטוש מבטל זהות ומגדר, ומשאיר סימן חזותי טעון. העבודה בוחנת את המתח שבין ההגנה שהמסכה מספקת לבין המחיר שהיא גובה.
@@ -92,11 +98,17 @@ const blogPosts = [
 {link:a4:טל נהוראי} ב{link:w9:"פופ וביקורת"} מפתיעה עם אסתטיקה צבעונית ופופ־ארטית שמשמשת כעדשה ביקורתית על התרבות המערבית. ו{link:a5:האמניות האנונימיות} ב{link:w6:"קמעות"} מציעות כתב־סתרים מקורי — מערכת קודים שנוצרה במיוחד כלחישות חזותיות.
 
 כל האמנים מציגים בגלריה בכיכר המדינה, {link:a7:רז רונן} מציג גם בגלריה בכיכר דיזינגוף.`,
-    imagePlaceholders: 4
+    images: [
+      'https://static.wixstatic.com/media/3e3f5c_43cd1f7ecfcc4bc78ca2538f175aad2d~mv2.jpg',
+      'https://static.wixstatic.com/media/3e3f5c_4ce5eee9acdb48948a8ed374e79588dd~mv2.jpg',
+      'https://static.wixstatic.com/media/3e3f5c_456455c259914d0c90878d43e32d9871~mv2.jpg',
+      'https://static.wixstatic.com/media/3e3f5c_d41329c66b9644ddb5248ff888a3bf79~mv2.jpg',
+    ]
   },
   {
     id: 'p3', title: 'ארז זילינסקי־רוזן: "ריח כיצירה, יצירה כבית"', date: '01.01.2026', author: 'צוות הגלריה',
     excerpt: 'על החזון של ארז זילינסקי־רוזן, מייסד המותג, לחבר בין עולם הבישום לאמנות עכשווית.',
+    coverImage: 'https://images.squarespace-cdn.com/content/v1/5b6a0c9c7106997328d0b426/1683114779329-4A26HC728NYDAIUHYI4D/Erez%2BRozenR1-02879-007A.jpg',
     content: `ארז זילינסקי־רוזן הוא קודם כול אמן. לפני שהוא רוקח, לפני שהוא יזם — הוא יוצר. עולם הבישום עבורו הוא קנבס בלתי נראה שנבנה משכבות של רגש וזיכרון. הוא עובד מתוך אינטואיציה טהורה — ממצב רוח, מחוויות, מהחיים עצמם. כל בושם שהוא יוצר הוא יצירת אמנות, עם סיפור, עם צבע, עם פעימה.
 
 בדיוק כמו שהבשמים נולדים מתוך דיאלוג של רגש וחומר, כך גם הגלריות של ארז הן מקום שבו האמנות מתרחשת, זזה ומתפתחת, באופן שממשיך את מהות המותג: ריח כיצירה, יצירה כבית.
@@ -106,14 +118,17 @@ const blogPosts = [
 {link:e1:התערוכה הנוכחית "בדידות בסביבה תוססת"} היא דוגמה מושלמת לחזון הזה. היצירות מעלות שאלות של זהות, שייכות ואמת — ומאפשרות לקהל לפגוש את עצמו דרך האמנות. אמנים כמו {link:a1:זוהר רון}, {link:a3:הולי קדוש} ו{link:a7:רז רונן} מביאים לגלריה אנרגיה חדשה ומרגשת.
 
 "אמנות היא חלק בלתי נפרד מהמותג", אומר ארז. "אותו חופש שמוביל אותי בבישום, הוביל אותי לפתוח מרחבים שמכילים יצירה חיה ונושמת."`,
-    imagePlaceholders: 3
+    images: [
+      'https://images.squarespace-cdn.com/content/v1/5b6a0c9c7106997328d0b426/1684947653065-T061YOFP9LY929B7DQ3N/%21+Erez+RozenR1-02880-001A.jpg',
+      'https://images.squarespace-cdn.com/content/v1/5b6a0c9c7106997328d0b426/1683115087060-WIL4FNSSMHLKAB96EUUK/%21+GLD_5096.jpg',
+      'https://images.squarespace-cdn.com/content/v1/5b6a0c9c7106997328d0b426/1683196144914-I7ZJBXA8GGB6TP1B0HHR/%21+GLD_4943+copy.jpg',
+    ]
   },
 ];
 
 const galleries = [
-  { name: 'גלריה כיכר המדינה', address: 'ז\'בוטינסקי 131, תל אביב', hours: 'א\'-ה\' 10:00-19:00 | ו\' 10:00-14:00 | שבת סגור', mapUrl: 'https://maps.google.com/?q=ז\'בוטינסקי+131+תל+אביב' },
-  { name: 'גלריה כיכר דיזינגוף', address: 'כיכר דיזינגוף, תל אביב', hours: 'א\'-ה\' 10:00-19:00 | ו\' 10:00-14:00 | שבת סגור', mapUrl: 'https://maps.google.com/?q=כיכר+דיזינגוף+תל+אביב' },
-  { name: 'עולי ציון, יפו', address: 'רח\' עולי ציון 5, תל אביב-יפו', hours: 'א\'-ה\' 10:00-20:00 | ו\' 10:00-15:00 | שבת סגור', mapUrl: 'https://maps.google.com/?q=עולי+ציון+5+תל+אביב+יפו' },
+  { name: 'גלריה כיכר המדינה', address: 'ז\'בוטינסקי 131, תל אביב', hours: 'א\'-ה\' 10:00-19:00 | ו\' 10:00-14:00 | שבת סגור', mapUrl: 'https://maps.google.com/?q=ז\'בוטינסקי+131+תל+אביב', img: 'https://images.squarespace-cdn.com/content/v1/5b6a0c9c7106997328d0b426/1683115130513-LI91AHBMTX9D112361T2/GLD_5549.jpg' },
+  { name: 'גלריה כיכר דיזינגוף', address: 'כיכר דיזינגוף, תל אביב', hours: 'בקרוב', mapUrl: 'https://maps.google.com/?q=כיכר+דיזינגוף+תל+אביב', img: 'https://images.squarespace-cdn.com/content/v1/5b6a0c9c7106997328d0b426/1683110842725-E1ZLIN75RNVT1DYEQMF1/Zielenski+%26+Rozen+Dizengoff.jpg' },
 ];
 
 // ===== HELPER: get first image URL from an exhibition's artworks =====
@@ -830,8 +845,8 @@ export default function ArtGalleryApp() {
           <div className="galleries-grid">
           {galleries.map((g, i) => (
             <div key={i} style={{ display: "flex", alignItems: "center", gap: 14, padding: "16px 0", borderBottom: i < galleries.length - 1 ? "1px solid rgba(200,180,140,0.08)" : "none" }}>
-              <div style={{ width: 48, height: 48, backgroundColor: "rgba(200,180,140,0.08)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(200,180,140,0.35)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" /><circle cx="8.5" cy="8.5" r="1.5" /><path d="m21 15-5-5L5 21" /></svg>
+              <div style={{ width: 48, height: 48, borderRadius: 6, backgroundColor: "rgba(200,180,140,0.08)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, overflow: "hidden" }}>
+                {g.img ? <img src={g.img} alt={g.name} loading="lazy" style={{ width: "100%", height: "100%", objectFit: "cover" }} /> : <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(200,180,140,0.35)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" /><circle cx="8.5" cy="8.5" r="1.5" /><path d="m21 15-5-5L5 21" /></svg>}
               </div>
               <div style={{ flex: 1 }}>
                 <div style={{ fontWeight: 500, fontSize: 14, color: "#ede8e0", marginBottom: 3 }}>{g.name}</div>
@@ -855,8 +870,8 @@ export default function ArtGalleryApp() {
           <div className="carousel-scroll" style={{ display: "flex", gap: 12, overflowX: "auto", paddingLeft: 20, paddingRight: 20, scrollbarWidth: "none", scrollSnapType: "x mandatory", WebkitOverflowScrolling: "touch", touchAction: "manipulation", overscrollBehaviorX: "contain" }}>
             {blogPosts.slice(0, 3).map(post => (
               <div key={post.id} {...a11yClick(() => navigate("post", post.id))} style={{ flexShrink: 0, width: 200, cursor: "pointer", scrollSnapAlign: "center" }}>
-                <div style={{ width: 200, height: 120, overflow: "hidden", border: "1px solid rgba(200,180,140,0.15)", backgroundColor: "rgba(200,180,140,0.06)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgba(200,180,140,0.25)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16v16H4z" /><path d="M8 8h8M8 12h8M8 16h4" /></svg>
+                <div style={{ width: 200, height: 120, overflow: "hidden", border: "1px solid rgba(200,180,140,0.15)", backgroundColor: "rgba(200,180,140,0.06)" }}>
+                  {post.coverImage ? <img src={post.coverImage} alt={post.title} loading="lazy" style={{ width: "100%", height: "100%", objectFit: "cover" }} /> : <div style={{ width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center" }}><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgba(200,180,140,0.25)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16v16H4z" /><path d="M8 8h8M8 12h8M8 16h4" /></svg></div>}
                 </div>
                 <div style={{ fontSize: 12, color: "#ede8e0", marginTop: 6, lineHeight: 1.4 }}>{post.title.length > 36 ? post.title.substring(0, 36) + "…" : post.title}</div>
                 <div style={{ fontSize: 10, color: "#8a7e6c", marginTop: 3 }}>{post.date}</div>
@@ -990,7 +1005,7 @@ export default function ArtGalleryApp() {
       <div className="blog-grid" style={{ display: "flex", flexDirection: "column", gap: 20, padding: "0 20px" }}>
         {blogPosts.map((p) => (
           <div key={p.id} {...a11yClick(() => navigate("post", p.id))} style={{ cursor: "pointer" }}>
-            <Placeholder height={170} rounded={12} />
+            <Placeholder height={170} rounded={12} src={p.coverImage} />
             <div style={{ padding: "14px 4px 4px" }}>
               <div style={{ fontSize: 13, color: "#999", marginBottom: 4 }}>{p.date} &middot; {p.author}</div>
               <h2 style={{ fontSize: 20, fontWeight: 700, margin: "0 0 8px", color: "#1a1a1a", lineHeight: 1.4 }}>{p.title}</h2>
@@ -1210,15 +1225,17 @@ export default function ArtGalleryApp() {
     const post = blogPosts.find((p) => p.id === nav.id);
     if (!post) return null;
     const paragraphs = post.content.split('\n\n');
+    const postImages = post.images || [];
     let imgIdx = 0;
     return (
       <div style={{ ...styles.page, animation: "slideIn 0.25s ease" }}>
         <Breadcrumb crumbs={[{ label: "בית", onClick: goHome }, { label: "בלוג", onClick: () => navigate("blog") }, { label: post.title }]} title={post.title} />
         <div className="detail-content" style={{ padding: "0 20px 120px" }}>
-          <Placeholder height={200} rounded={12} />
+          <Placeholder height={200} rounded={12} src={post.coverImage} />
           <div style={{ fontSize: 14, color: "#999", marginTop: 16 }}>{post.date} &middot; {post.author}</div>
           {paragraphs.map((para, i) => {
-            const showImg = imgIdx < post.imagePlaceholders && i > 0 && i % 2 === 0;
+            const showImg = imgIdx < postImages.length && i > 0 && i % 2 === 0;
+            const currentImgIdx = imgIdx;
             if (showImg) imgIdx++;
             return (
               <div key={i}>
@@ -1227,7 +1244,7 @@ export default function ArtGalleryApp() {
                 </p>
                 {showImg && (
                   <div style={{ marginBottom: 14, borderRadius: 10, overflow: "hidden" }}>
-                    <Placeholder height={160} rounded={0} />
+                    <img src={postImages[currentImgIdx]} alt="" loading="lazy" style={{ width: "100%", height: "auto", display: "block" }} />
                   </div>
                 )}
               </div>
