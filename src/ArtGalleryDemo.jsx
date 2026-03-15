@@ -484,13 +484,14 @@ const Footer = ({ navigate, goHome }) => (
       <div style={{ marginBottom: 32, textAlign: "center" }}>
         <div style={{ fontSize: 12, fontWeight: 400, color: "#9a8e7a", letterSpacing: 4, textTransform: "uppercase", marginBottom: 12 }}>ניוזלטר</div>
         <p style={{ fontSize: 14, color: "#8a7e6c", marginBottom: 16, lineHeight: 1.6 }}>הישארו מעודכנים על תערוכות חדשות, אמנים ואירועים</p>
-        <div style={{ maxWidth: 340, margin: "0 auto", borderRadius: 8, overflow: "hidden" }}>
+        <div style={{ maxWidth: 360, margin: "0 auto", borderRadius: 8, overflow: "hidden", backgroundColor: "#181818" }}>
           <iframe
             title="ניוזלטר"
             src="https://www.wixforms.com/f/7438883621487772934"
             width="100%"
-            height="200"
-            style={{ border: "none", display: "block" }}
+            height="120"
+            scrolling="no"
+            style={{ border: "none", display: "block", overflow: "hidden" }}
             loading="lazy"
           />
         </div>
