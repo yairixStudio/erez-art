@@ -1,11 +1,6 @@
 import { useState, useEffect } from "react";
 
 // ===== DATA =====
-const curator = {
-  name: 'קורין אברהם',
-  bio: 'קורין אברהם היא יוצרת, אוצרת ויזמית תוכן הפועלת בצומת שבין אופנה, תרבות, אמנות ורגש. היא מייסדת פלטפורמת הלייף־סטייל והקריאייטיב ונמנית עם יוצרות התוכן בישראל ובעולם שפועלות בשפה חזותית מבוססת נרטיב. בשנים האחרונות פועלת אברהם כמשפיענית לייף סטייל בינלאומית וכמפיקה קריאייטיבית, ומשלבת בין עשייה דיגיטלית לעשייה תרבותית. היא שימשה כשגרירת המדיה הרשמית הראשונה של עיריית תל־אביב יפו, ויצרה שיתופי פעולה עם מותגי יוקרה בינלאומיים. בהכשרתה היא עורכת דין ובהדרגה פנתה לעשייה יצירתית הנשענת על צילום. עבודתה מאופיינת בדיוק אסתטי וביכולת לבנות סיפור דרך דימוי.',
-};
-
 const artists = [
   { id: 'a1', name: 'זוהר רון', nameEn: 'Zohar Ron', bio: 'זוהר רון הוא אומן חזותי, במאי וצלם המבטא חיבור ויזואלי ורעיוני בין פולחן טקסי לאסתטיקה ויופי. השימוש באלמנטים מהעולם השבטי מופיעים במרבית עבודותיו כסמל לחיבור לשורש התרבותי ממנו נובעת ההשראה והשפה הויזואלית ביצירותיו. זוהר רון פורם את הגבולות שבין שפה, גוף ודימוי, ויוצר מערכת יחסים חדשה ביניהם. הכתב העברי, מסורת עתיקת יומין של ביטוי פנימי ותפילה, מקבל בסדרה זו חיים חדשים כחומר ויזואלי, כמעט פיזי, הנכתב בדיו ומכחול ישירות על הגוף.', location: 'זוהר רון 48, תל-אביב יפו', gallery: 'גלריה בכיכר המדינה', img: 'https://static.wixstatic.com/media/3e3f5c_522cd7f84c694d77b2e235e64f05de77~mv2.jpg', instagram: 'https://instagram.com/zohar.ron.art', website: 'https://zoharron.com', email: 'zohar@zoharron.com' },
   { id: 'a2', name: 'איתן גולדסון', nameEn: 'Eitan Goldson', bio: 'איתן גולדסון, 31, נולד בקליפורניה ארה"ב וגדל בקיבוץ עין דור. העבודה שלו מגיעה מדו-שיח פנימי עמוק בין תרבויות מן העבר מול תרבות ההווה מול פנטזיות על עתיד פוסט אפוקליפטי בו נוצר מיזוג בין מודרניות לפרימיטיביות וטריבאליזם, מפגש בין מיתוס מן העולם למיתוס האישי שלו. מגיל צעיר מתעסק בציור ופיסול בחומרים מגוונים, כיום משלב צילום סטילז וגם וידאו וסאונד.', medium: 'מדיה מעורבת - צבעי שמן, אקריליק, גרפיט וקפה על קנוואס מודפס בלייזר', img: 'https://static.wixstatic.com/media/3e3f5c_a8c39ca649bb44ac8583c52c0c808bb9~mv2.jpg', instagram: 'https://instagram.com/eitangoldson', facebook: 'https://facebook.com/eitan.goldson.art', whatsapp: '972521234567' },
@@ -136,6 +131,14 @@ const getExhibitionCoverUrl = (ex) => {
 
 const isEnglish = (text) => /^[A-Za-z]/.test(text);
 
+// Accessibility helper — keyboard support for clickable non-button elements
+const a11yClick = (onClick) => ({
+  onClick,
+  onKeyDown: (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onClick(e); } },
+  tabIndex: 0,
+  role: 'button',
+});
+
 // ===== ICONS =====
 const Icons = {
   exhibitions: (active) => (
@@ -222,6 +225,7 @@ const Placeholder = ({ height = 180, rounded = 8, src }) => {
         <img
           src={src}
           alt=""
+          loading="lazy"
           style={{ width: "100%", height: "auto", display: "block" }}
         />
       </div>
@@ -277,7 +281,7 @@ const MediaSlideshow = ({ media }) => {
           <span style={{ fontSize: 12, color: "#bbb5ad" }}>וידאו</span>
         </div>
       ) : hasUrl ? (
-        <img src={item.url} alt={item.label || ''} style={{ width: "100%", height: "auto", display: "block" }} />
+        <img src={item.url} alt={item.label || ''} loading="lazy" style={{ width: "100%", height: "auto", display: "block" }} />
       ) : (
         <div style={{ width: "100%", height: 280, display: "flex", alignItems: "center", justifyContent: "center" }}>
           <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#bbb5ad" strokeWidth="1.2">
@@ -289,13 +293,13 @@ const MediaSlideshow = ({ media }) => {
       {/* arrows */}
       {total > 1 && (
         <>
-          <button onClick={next} style={arrowStyle("right")}
+          <button onClick={next} aria-label="תמונה הבאה" style={arrowStyle("right")}
             onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "rgba(255,255,255,1)")}
             onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "rgba(255,255,255,0.85)")}
           >
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" strokeWidth="2.5" strokeLinecap="round"><polyline points="9 18 15 12 9 6" /></svg>
           </button>
-          <button onClick={prev} style={arrowStyle("left")}
+          <button onClick={prev} aria-label="תמונה קודמת" style={arrowStyle("left")}
             onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "rgba(255,255,255,1)")}
             onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "rgba(255,255,255,0.85)")}
           >
@@ -311,7 +315,7 @@ const MediaSlideshow = ({ media }) => {
         </div>
         <div style={{ display: "flex", gap: 5 }}>
           {media.map((_, i) => (
-            <div key={i} onClick={() => setIdx(i)} style={{
+            <div key={i} {...a11yClick(() => setIdx(i))} aria-label={`תמונה ${i + 1}`} style={{
               width: i === idx ? 16 : 6, height: 6, borderRadius: 3,
               backgroundColor: i === idx ? "#fff" : "rgba(255,255,255,0.5)",
               cursor: "pointer", transition: "all 0.25s",
@@ -327,7 +331,7 @@ const AvatarPlaceholder = ({ size = 56, src }) => {
   if (src) {
     return (
       <div style={{ width: size, height: size, minWidth: size, borderRadius: "50%", overflow: "hidden", backgroundColor: "#e8e4df" }}>
-        <img src={src} alt="" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+        <img src={src} alt="" loading="lazy" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
       </div>
     );
   }
@@ -389,7 +393,7 @@ const SearchInput = ({ value, onChange, placeholder }) => (
 // ===== REUSABLE COMPONENTS =====
 const Tag = ({ children, onClick }) => (
   <span
-    onClick={onClick}
+    {...(onClick ? a11yClick(onClick) : {})}
     style={{ display: "inline-block", padding: "4px 12px", borderRadius: 20, backgroundColor: "#f0ece7", color: "#5a5249", fontSize: 12, fontWeight: 500, cursor: onClick ? "pointer" : "default", transition: "background 0.2s", lineHeight: 1.5 }}
     onMouseEnter={(e) => onClick && (e.target.style.backgroundColor = "#e5dfd8")}
     onMouseLeave={(e) => onClick && (e.target.style.backgroundColor = "#f0ece7")}
@@ -400,15 +404,6 @@ const Tag = ({ children, onClick }) => (
 
 const SectionHeader = ({ children }) => (
   <h3 style={{ fontSize: 13, fontWeight: 600, color: "#999", letterSpacing: "0.05em", margin: "24px 0 12px", textTransform: "uppercase" }}>{children}</h3>
-);
-
-const SocialButton = ({ icon, label, url, color }) => (
-  <a href={url} target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: 6, padding: "7px 14px", borderRadius: 20, backgroundColor: color || "#f0ece7", color: color ? "#fff" : "#5a5249", fontSize: 12, fontWeight: 500, cursor: "pointer", textDecoration: "none", transition: "opacity 0.2s" }}
-    onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.85")}
-    onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
-  >
-    <span style={{ display: "flex", alignItems: "center" }}>{icon}</span> {label}
-  </a>
 );
 
 // Parse blog content with inline links
@@ -424,7 +419,7 @@ const ParsedContent = ({ content, navigate }) => {
           if (id.startsWith('a')) onClick = () => navigate('artist', id);
           else if (id.startsWith('w')) onClick = () => navigate('artwork', id);
           else if (id.startsWith('e')) onClick = () => navigate('exhibition', id);
-          return <span key={i} style={{ color: "#5a5249", textDecoration: "underline", textDecorationColor: "#ccc", cursor: "pointer", fontWeight: 500 }} onClick={onClick}>{text}</span>;
+          return <span key={i} style={{ color: "#5a5249", textDecoration: "underline", textDecorationColor: "#ccc", cursor: "pointer", fontWeight: 500 }} {...a11yClick(onClick)}>{text}</span>;
         }
         return <span key={i}>{part}</span>;
       })}
@@ -446,7 +441,7 @@ const Breadcrumb = ({ crumbs, title }) => (
         </span>
       ))}
     </div>
-    <h1 style={{ fontSize: 28, fontWeight: 700, color: "#1a1a1a", margin: "8px 0 0", letterSpacing: "-0.3px", lineHeight: 1.3 }}>{title}</h1>
+    <h1 style={{ fontSize: 28, fontWeight: 700, color: "#1a1a1a", margin: "8px 0 0", letterSpacing: "-0.3px", lineHeight: 1.3, direction: isEnglish(title) ? "ltr" : "rtl" }}>{title}</h1>
   </div>
 );
 
@@ -463,7 +458,7 @@ const PageHero = ({ crumbs, title }) => (
         </span>
       ))}
     </div>
-    <h1 style={{ fontSize: 26, fontWeight: 700, color: "#ede8e0", margin: 0, letterSpacing: 1, lineHeight: 1.2 }}>{title}</h1>
+    <h1 style={{ fontSize: 26, fontWeight: 700, color: "#ede8e0", margin: 0, letterSpacing: 1, lineHeight: 1.2, direction: isEnglish(title) ? "ltr" : "rtl" }}>{title}</h1>
   </div>
 );
 
@@ -515,7 +510,7 @@ const Footer = ({ navigate, goHome }) => {
           { label: "אומנות", onClick: () => navigate("art") },
           { label: "בלוג", onClick: () => navigate("blog") },
         ].map((item) => (
-          <span key={item.label} onClick={item.onClick} style={{ fontSize: 13, color: "#8a7e6c", cursor: "pointer", transition: "color 0.2s" }}
+          <span key={item.label} {...a11yClick(item.onClick)} style={{ fontSize: 13, color: "#8a7e6c", cursor: "pointer", transition: "color 0.2s" }}
             onMouseEnter={(e) => (e.target.style.color = "#c8b99a")}
             onMouseLeave={(e) => (e.target.style.color = "#8a7e6c")}
           >{item.label}</span>
@@ -579,8 +574,6 @@ export default function ArtGalleryApp() {
   const [artistSearch, setArtistSearch] = useState("");
   const [artSearch, setArtSearch] = useState("");
 
-  const currentTab = ["exhibitions", "artists", "art", "blog"].includes(nav.page) ? nav.page : null;
-
   const deviceRef = { current: null };
 
   // Sync browser back/forward buttons
@@ -619,6 +612,8 @@ export default function ArtGalleryApp() {
     window.history.pushState(null, '', path);
     setNav(prev => ({ page: type, id, history: [...prev.history, { page: prev.page, id: prev.id }] }));
     setTimeout(scrollToTop, 0);
+    // GA page view
+    if (window.gtag) window.gtag('event', 'page_view', { page_path: path });
   };
 
   const goBack = () => {
@@ -642,6 +637,7 @@ export default function ArtGalleryApp() {
     window.history.pushState(null, '', '/');
     setNav({ page: "home", id: null, history: [] });
     setTimeout(scrollToTop, 0);
+    if (window.gtag) window.gtag('event', 'page_view', { page_path: '/' });
   };
 
   const goToGalleries = () => {
@@ -714,7 +710,8 @@ export default function ArtGalleryApp() {
       <div className="home-section" style={{ height: "calc(100vh - 42px)", minHeight: "calc(100vh - 42px)", padding: 0, position: "relative", overflow: "clip", display: "flex", flexDirection: "column" }}>
         <img
           src="https://static.wixstatic.com/media/3e3f5c_8efc9803b8384a6cb0f5bd4b5c6f672e~mv2.jpg"
-          alt="Erez Zielinski Rozen"
+          alt="Zielinski & Rozen Art Gallery"
+          fetchpriority="high"
           style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "left 20%", display: "block" }}
         />
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.15) 40%, rgba(0,0,0,0.3) 100%)", pointerEvents: "none" }} />
@@ -735,11 +732,11 @@ export default function ArtGalleryApp() {
       </div>
 
       {/* About */}
-      <div className="home-section home-section-auto" style={{ padding: "0", justifyContent: "flex-start", backgroundColor: "#0e0e0e" }}>
+      <div className="home-section home-section-auto" style={{ padding: "0", justifyContent: "flex-start", backgroundColor: "#0e0e0e", scrollSnapAlign: "start" }}>
         <div style={{ padding: "40px 20px 36px" }}>
-          <div style={{ display: "flex", gap: 18, alignItems: "flex-start" }}>
+          <div className="home-about" style={{ display: "flex", gap: 18, alignItems: "flex-start" }}>
             <div style={{ flexShrink: 0, width: 100, height: 130, borderRadius: 4, overflow: "hidden", border: "1px solid rgba(200,180,140,0.15)" }}>
-              <img src="https://images.squarespace-cdn.com/content/v1/5b6a0c9c7106997328d0b426/1683114779329-4A26HC728NYDAIUHYI4D/Erez%2BRozenR1-02879-007A.jpg" alt="ארז זילינסקי־רוזן" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+              <img src="https://images.squarespace-cdn.com/content/v1/5b6a0c9c7106997328d0b426/1683114779329-4A26HC728NYDAIUHYI4D/Erez%2BRozenR1-02879-007A.jpg" alt="ארז זילינסקי־רוזן" loading="lazy" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
             </div>
             <div style={{ flex: 1 }}>
               <div style={{ fontSize: 16, fontWeight: 600, color: "#ede8e0", marginBottom: 8 }}>ארז זילינסקי־רוזן</div>
@@ -752,9 +749,9 @@ export default function ArtGalleryApp() {
       </div>
 
       {/* Exhibitions + Artists */}
-      <div className="home-section home-section-auto" style={{ padding: "0", justifyContent: "flex-start", backgroundColor: "#0e0e0e" }}>
+      <div className="home-section home-section-auto" style={{ padding: "0", justifyContent: "flex-start", backgroundColor: "#0e0e0e", scrollSnapAlign: "start" }}>
         <div style={{ padding: "28px 0 12px", borderTop: "1px solid rgba(200,180,140,0.1)" }}>
-          <div onClick={() => navigate("exhibitions")} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 20px", marginBottom: 12, cursor: "pointer" }}>
+          <div {...a11yClick(() => navigate("exhibitions"))} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 20px", marginBottom: 12, cursor: "pointer" }}>
             <div style={{ fontSize: 15, fontWeight: 600, color: "#c8b99a", letterSpacing: 4, textTransform: "uppercase" }}>תערוכות</div>
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9a8e7a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6" /></svg>
           </div>
@@ -762,15 +759,15 @@ export default function ArtGalleryApp() {
             {exhibitions.map(ex => {
               const coverUrl = getExhibitionCoverUrl(ex);
               return (
-                <div key={ex.id} onClick={() => navigate("exhibition", ex.id)} style={{ flexShrink: 0, width: 230, cursor: "pointer", scrollSnapAlign: "center" }}>
+                <div key={ex.id} {...a11yClick(() => navigate("exhibition", ex.id))} style={{ flexShrink: 0, width: 230, cursor: "pointer", scrollSnapAlign: "center" }}>
                   <div style={{ width: 230, height: 140, overflow: "hidden", border: "1px solid rgba(200,180,140,0.15)" }}>
-                    {coverUrl ? <img src={coverUrl} alt={ex.title} style={{ width: "100%", height: "100%", objectFit: "cover" }} /> : <div style={{ width: "100%", height: "100%", backgroundColor: "rgba(200,180,140,0.08)" }} />}
+                    {coverUrl ? <img src={coverUrl} alt={ex.title} loading="lazy" style={{ width: "100%", height: "100%", objectFit: "cover" }} /> : <div style={{ width: "100%", height: "100%", backgroundColor: "rgba(200,180,140,0.08)" }} />}
                   </div>
                   <div style={{ fontSize: 11, color: "#ede8e0", marginTop: 6, lineHeight: 1.3, direction: isEnglish(ex.title) ? "ltr" : "rtl" }}>{ex.title.length > 28 ? ex.title.substring(0, 28) + "…" : ex.title}</div>
                 </div>
               );
             })}
-            <div onClick={() => navigate("exhibitions")} style={{ flexShrink: 0, width: 230, cursor: "pointer", scrollSnapAlign: "center" }}>
+            <div {...a11yClick(() => navigate("exhibitions"))} aria-label="עוד תערוכות" style={{ flexShrink: 0, width: 230, cursor: "pointer", scrollSnapAlign: "center" }}>
               <div style={{ width: 230, height: 140, overflow: "hidden", border: "1px solid rgba(200,180,140,0.15)", display: "flex", alignItems: "center", justifyContent: "center", backgroundColor: "rgba(200,180,140,0.06)" }}>
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#a89a82" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="17" y1="17" x2="7" y2="7" /><polyline points="17 7 7 7 7 17" /></svg>
               </div>
@@ -780,20 +777,20 @@ export default function ArtGalleryApp() {
         </div>
 
         <div style={{ padding: "24px 0 16px" }}>
-          <div onClick={() => navigate("artists")} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 20px", marginBottom: 12, cursor: "pointer" }}>
+          <div {...a11yClick(() => navigate("artists"))} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 20px", marginBottom: 12, cursor: "pointer" }}>
             <div style={{ fontSize: 15, fontWeight: 600, color: "#c8b99a", letterSpacing: 4, textTransform: "uppercase" }}>אמנים</div>
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9a8e7a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6" /></svg>
           </div>
           <div className="carousel-scroll" style={{ display: "flex", gap: 16, overflowX: "auto", paddingLeft: 20, paddingRight: 20, scrollbarWidth: "none", scrollSnapType: "x mandatory", WebkitOverflowScrolling: "touch", touchAction: "manipulation", overscrollBehaviorX: "contain" }}>
             {artists.map(ar => (
-              <div key={ar.id} onClick={() => navigate("artist", ar.id)} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 6, cursor: "pointer", flexShrink: 0, scrollSnapAlign: "center" }}>
+              <div key={ar.id} {...a11yClick(() => navigate("artist", ar.id))} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 6, cursor: "pointer", flexShrink: 0, scrollSnapAlign: "center" }}>
                 <div style={{ width: 80, height: 80, borderRadius: "50%", overflow: "hidden", border: "1.5px solid rgba(200,180,140,0.25)" }}>
-                  {ar.img ? <img src={ar.img} alt={ar.name} style={{ width: "100%", height: "100%", objectFit: "cover" }} /> : <div style={{ width: "100%", height: "100%", backgroundColor: "rgba(200,180,140,0.1)" }} />}
+                  {ar.img ? <img src={ar.img} alt={ar.name} loading="lazy" style={{ width: "100%", height: "100%", objectFit: "cover" }} /> : <div style={{ width: "100%", height: "100%", backgroundColor: "rgba(200,180,140,0.1)" }} />}
                 </div>
                 <div style={{ fontSize: 11, color: "#a89a82", textAlign: "center", maxWidth: 72, lineHeight: 1.2 }}>{ar.name.split(" ")[0]}</div>
               </div>
             ))}
-            <div onClick={() => navigate("artists")} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 6, cursor: "pointer", flexShrink: 0, scrollSnapAlign: "center" }}>
+            <div {...a11yClick(() => navigate("artists"))} aria-label="עוד אמנים" style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 6, cursor: "pointer", flexShrink: 0, scrollSnapAlign: "center" }}>
               <div style={{ width: 80, height: 80, borderRadius: "50%", border: "1.5px solid rgba(200,180,140,0.25)", display: "flex", alignItems: "center", justifyContent: "center" }}>
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#a89a82" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="17" y1="17" x2="7" y2="7" /><polyline points="17 7 7 7 7 17" /></svg>
               </div>
@@ -804,32 +801,33 @@ export default function ArtGalleryApp() {
       </div>
 
       {/* Artworks grid */}
-      <div className="home-section" style={{ padding: "28px 20px 0", backgroundColor: "#0a0a0a" }}>
-        <div onClick={() => navigate("art")} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 18, cursor: "pointer" }}>
+      <div className="home-section" style={{ padding: "28px 20px 0", backgroundColor: "#0a0a0a", scrollSnapAlign: "start" }}>
+        <div {...a11yClick(() => navigate("art"))} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 18, cursor: "pointer" }}>
           <div style={{ fontSize: 15, fontWeight: 600, color: "#c8b99a", letterSpacing: 4, textTransform: "uppercase" }}>אמנות</div>
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9a8e7a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6" /></svg>
         </div>
         <div style={{ position: "relative" }}>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 8 }}>
-            {artworks.filter(w => getArtworkThumb(w)).slice(0, 9).map(w => (
-              <div key={w.id} onClick={() => navigate("artwork", w.id)} style={{ cursor: "pointer", overflow: "hidden", border: "1px solid rgba(200,180,140,0.12)" }}>
-                <img src={getArtworkThumb(w)} alt={w.title} style={{ width: "100%", height: "auto", display: "block" }} />
+          <div className="art-grid-home">
+            {artworks.filter(w => getArtworkThumb(w)).slice(0, 8).map(w => (
+              <div key={w.id} {...a11yClick(() => navigate("artwork", w.id))} style={{ cursor: "pointer", overflow: "hidden", border: "1px solid rgba(200,180,140,0.12)" }}>
+                <img src={getArtworkThumb(w)} alt={w.title} loading="lazy" style={{ width: "100%", height: "auto", display: "block" }} />
               </div>
             ))}
           </div>
           {/* Fade overlay on bottom row + CTA */}
-          <div onClick={() => navigate("art")} style={{ position: "absolute", bottom: 0, left: -20, right: -20, height: "55%", background: "linear-gradient(to top, #0a0a0a 0%, rgba(10,10,10,0.95) 30%, rgba(10,10,10,0) 100%)", display: "flex", alignItems: "flex-end", justifyContent: "center", paddingBottom: 24, cursor: "pointer" }}>
+          <div {...a11yClick(() => navigate("art"))} style={{ position: "absolute", bottom: 0, left: -20, right: -20, height: "55%", background: "linear-gradient(to top, #0a0a0a 0%, rgba(10,10,10,0.95) 30%, rgba(10,10,10,0) 100%)", display: "flex", alignItems: "flex-end", justifyContent: "center", paddingBottom: 24, cursor: "pointer" }}>
             <span style={{ fontSize: 13, color: "#0a0a0a", letterSpacing: 2, backgroundColor: "#c8b99a", padding: "10px 28px", fontWeight: 600 }}>צפייה בכל העבודות</span>
           </div>
         </div>
       </div>
 
       {/* Galleries + Blog */}
-      <div className="home-section" style={{ padding: "0", justifyContent: "flex-start", backgroundColor: "#0e0e0e" }}>
+      <div className="home-section" style={{ padding: "0", justifyContent: "flex-start", backgroundColor: "#0e0e0e", scrollSnapAlign: "start" }}>
         <div id="galleries-section" style={{ padding: "28px 24px 16px" }}>
           <div style={{ display: "flex", alignItems: "center", padding: "0", marginBottom: 20 }}>
             <div style={{ fontSize: 15, fontWeight: 600, color: "#c8b99a", letterSpacing: 4, textTransform: "uppercase" }}>הגלריות</div>
           </div>
+          <div className="galleries-grid">
           {galleries.map((g, i) => (
             <div key={i} style={{ display: "flex", alignItems: "center", gap: 14, padding: "16px 0", borderBottom: i < galleries.length - 1 ? "1px solid rgba(200,180,140,0.08)" : "none" }}>
               <div style={{ width: 48, height: 48, backgroundColor: "rgba(200,180,140,0.08)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
@@ -840,22 +838,23 @@ export default function ArtGalleryApp() {
                 <div style={{ fontSize: 12, color: "#a89a82", marginBottom: 2 }}>{g.address}</div>
                 <div style={{ fontSize: 11, color: "#8a7e6c" }}>{g.hours}</div>
               </div>
-              <div onClick={(e) => { e.stopPropagation(); window.open(g.mapUrl, '_blank'); }} style={{ width: 32, height: 32, borderRadius: "50%", border: "1px solid rgba(200,180,140,0.2)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, cursor: "pointer" }}>
+              <div {...a11yClick((e) => { e.stopPropagation(); window.open(g.mapUrl, '_blank'); })} aria-label={`ניווט ל${g.name}`} style={{ width: 32, height: 32, borderRadius: "50%", border: "1px solid rgba(200,180,140,0.2)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, cursor: "pointer" }}>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="#a89a82"><path d="m21.41 10.59-7.99-8c-.78-.78-2.05-.78-2.83 0l-8.01 8c-.78.78-.78 2.05 0 2.83l8.01 8c.78.78 2.05.78 2.83 0l7.99-8c.79-.79.79-2.05 0-2.83zM13.5 14.5V12H10v3H8v-4c0-.55.45-1 1-1h4.5V7.5L17 11l-3.5 3.5z" /></svg>
               </div>
             </div>
           ))}
+          </div>
         </div>
 
         {/* Blog scroll */}
         <div style={{ padding: "28px 0 16px" }}>
-          <div onClick={() => navigate("blog")} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 20px", marginBottom: 18, cursor: "pointer" }}>
+          <div {...a11yClick(() => navigate("blog"))} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 20px", marginBottom: 18, cursor: "pointer" }}>
             <div style={{ fontSize: 15, fontWeight: 600, color: "#c8b99a", letterSpacing: 4, textTransform: "uppercase" }}>בלוג</div>
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9a8e7a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6" /></svg>
           </div>
           <div className="carousel-scroll" style={{ display: "flex", gap: 12, overflowX: "auto", paddingLeft: 20, paddingRight: 20, scrollbarWidth: "none", scrollSnapType: "x mandatory", WebkitOverflowScrolling: "touch", touchAction: "manipulation", overscrollBehaviorX: "contain" }}>
             {blogPosts.slice(0, 3).map(post => (
-              <div key={post.id} onClick={() => navigate("post", post.id)} style={{ flexShrink: 0, width: 200, cursor: "pointer", scrollSnapAlign: "center" }}>
+              <div key={post.id} {...a11yClick(() => navigate("post", post.id))} style={{ flexShrink: 0, width: 200, cursor: "pointer", scrollSnapAlign: "center" }}>
                 <div style={{ width: 200, height: 120, overflow: "hidden", border: "1px solid rgba(200,180,140,0.15)", backgroundColor: "rgba(200,180,140,0.06)", display: "flex", alignItems: "center", justifyContent: "center" }}>
                   <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgba(200,180,140,0.25)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16v16H4z" /><path d="M8 8h8M8 12h8M8 16h4" /></svg>
                 </div>
@@ -863,7 +862,7 @@ export default function ArtGalleryApp() {
                 <div style={{ fontSize: 10, color: "#8a7e6c", marginTop: 3 }}>{post.date}</div>
               </div>
             ))}
-            <div onClick={() => navigate("blog")} style={{ flexShrink: 0, width: 200, cursor: "pointer", scrollSnapAlign: "center" }}>
+            <div {...a11yClick(() => navigate("blog"))} aria-label="עוד פוסטים" style={{ flexShrink: 0, width: 200, cursor: "pointer", scrollSnapAlign: "center" }}>
               <div style={{ width: 200, height: 120, overflow: "hidden", border: "1px solid rgba(200,180,140,0.15)", display: "flex", alignItems: "center", justifyContent: "center", backgroundColor: "rgba(200,180,140,0.06)" }}>
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#a89a82" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="17" y1="17" x2="7" y2="7" /><polyline points="17 7 7 7 7 17" /></svg>
               </div>
@@ -881,11 +880,11 @@ export default function ArtGalleryApp() {
   const renderExhibitions = () => (
     <TexturedContainer style={{ paddingBottom: 120 }}>
       <PageHero crumbs={[{ label: "בית", onClick: goHome }, { label: "תערוכות" }]} title="תערוכות" />
-      <div style={{ display: "flex", flexDirection: "column", gap: 32, padding: "0 20px" }}>
+      <div className="exhibitions-grid" style={{ display: "flex", flexDirection: "column", gap: 32, padding: "0 20px" }}>
         {exhibitions.map((ex) => {
           const coverUrl = getExhibitionCoverUrl(ex);
           return (
-            <div key={ex.id} onClick={() => navigate("exhibition", ex.id)} style={{ cursor: "pointer" }}>
+            <div key={ex.id} {...a11yClick(() => navigate("exhibition", ex.id))} style={{ cursor: "pointer" }}>
               <Placeholder height={190} rounded={12} src={coverUrl} />
               <div style={{ padding: "16px 4px 4px" }}>
                 <div style={{ textAlign: "center", marginBottom: 8 }}>
@@ -922,14 +921,14 @@ export default function ArtGalleryApp() {
         <PageHero crumbs={[{ label: "בית", onClick: goHome }, { label: "אמנים" }]} title="אמנים" />
         <div style={{ padding: "0 20px" }}>
         <SearchInput value={artistSearch} onChange={setArtistSearch} placeholder="חיפוש אמנים..." />
-        <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
+        <div className="artists-list" style={{ display: "flex", flexDirection: "column", gap: 2 }}>
           {filtered.length === 0 && (
             <div style={{ textAlign: "center", padding: "40px 0", color: "#999", fontSize: 14 }}>לא נמצאו תוצאות</div>
           )}
           {filtered.map((ar) => {
             const workCount = artworks.filter((w) => w.artistId === ar.id).length;
             return (
-              <div key={ar.id} onClick={() => navigate("artist", ar.id)} style={styles.artistRow}>
+              <div key={ar.id} {...a11yClick(() => navigate("artist", ar.id))} style={styles.artistRow}>
                 <AvatarPlaceholder size={52} src={ar.img} />
                 <div style={{ flex: 1 }}>
                   <div style={{ fontSize: 18, fontWeight: 600, color: "#1a1a1a" }}>{ar.name}</div>
@@ -963,12 +962,12 @@ export default function ArtGalleryApp() {
         {filtered.length === 0 && (
           <div style={{ textAlign: "center", padding: "40px 0", color: "#999", fontSize: 14 }}>לא נמצאו תוצאות</div>
         )}
-        <div style={{ columns: 2, columnGap: 14 }}>
+        <div className="art-masonry" style={{ columns: 2, columnGap: 14 }}>
           {filtered.map((w) => {
             const ar = getArtist(w.artistId);
             const thumbUrl = getArtworkThumb(w);
             return (
-              <div key={w.id} onClick={() => navigate("artwork", w.id)} style={{ cursor: "pointer", breakInside: "avoid", marginBottom: 16 }}>
+              <div key={w.id} {...a11yClick(() => navigate("artwork", w.id))} style={{ cursor: "pointer", breakInside: "avoid", marginBottom: 16 }}>
                 <Placeholder height={140} rounded={10} src={thumbUrl} />
                 <div style={{ padding: "8px 2px 0" }}>
                   <div style={{ fontSize: 16, fontWeight: 600, color: "#1a1a1a", lineHeight: 1.3 }}>{w.title}</div>
@@ -988,9 +987,9 @@ export default function ArtGalleryApp() {
   const renderBlog = () => (
     <TexturedContainer style={{ paddingBottom: 120 }}>
       <PageHero crumbs={[{ label: "בית", onClick: goHome }, { label: "בלוג" }]} title="בלוג" />
-      <div style={{ display: "flex", flexDirection: "column", gap: 20, padding: "0 20px" }}>
+      <div className="blog-grid" style={{ display: "flex", flexDirection: "column", gap: 20, padding: "0 20px" }}>
         {blogPosts.map((p) => (
-          <div key={p.id} onClick={() => navigate("post", p.id)} style={{ cursor: "pointer" }}>
+          <div key={p.id} {...a11yClick(() => navigate("post", p.id))} style={{ cursor: "pointer" }}>
             <Placeholder height={170} rounded={12} />
             <div style={{ padding: "14px 4px 4px" }}>
               <div style={{ fontSize: 13, color: "#999", marginBottom: 4 }}>{p.date} &middot; {p.author}</div>
@@ -1011,7 +1010,7 @@ export default function ArtGalleryApp() {
     return (
       <div style={{ ...styles.page, animation: "slideIn 0.25s ease" }}>
         <Breadcrumb crumbs={[{ label: "בית", onClick: goHome }, { label: "תערוכות", onClick: () => navigate("exhibitions") }, { label: ex.title }]} title={ex.title} />
-        <div style={{ padding: "0 20px 120px" }}>
+        <div className="detail-content" style={{ padding: "0 20px 120px" }}>
           <Placeholder height={220} rounded={12} src={coverUrl} />
           <div style={{ textAlign: "center", margin: "20px 0 8px" }}>
             <StatusBadge status={ex.status} />
@@ -1062,17 +1061,17 @@ export default function ArtGalleryApp() {
           {ex.artworkIds.length > 0 && (
             <>
               <SectionHeader>יצירות בתערוכה</SectionHeader>
-              <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+              <div className="exhibition-artworks" style={{ display: "flex", flexDirection: "column", gap: 12 }}>
                 {ex.artworkIds.map((wid) => {
                   const w = getArtwork(wid);
                   if (!w) return null;
                   const ar = getArtist(w.artistId);
                   const thumbUrl = getArtworkThumb(w);
                   return (
-                    <div key={wid} onClick={() => navigate("artwork", wid)} style={styles.miniCard}>
+                    <div key={wid} {...a11yClick(() => navigate("artwork", wid))} style={styles.miniCard}>
                       <div style={{ width: 72, height: 72, minWidth: 72, borderRadius: 8, backgroundColor: "#e8e4df", overflow: "hidden" }}>
                         {thumbUrl ? (
-                          <img src={thumbUrl} alt="" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+                          <img src={thumbUrl} alt={w.title} loading="lazy" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
                         ) : null}
                       </div>
                       <div style={{ flex: 1 }}>
@@ -1146,7 +1145,7 @@ export default function ArtGalleryApp() {
               {works.map((w) => {
                 const thumbUrl = getArtworkThumb(w);
                 return (
-                  <div key={w.id} onClick={() => navigate("artwork", w.id)} style={{ cursor: "pointer", breakInside: "avoid", marginBottom: 14 }}>
+                  <div key={w.id} {...a11yClick(() => navigate("artwork", w.id))} style={{ cursor: "pointer", breakInside: "avoid", marginBottom: 14 }}>
                     <Placeholder height={120} rounded={10} src={thumbUrl} />
                     <div style={{ fontSize: 15, fontWeight: 600, marginTop: 8, color: "#1a1a1a" }}>{w.title}</div>
                     <div style={{ fontSize: 13, color: "#999" }}>{w.year}</div>
@@ -1182,7 +1181,7 @@ export default function ArtGalleryApp() {
     return (
       <div style={{ ...styles.page, animation: "slideIn 0.25s ease" }}>
         <Breadcrumb crumbs={[{ label: "בית", onClick: goHome }, { label: "אומנות", onClick: () => navigate("art") }, { label: w.title }]} title={w.title} />
-        <div style={{ padding: "0 20px 120px" }}>
+        <div className="detail-content" style={{ padding: "0 20px 120px" }}>
           <MediaSlideshow media={w.media} />
           <div style={{ display: "flex", gap: 12, alignItems: "center", marginBottom: 6, flexWrap: "wrap" }}>
             <Tag onClick={() => navigate("artist", w.artistId)}>{ar?.name}</Tag>
@@ -1215,7 +1214,7 @@ export default function ArtGalleryApp() {
     return (
       <div style={{ ...styles.page, animation: "slideIn 0.25s ease" }}>
         <Breadcrumb crumbs={[{ label: "בית", onClick: goHome }, { label: "בלוג", onClick: () => navigate("blog") }, { label: post.title }]} title={post.title} />
-        <div style={{ padding: "0 20px 120px" }}>
+        <div className="detail-content" style={{ padding: "0 20px 120px" }}>
           <Placeholder height={200} rounded={12} />
           <div style={{ fontSize: 14, color: "#999", marginTop: 16 }}>{post.date} &middot; {post.author}</div>
           {paragraphs.map((para, i) => {
@@ -1256,7 +1255,7 @@ export default function ArtGalleryApp() {
   };
 
   return (
-    <div ref={(el) => { deviceRef.current = el; }} style={styles.device}>
+    <div ref={(el) => { deviceRef.current = el; }} className="gallery-device" style={styles.device}>
       <style>{`
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Ezmel', 'DIN Next', sans-serif; -webkit-tap-highlight-color: transparent; }
         ${nav.page === "home" ? "html { scroll-snap-type: y proximity; scroll-padding-top: 42px; }" : ""}
@@ -1270,34 +1269,84 @@ export default function ArtGalleryApp() {
         .home-section.section-visible { opacity: 1; }
         .home-section:first-child { opacity: 1; }
         .home-section:first-child > * { animation: sectionReveal 0.7s ease both; }
+
+        /* Accessibility */
+        .skip-link { position: absolute; top: -100%; left: 50%; transform: translateX(-50%); z-index: 100; background: #2A4C39; color: #fff; padding: 12px 24px; font-size: 14px; font-weight: 600; text-decoration: none; border-radius: 0 0 8px 8px; transition: top 0.2s; }
+        .skip-link:focus { top: 0; }
+        :focus-visible { outline: 2px solid #2A4C39; outline-offset: 2px; }
+        button:focus-visible, a:focus-visible, [role="button"]:focus-visible { outline: 2px solid #2A4C39; outline-offset: 2px; }
+
+        /* Responsive container */
+        .gallery-device { max-width: 430px; }
+
+        /* Art grid — mobile 2x2, desktop 4 per row */
+        .art-grid-home { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+        .art-grid-home > :nth-child(n+5) { display: none; }
+
+        /* Carousel scrollbar */
+        .carousel-scroll::-webkit-scrollbar { display: none; }
+
+        @media (min-width: 768px) {
+          .gallery-device { max-width: 768px; }
+          .art-grid-home { grid-template-columns: repeat(4, 1fr); gap: 12px; }
+          .art-grid-home > :nth-child(n+5) { display: block; }
+          .exhibitions-grid { flex-direction: row !important; flex-wrap: wrap !important; }
+          .exhibitions-grid > div { flex: 1 1 calc(50% - 16px); max-width: calc(50% - 16px); }
+          .artists-list { display: grid !important; grid-template-columns: 1fr 1fr; gap: 0 24px; }
+          .art-masonry { columns: 3 !important; column-gap: 16px !important; }
+          .blog-grid { flex-direction: row !important; flex-wrap: wrap !important; }
+          .blog-grid > div { flex: 1 1 calc(50% - 12px); max-width: calc(50% - 12px); }
+          .detail-content { max-width: 640px; margin-left: auto; margin-right: auto; }
+          .exhibition-artworks { display: grid !important; grid-template-columns: 1fr 1fr; gap: 12px !important; }
+          .home-about { gap: 24px !important; }
+          .home-about img { width: 140px !important; height: 180px !important; }
+          .carousel-scroll::-webkit-scrollbar { display: block; height: 4px; }
+          .carousel-scroll::-webkit-scrollbar-track { background: transparent; }
+          .carousel-scroll::-webkit-scrollbar-thumb { background: rgba(200,180,140,0.3); border-radius: 2px; }
+          .carousel-scroll { scrollbar-width: thin; scrollbar-color: rgba(200,180,140,0.3) transparent; }
+          .galleries-grid { display: grid !important; grid-template-columns: 1fr 1fr; gap: 0 24px; }
+        }
+
+        @media (min-width: 1024px) {
+          .gallery-device { max-width: 960px; }
+          .art-masonry { columns: 4 !important; }
+          .exhibitions-grid > div { flex: 1 1 calc(50% - 16px); }
+        }
+
+        @media (min-width: 1280px) {
+          .gallery-device { max-width: 1100px; }
+        }
       `}</style>
 
+      {/* Skip to content — accessibility */}
+      <a href="#main-content" className="skip-link">דלג לתוכן</a>
+
       {/* HEADER - sticky */}
-      <div style={{ position: "sticky", top: 0, zIndex: 10 }}>
+      <header style={{ position: "sticky", top: 0, zIndex: 10 }}>
         <div style={{ ...styles.header, position: "relative", top: 0, justifyContent: "space-between", padding: "0 14px" }}>
           {/* Grunge texture overlay */}
           {textureUrl && <div style={{ position: "absolute", inset: 0, backgroundImage: `url("${textureUrl}")`, backgroundRepeat: "repeat", backgroundSize: "200% auto", opacity: 0.18, pointerEvents: "none", mixBlendMode: "soft-light" }} />}
           <svg style={{ position: "absolute", width: 0, height: 0 }}><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="4" stitchTiles="stitch" /><feColorMatrix type="saturate" values="0" /></filter></svg>
           <div style={{ position: "absolute", inset: 0, filter: "url(#noise)", opacity: 0.08, pointerEvents: "none", mixBlendMode: "multiply" }} />
           {/* Location icon - right side (RTL) */}
-          <button onClick={goToGalleries} style={{ background: "none", border: "none", cursor: "pointer", padding: 4, position: "relative", zIndex: 1, display: "flex", alignItems: "center" }}>
+          <button onClick={goToGalleries} aria-label="הגלריות" style={{ background: "none", border: "none", cursor: "pointer", padding: 4, position: "relative", zIndex: 1, display: "flex", alignItems: "center" }}>
             <svg width="18" height="18" viewBox="0 0 24 24" fill="#e8e4df"><path d="m21.41 10.59-7.99-8c-.78-.78-2.05-.78-2.83 0l-8.01 8c-.78.78-.78 2.05 0 2.83l8.01 8c.78.78 2.05.78 2.83 0l7.99-8c.79-.79.79-2.05 0-2.83zM13.5 14.5V12H10v3H8v-4c0-.55.45-1 1-1h4.5V7.5L17 11l-3.5 3.5z" /></svg>
           </button>
           {/* Logo - center */}
-          <div onClick={goHome} style={{ position: "absolute", left: "50%", transform: "translateX(-50%)", display: "flex", alignItems: "center", cursor: "pointer", zIndex: 1 }}>
+          <div {...a11yClick(goHome)} aria-label="דף הבית" style={{ position: "absolute", left: "50%", transform: "translateX(-50%)", display: "flex", alignItems: "center", cursor: "pointer", zIndex: 1 }}>
             <span style={{ direction: "ltr", unicodeBidi: "bidi-override", fontWeight: 700, fontSize: 13, letterSpacing: 2.5, whiteSpace: "nowrap" }}>ZIELINSKI & ROZEN <span style={{ color: "#fff", fontWeight: 800 }}>| ART</span></span>
           </div>
           {/* Hamburger - left side (RTL) */}
-          <button onClick={() => setMenuOpen(prev => !prev)} style={{ background: "none", border: "none", cursor: "pointer", padding: 4, position: "relative", zIndex: 1, display: "flex", flexDirection: "column", gap: 4 }}>
+          <button onClick={() => setMenuOpen(prev => !prev)} aria-label="תפריט" aria-expanded={menuOpen} style={{ background: "none", border: "none", cursor: "pointer", padding: 4, position: "relative", zIndex: 1, display: "flex", flexDirection: "column", gap: 4 }}>
             <span style={{ display: "block", width: 20, height: 1.5, backgroundColor: "#e8e4df", borderRadius: 1, transition: "all 0.3s", transformOrigin: "center", transform: menuOpen ? "translateY(5.5px) rotate(45deg)" : "none" }} />
             <span style={{ display: "block", width: 20, height: 1.5, backgroundColor: "#e8e4df", borderRadius: 1, transition: "all 0.3s", opacity: menuOpen ? 0 : 1 }} />
             <span style={{ display: "block", width: 20, height: 1.5, backgroundColor: "#e8e4df", borderRadius: 1, transition: "all 0.3s", transformOrigin: "center", transform: menuOpen ? "translateY(-5.5px) rotate(-45deg)" : "none" }} />
           </button>
         </div>
-      </div>
+      </header>
 
       {/* DROPDOWN MENU */}
-      <div style={{
+      <nav aria-label="תפריט ניווט" style={{
         position: "sticky", top: 42, zIndex: 9,
         maxHeight: menuOpen ? 300 : 0,
         overflow: "hidden",
@@ -1340,13 +1389,13 @@ export default function ArtGalleryApp() {
             >{item.label}</button>
           ))}
         </div>
-      </div>
+      </nav>
 
       {/* CONTENT */}
-      <div style={styles.content}>
+      <main id="main-content" style={styles.content}>
         {renderPage()}
         {nav.page !== "home" && <Footer navigate={navigate} goHome={goHome} />}
-      </div>
+      </main>
 
       {/* Menu overlay - closes menu when clicking outside */}
       {menuOpen && <div onClick={() => setMenuOpen(false)} style={{ position: "fixed", inset: 0, zIndex: 8 }} />}
@@ -1358,7 +1407,6 @@ export default function ArtGalleryApp() {
 const styles = {
   device: {
     width: "100%",
-    maxWidth: 430,
     margin: "0 auto",
     minHeight: "100vh",
     backgroundColor: "#faf8f5",
@@ -1387,57 +1435,6 @@ const styles = {
   content: {
     position: "relative",
   },
-  tabBar: {
-    position: "fixed",
-    bottom: 0,
-    left: "50%",
-    transform: "translateX(-50%)",
-    width: "100%",
-    maxWidth: 430,
-    height: 58,
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-around",
-    backgroundColor: "#f0ece2",
-    borderTop: "1px solid #ddd5c5",
-    zIndex: 100,
-    paddingBottom: 2,
-  },
-  tabBtn: {
-    background: "none",
-    border: "none",
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    padding: "6px 16px",
-    cursor: "pointer",
-    position: "relative",
-    transition: "all 0.2s",
-  },
-  tabIndicator: {
-    position: "absolute",
-    bottom: -2,
-    width: 20,
-    height: 3,
-    borderRadius: 2,
-    backgroundColor: "#1a1a1a",
-  },
-  listContainer: {
-    padding: "8px 20px 120px",
-  },
-  listHeader: {
-    display: "flex",
-    alignItems: "center",
-    gap: 8,
-    marginBottom: 20,
-  },
-  pageTitle: {
-    fontSize: 32,
-    fontWeight: 800,
-    color: "#1a1a1a",
-    margin: 0,
-    letterSpacing: "-0.5px",
-  },
   artistRow: {
     display: "flex",
     alignItems: "center",
@@ -1458,31 +1455,5 @@ const styles = {
   },
   page: {
     minHeight: "100%",
-  },
-  detailHeader: {
-    display: "flex",
-    alignItems: "center",
-    gap: 12,
-    padding: "8px 20px 12px",
-    position: "sticky",
-    top: 0,
-    backgroundColor: "rgba(250,248,245,0.92)",
-    backdropFilter: "blur(20px)",
-    WebkitBackdropFilter: "blur(20px)",
-    zIndex: 5,
-  },
-  detailHeaderTitle: {
-    fontSize: 15,
-    fontWeight: 600,
-    color: "#999",
-  },
-  backBtn: {
-    background: "none",
-    border: "none",
-    cursor: "pointer",
-    padding: 4,
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
   },
 };
