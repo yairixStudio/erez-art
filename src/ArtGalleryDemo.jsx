@@ -6,7 +6,7 @@ const artists = [
   { id: 'a2', name: 'איתן גולדסון', nameEn: 'Eitan Goldson', bio: 'איתן גולדסון, 31, נולד בקליפורניה ארה"ב וגדל בקיבוץ עין דור. העבודה שלו מגיעה מדו-שיח פנימי עמוק בין תרבויות מן העבר מול תרבות ההווה מול פנטזיות על עתיד פוסט אפוקליפטי בו נוצר מיזוג בין מודרניות לפרימיטיביות וטריבאליזם, מפגש בין מיתוס מן העולם למיתוס האישי שלו. מגיל צעיר מתעסק בציור ופיסול בחומרים מגוונים, כיום משלב צילום סטילז וגם וידאו וסאונד.', medium: 'מדיה מעורבת - צבעי שמן, אקריליק, גרפיט וקפה על קנוואס מודפס בלייזר', img: 'https://static.wixstatic.com/media/3e3f5c_a8c39ca649bb44ac8583c52c0c808bb9~mv2.jpg', instagram: 'https://instagram.com/eitangoldson', facebook: 'https://facebook.com/eitan.goldson.art', whatsapp: '972521234567' },
   { id: 'a3', name: 'הולי קדוש', nameEn: 'Holy Kadosh', bio: 'טל קדוש, 36, תל אביב. במקור נולדה וגדלה בצפת. אמנית רב תחומית היוצרת במגוון מדיות כמו אומנות דיגיטלית, ציור על רדי מיידי ויצירות קנבס באקריל ובצבעי פנדה. היצירה שלה נולדת מתוך חיבור עמוק לתת המודע, מרפה משליטה ונותנת לדימויים לעלות מעצמם, בהובלת זרם פנימי אינטואיטיבי ורוחני. כל יצירה עבורה היא שער רוחני, מראה לנשמה ומסע מתמשך של גילוי עצמי.', gallery: 'גלריה בכיכר המדינה', img: 'https://static.wixstatic.com/media/3e3f5c_d62329c917cf4ece864915f23d93c28f~mv2.jpg', instagram: 'https://instagram.com/holykadosh', tiktok: 'https://tiktok.com/@holykadosh', email: 'holy@holykadosh.art', whatsapp: '972537654321' },
   { id: 'a4', name: 'טל נהוראי', nameEn: 'Tal Nehorai', bio: 'טל נהוראי, אמנית רב־תחומית בת 50, יוצרת עבודות המשלבות בין חומרים עכשוויים לטכניקות מסורתיות והופכות אותם לאובייקטים חדים ומעוררי מחשבה. האסתטיקה הצבעונית והפופ־ארטית שלה משמשת כעדשה ביקורתית על התרבות המערבית ועל המרדף המודרני.', img: 'https://static.wixstatic.com/media/3e3f5c_7e76cf65f6cd4ff1a014e1acc1a6ee87~mv2.jpg', facebook: 'https://facebook.com/tal.nehorai.art', email: 'tal@nehorai.co.il', website: 'https://talnehorai.com' },
-  { id: 'a5', name: 'אמניות אנונימיות', nameEn: 'Anonymous Artists', bio: 'סדרה שנולדה מתוך מפגש בין שתי יוצרות אנונימיות, שבחרו לוותר על חתימה פרטית ולתת למעגלי הסמל, הציור והטקסט לדבר בעצמם. בתוך כל עבודה חבוי כתב־סתרים מקורי – מערכת קודים שנוצרה במיוחד עבור הסדרה, מעין לחישות חזותיות המשמשות כקמעות. הדימויים נשענים על שפות עתיקות אך מסרבים להישאר קשורים לזמן מסוים.', instagram: 'https://instagram.com/anonymous.artists.tlv', email: 'contact@anonymousartists.com' },
+  { id: 'a5', name: 'אמניות אנונימיות', nameEn: 'Anonymous Artists', bio: 'סדרה שנולדה מתוך מפגש בין שתי יוצרות אנונימיות, שבחרו לוותר על חתימה פרטית ולתת למעגלי הסמל, הציור והטקסט לדבר בעצמם. בתוך כל עבודה חבוי כתב־סתרים מקורי – מערכת קודים שנוצרה במיוחד עבור הסדרה, מעין לחישות חזותיות המשמשות כקמעות. הדימויים נשענים על שפות עתיקות אך מסרבים להישאר קשורים לזמן מסוים.', img: 'https://static.wixstatic.com/media/3e3f5c_06182789940c42dd8d8a5fb33e6350d0~mv2.jpg', instagram: 'https://instagram.com/anonymous.artists.tlv', email: 'contact@anonymousartists.com' },
   { id: 'a6', name: 'זוהר שטרית', nameEn: 'Zohar Shitrit', bio: 'זוהר שטרית, 36, תל אביב, צלם, במאי ויוצר חזותי. העבודה שלו מציגה תקריב מטושטש של פני ליצן – דימוי תרבותי המזוהה עם החצנה, תנועה ותגובה מיידית. באמצעות טשטוש מכוון וחיתוך, הדימוי מנותק מהקשרו הטבעי, והחיוך חדל מלתפקד כתגובה ברורה.', img: 'https://static.wixstatic.com/media/3e3f5c_048e722d5e394696a3a9899ada07148c~mv2.jpg', instagram: 'https://instagram.com/zohar.shitrit', facebook: 'https://facebook.com/zohar.shitrit.photo', whatsapp: '972501122334', website: 'https://zoharshitrit.com' },
   { id: 'a7', name: 'רז רונן', nameEn: 'Raz Ronen', bio: 'רז רונן הוא צייר שיצירתו נעה על התפר שבין כאוס לשליטה, בין זוהר לחספוס. גדילתו בחולון עיצבה את קולו האמנותי. את דרכו החל בציור על חולצות שמכר בעצמו – גישה ישירה, גופנית ומיידית. ציוריו נוצרים במהירות ובאופן אינסטינקטיבי, מתוך אמונה שהאמנות הטובה ביותר נובעת מהבטן ולא מהראש.', gallery: 'גלריה בכיכר דיזינגוף', img: 'https://static.wixstatic.com/media/3e3f5c_94d7c1976de94f68ad610638d49ee3fa~mv2.jpg', instagram: 'https://instagram.com/raz.ronen.art', tiktok: 'https://tiktok.com/@razronen', whatsapp: '972549988776', email: 'raz@razronen.art' },
   { id: 'a8', name: 'קוסטה', nameEn: 'Costa', bio: '', img: 'https://static.wixstatic.com/media/3e3f5c_c029589f676c4014818512e0e50a4c08~mv2.jpg' },
@@ -14,7 +14,6 @@ const artists = [
   { id: 'a10', name: 'גל פולק', nameEn: 'Gal Polk', bio: '', img: 'https://static.wixstatic.com/media/3e3f5c_52a2c0f1797b4878b941fb1ab61d47d9~mv2.jpg' },
   { id: 'a11', name: 'מאיה נחום', nameEn: 'Maya Nahum', bio: '', img: 'https://static.wixstatic.com/media/3e3f5c_cf7ae4c17fb4418a938756034b1bc40e~mv2.jpg' },
   { id: 'a12', name: 'עדי דואק', nameEn: 'Adi Doak', bio: '', img: 'https://static.wixstatic.com/media/3e3f5c_0919514ded674491a69fd1d989a080d5~mv2.jpg' },
-  { id: 'a13', name: 'לה רז פורטה', nameEn: 'Le Raz Forta', bio: '', img: 'https://static.wixstatic.com/media/3e3f5c_06182789940c42dd8d8a5fb33e6350d0~mv2.jpg' },
 ];
 
 const artworks = [
@@ -53,10 +52,10 @@ const artworks = [
   { id: 'w24', title: '', artistId: 'a12', year: 2025, medium: '', description: '', exhibitionIds: ['e1'], media: [{ type: 'image', url: 'https://static.wixstatic.com/media/3e3f5c_b8862d4171b34c4e833efd040b762fdc~mv2.jpg' }] },
   { id: 'w25', title: '', artistId: 'a12', year: 2025, medium: '', description: '', exhibitionIds: ['e1'], media: [{ type: 'image', url: 'https://static.wixstatic.com/media/3e3f5c_10560162827a4d1893e022ff3a7decf7~mv2.jpg' }] },
   { id: 'w26', title: '', artistId: 'a12', year: 2025, medium: '', description: '', exhibitionIds: ['e1'], media: [{ type: 'image', url: 'https://static.wixstatic.com/media/3e3f5c_962d43b1742647a49e1494274aa71358~mv2.jpg' }] },
-  // לה רז פורטה (a13) — 3 יצירות
-  { id: 'w27', title: '', artistId: 'a13', year: 2025, medium: '', description: '', exhibitionIds: ['e1'], media: [{ type: 'image', url: 'https://static.wixstatic.com/media/3e3f5c_9ec9585f5a434d038d9a8e972bd5df2d~mv2.jpg' }] },
-  { id: 'w28', title: '', artistId: 'a13', year: 2025, medium: '', description: '', exhibitionIds: ['e1'], media: [{ type: 'image', url: 'https://static.wixstatic.com/media/3e3f5c_2a53f5d7811d48e68a7b8019619f65ff~mv2.jpg' }] },
-  { id: 'w29', title: '', artistId: 'a13', year: 2025, medium: '', description: '', exhibitionIds: ['e1'], media: [{ type: 'image', url: 'https://static.wixstatic.com/media/3e3f5c_1acdac1dcf3945b5a9b0b3bfe5907275~mv2.jpg' }] },
+  // אמניות אנונימיות (a5) — 3 יצירות
+  { id: 'w27', title: '', artistId: 'a5', year: 2025, medium: '', description: '', exhibitionIds: ['e1'], media: [{ type: 'image', url: 'https://static.wixstatic.com/media/3e3f5c_9ec9585f5a434d038d9a8e972bd5df2d~mv2.jpg' }] },
+  { id: 'w28', title: '', artistId: 'a5', year: 2025, medium: '', description: '', exhibitionIds: ['e1'], media: [{ type: 'image', url: 'https://static.wixstatic.com/media/3e3f5c_2a53f5d7811d48e68a7b8019619f65ff~mv2.jpg' }] },
+  { id: 'w29', title: '', artistId: 'a5', year: 2025, medium: '', description: '', exhibitionIds: ['e1'], media: [{ type: 'image', url: 'https://static.wixstatic.com/media/3e3f5c_1acdac1dcf3945b5a9b0b3bfe5907275~mv2.jpg' }] },
   // זוהר שטרית (a6) — 1 יצירה
   { id: 'w30', title: '', artistId: 'a6', year: 2025, medium: '', description: '', exhibitionIds: ['e1'], media: [{ type: 'image', url: 'https://static.wixstatic.com/media/3e3f5c_43cd1f7ecfcc4bc78ca2538f175aad2d~mv2.jpg' }] },
   // רז רונן (a7) — 2 יצירות
@@ -66,7 +65,7 @@ const artworks = [
 
 const exhibitions = [
   { id: 'e2', title: 'How Many Partners Have You Had?', curator: 'קורין אברהם', startDate: 'TBD', endDate: 'TBD', status: 'call', description: 'קול קורא לאמנים! תערוכה חדשה בנושא יחסים, אינטימיות וקשרים אנושיים בעידן המודרני. אנחנו מחפשים אמנים ויצירות מכל תחומי האומנות. שלחו תמונה של היצירה, שם היצירה, שם אמן ואת הסיפור שמאחוריה.', artistIds: [], artworkIds: [], location: 'TBD', galleryId: 'g2', coverImage: 'https://static.wixstatic.com/media/3e3f5c_62808fb6a7544742b3e307fd868dcf99~mv2.jpeg' },
-  { id: 'e1', title: 'Loneliness in a Vibrant Environment', curator: 'קורין אברהם', startDate: '28.12.2025', endDate: '28.02.2026', status: 'current', description: 'בדידות אינה תמיד שקט. לעיתים היא מתרחשת דווקא במקומות הרועשים ביותר — שפע, צבע, תנועה, דימויים ואנשים. זו בדידות שאינה נובעת מהיעדר, אלא מעודף. מעודף גירויים, מעודף מסכות, מעודף קולות שמטשטשים את הקול הפנימי. התערוכה מבקשת להתבונן ברגע שבו אדם נמצא בלב ההמולה ועדיין מרגיש לבד. לא כקריסה, אלא כמצב תודעתי. כהשהיה. כהתפכחות. העבודות נעות בין גוף לשפה, בין חומר לרגש, בין פיתוי לנחמה, בין משחקיות לפצע.', artistIds: ['a1', 'a2', 'a3', 'a4', 'a5', 'a6', 'a7', 'a8', 'a9', 'a10', 'a11', 'a12', 'a13'], artworkIds: ['w1', 'w2', 'w3', 'w4', 'w5', 'w6', 'w7', 'w8', 'w9', 'w10', 'w11', 'w12', 'w13', 'w14', 'w15', 'w16', 'w17', 'w18', 'w19', 'w20', 'w21', 'w22', 'w23', 'w24', 'w25', 'w26', 'w27', 'w28', 'w29', 'w30', 'w31', 'w32'], location: 'כיכר המדינה, ז\'בוטינסקי 131, תל אביב', galleryId: 'g1' },
+  { id: 'e1', title: 'Loneliness in a Vibrant Environment', curator: 'קורין אברהם', startDate: '28.12.2025', endDate: '28.02.2026', status: 'current', description: 'בדידות אינה תמיד שקט. לעיתים היא מתרחשת דווקא במקומות הרועשים ביותר — שפע, צבע, תנועה, דימויים ואנשים. זו בדידות שאינה נובעת מהיעדר, אלא מעודף. מעודף גירויים, מעודף מסכות, מעודף קולות שמטשטשים את הקול הפנימי. התערוכה מבקשת להתבונן ברגע שבו אדם נמצא בלב ההמולה ועדיין מרגיש לבד. לא כקריסה, אלא כמצב תודעתי. כהשהיה. כהתפכחות. העבודות נעות בין גוף לשפה, בין חומר לרגש, בין פיתוי לנחמה, בין משחקיות לפצע.', artistIds: ['a1', 'a2', 'a3', 'a4', 'a5', 'a6', 'a7', 'a8', 'a9', 'a10', 'a11', 'a12'], artworkIds: ['w1', 'w2', 'w3', 'w4', 'w5', 'w6', 'w7', 'w8', 'w9', 'w10', 'w11', 'w12', 'w13', 'w14', 'w15', 'w16', 'w17', 'w18', 'w19', 'w20', 'w21', 'w22', 'w23', 'w24', 'w25', 'w26', 'w27', 'w28', 'w29', 'w30', 'w31', 'w32'], location: 'כיכר המדינה, ז\'בוטינסקי 131, תל אביב', galleryId: 'g1' },
 ];
 
 const blogPosts = [
@@ -452,7 +451,7 @@ const Breadcrumb = ({ crumbs, title }) => (
     <div style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 12, color: "#999", flexWrap: "wrap" }}>
       {crumbs.map((c, i) => (
         <span key={i} style={{ display: "flex", alignItems: "center", gap: 6 }}>
-          {i > 0 && <span style={{ color: "#ccc" }}>&lsaquo;</span>}
+          {i > 0 && <span style={{ color: "#ccc" }}>&rsaquo;</span>}
           <span onClick={c.onClick} style={{ cursor: c.onClick ? "pointer" : "default", color: c.onClick ? "#999" : "#666", transition: "color 0.2s" }}
             onMouseEnter={(e) => c.onClick && (e.target.style.color = "#1a1a1a")}
             onMouseLeave={(e) => c.onClick && (e.target.style.color = "#999")}
@@ -469,7 +468,7 @@ const PageHero = ({ crumbs, title }) => (
     <div style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 12, color: "rgba(200,180,140,0.6)" }}>
       {crumbs.map((c, i) => (
         <span key={i} style={{ display: "flex", alignItems: "center", gap: 6 }}>
-          {i > 0 && <span style={{ color: "rgba(200,180,140,0.3)" }}>&lsaquo;</span>}
+          {i > 0 && <span style={{ color: "rgba(200,180,140,0.3)" }}>&rsaquo;</span>}
           <span onClick={c.onClick} style={{ cursor: c.onClick ? "pointer" : "default", color: c.onClick ? "rgba(200,180,140,0.6)" : "#c8b99a", transition: "color 0.2s" }}
             onMouseEnter={(e) => c.onClick && (e.target.style.color = "#c8b99a")}
             onMouseLeave={(e) => c.onClick && (e.target.style.color = "rgba(200,180,140,0.6)")}
