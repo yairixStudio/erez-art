@@ -478,39 +478,22 @@ const PageHero = ({ crumbs, title }) => (
 );
 
 // ===== FOOTER =====
-const Footer = ({ navigate, goHome }) => {
-  const [email, setEmail] = useState("");
-  const [subscribed, setSubscribed] = useState(false);
-
-  const handleSubscribe = (e) => {
-    e.preventDefault();
-    if (email.trim()) {
-      setSubscribed(true);
-      setEmail("");
-    }
-  };
-
-  return (
+const Footer = ({ navigate, goHome }) => (
     <footer style={{ backgroundColor: "#111", padding: "40px 24px 20px", borderTop: "1px solid rgba(200,180,140,0.15)" }}>
       {/* Newsletter */}
       <div style={{ marginBottom: 32, textAlign: "center" }}>
         <div style={{ fontSize: 12, fontWeight: 400, color: "#9a8e7a", letterSpacing: 4, textTransform: "uppercase", marginBottom: 12 }}>ניוזלטר</div>
         <p style={{ fontSize: 14, color: "#8a7e6c", marginBottom: 16, lineHeight: 1.6 }}>הישארו מעודכנים על תערוכות חדשות, אמנים ואירועים</p>
-        {subscribed ? (
-          <div style={{ fontSize: 14, color: "#c8b99a" }}>תודה על ההרשמה!</div>
-        ) : (
-          <form onSubmit={handleSubscribe} style={{ display: "flex", gap: 8, maxWidth: 300, margin: "0 auto" }}>
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="כתובת אימייל"
-              required
-              style={{ flex: 1, padding: "10px 14px", borderRadius: 4, border: "1px solid rgba(200,180,140,0.2)", backgroundColor: "rgba(255,255,255,0.05)", color: "#e8e4df", fontSize: 13, outline: "none", direction: "ltr", textAlign: "right" }}
-            />
-            <button type="submit" style={{ padding: "10px 18px", borderRadius: 4, border: "none", backgroundColor: "#2A4C39", color: "#e8e4df", fontSize: 12, fontWeight: 600, cursor: "pointer", letterSpacing: 1, whiteSpace: "nowrap" }}>הרשמה</button>
-          </form>
-        )}
+        <div style={{ maxWidth: 340, margin: "0 auto", borderRadius: 8, overflow: "hidden" }}>
+          <iframe
+            title="ניוזלטר"
+            src="https://www.wixforms.com/f/7438883621487772934"
+            width="100%"
+            height="200"
+            style={{ border: "none", display: "block" }}
+            loading="lazy"
+          />
+        </div>
       </div>
 
       {/* Divider */}
@@ -554,8 +537,7 @@ const Footer = ({ navigate, goHome }) => {
         </span>
       </div>
     </footer>
-  );
-};
+);
 
 // ===== URL ROUTING =====
 const pageToPath = (page, id) => {
