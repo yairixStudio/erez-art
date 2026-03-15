@@ -28,8 +28,7 @@ const artworks = [
   },
   {
     id: 'w3', title: 'גן החיות של התודעה', artistId: 'a3', year: 2025, medium: 'אומנות דיגיטלית, אקריל וצבעי פנדה על קנבס', description: 'אוסף יצירות שנולד מתת־מודע, מרחב פנימי של דימויים פראיים, קולות, קונפליקטים ודמויות שמופיעות כמעט למרות. למרות העושר והעומס החזותי, בלב הסדרה מתקיימת תחושת בדידות. היצירות מציגות את הרגע שבו האדם צופה על עצמו מבפנים, בתוך "גן חיות" בלתי צפוי ואף כאוטי.', exhibitionIds: ['e1'], media: [
-      { type: 'image', label: 'מבט כללי', url: 'https://static.wixstatic.com/media/3e3f5c_33e9bc48115a443f93955bd8d4c0f741~mv2.jpg' },
-      { type: 'image', label: 'פרט', url: 'https://static.wixstatic.com/media/3e3f5c_8cc3ed72100646498b56078fbe20379b~mv2.jpg' },
+      { type: 'image', label: 'מבט כללי', url: 'https://static.wixstatic.com/media/3e3f5c_8cc3ed72100646498b56078fbe20379b~mv2.jpg' },
     ]
   },
   {
@@ -37,7 +36,7 @@ const artworks = [
       { type: 'image', label: 'מבט כללי', url: 'https://static.wixstatic.com/media/3e3f5c_d41329c66b9644ddb5248ff888a3bf79~mv2.jpg' },
     ]
   },
-  { id: 'w5', title: 'שק האגרוף', artistId: 'a3', year: 2025, medium: 'פיסול, מדיה מעורבת', description: 'שק האגרוף, המעוטר במסכות אצטקיות ובכתובות ברכה, מציב בלב חלל תוסס את מה שאנו נוטים להצניע: מסע ההתמודדות הפנימי. היצירה מעניקה לדפוסים הפנימיים צורה, פנים וסמלים, ומזמינה את הצופה לא רק להיאבק בהם, אלא להכיר בהם כשליחים של תודעה מבקשת ריפוי.', exhibitionIds: ['e1'], media: [{ type: 'image', label: 'מבט קדמי' }, { type: 'image', label: 'פרט - מסכות' }, { type: 'image', label: 'פרט - כתובות' }, { type: 'video', label: 'סביב היצירה' }] },
+  { id: 'w5', title: 'שק האגרוף', artistId: 'a3', year: 2025, medium: 'פיסול, מדיה מעורבת', description: 'שק האגרוף, המעוטר במסכות אצטקיות ובכתובות ברכה, מציב בלב חלל תוסס את מה שאנו נוטים להצניע: מסע ההתמודדות הפנימי. היצירה מעניקה לדפוסים הפנימיים צורה, פנים וסמלים, ומזמינה את הצופה לא רק להיאבק בהם, אלא להכיר בהם כשליחים של תודעה מבקשת ריפוי.', exhibitionIds: ['e1'], media: [{ type: 'image', label: 'מבט קדמי', url: 'https://static.wixstatic.com/media/3e3f5c_33e9bc48115a443f93955bd8d4c0f741~mv2.jpg' }, { type: 'image', label: 'פרט - מסכות' }, { type: 'image', label: 'פרט - כתובות' }, { type: 'video', label: 'סביב היצירה' }] },
   { id: 'w6', title: 'קמעות', artistId: 'a5', year: 2025, medium: 'ציור וטקסט, טכניקה מעורבת', description: 'בתוך כל עבודה חבוי כתב־סתרים מקורי — מערכת קודים שנוצרה במיוחד עבור הסדרה, מעין לחישות חזותיות המשמשות כקמעות. כל קוד נכתב כטקס זימון, כהזמנה מדויקת לעבודה פנימית: הגנות, התמרה, בהירות. הציורים אינם ארכיאולוגיה של רוחניות, אלא פרשנות חיה ואקטואלית של טקסי מעבר.', exhibitionIds: ['e1'], media: [{ type: 'image', label: 'מבט כללי' }, { type: 'image', label: 'פרט - כתב סתרים' }, { type: 'image', label: 'פרט - סמלים' }] },
   {
     id: 'w7', title: 'ליצן', artistId: 'a6', year: 2025, medium: 'צילום', description: 'העבודה מציגה תקריב מטושטש של פני ליצן — דימוי תרבותי המזוהה עם החצנה, תנועה ותגובה מיידית. הטשטוש מבטל זהות, מגדר והבעה כוללת, ומשאיר סימן חזותי טעון: אדום בוהק, מוגזם, כזה שנועד להיראות מרחוק. הליצן הוא דמות של כוח פרפורמטיבי, בעלת רישיון חברתי לחרוג.', exhibitionIds: ['e1'], media: [
@@ -489,7 +488,7 @@ const Footer = ({ navigate, goHome }) => (
             title="ניוזלטר"
             src="https://www.wixforms.com/f/7438883621487772934"
             width="100%"
-            height="180"
+            height="230"
             scrolling="no"
             style={{ border: "none", display: "block", overflow: "hidden", marginTop: -30 }}
             loading="lazy"
