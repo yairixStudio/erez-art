@@ -489,9 +489,9 @@ const Footer = ({ navigate, goHome }) => (
             title="ניוזלטר"
             src="https://www.wixforms.com/f/7438883621487772934"
             width="100%"
-            height="120"
+            height="180"
             scrolling="no"
-            style={{ border: "none", display: "block", overflow: "hidden" }}
+            style={{ border: "none", display: "block", overflow: "hidden", marginTop: -30 }}
             loading="lazy"
           />
         </div>
