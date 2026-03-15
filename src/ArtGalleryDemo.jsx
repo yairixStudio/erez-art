@@ -61,8 +61,8 @@ const artworks = [
 ];
 
 const exhibitions = [
-  { id: 'e2', title: 'How Many Partners Have You Had?', curator: 'קורין אברהם', startDate: 'TBD', endDate: 'TBD', status: 'call', description: 'קול קורא לאמנים! תערוכה חדשה בנושא יחסים, אינטימיות וקשרים אנושיים בעידן המודרני. אנחנו מחפשים אמנים ויצירות מכל תחומי האומנות. שלחו תמונה של היצירה, שם היצירה, שם אמן ואת הסיפור שמאחוריה.', artistIds: [], artworkIds: [], location: 'TBD', coverImage: 'https://static.wixstatic.com/media/3e3f5c_62808fb6a7544742b3e307fd868dcf99~mv2.jpeg' },
-  { id: 'e1', title: 'Loneliness in a Vibrant Environment', curator: 'קורין אברהם', startDate: '28.12.2025', endDate: '28.02.2026', status: 'current', description: 'בדידות אינה תמיד שקט. לעיתים היא מתרחשת דווקא במקומות הרועשים ביותר — שפע, צבע, תנועה, דימויים ואנשים. זו בדידות שאינה נובעת מהיעדר, אלא מעודף. מעודף גירויים, מעודף מסכות, מעודף קולות שמטשטשים את הקול הפנימי. התערוכה מבקשת להתבונן ברגע שבו אדם נמצא בלב ההמולה ועדיין מרגיש לבד. לא כקריסה, אלא כמצב תודעתי. כהשהיה. כהתפכחות. העבודות נעות בין גוף לשפה, בין חומר לרגש, בין פיתוי לנחמה, בין משחקיות לפצע.', artistIds: ['a1', 'a2', 'a3', 'a4', 'a5', 'a6', 'a7'], artworkIds: ['w1', 'w2', 'w3', 'w4', 'w5', 'w6', 'w7', 'w8', 'w9'], location: 'כיכר המדינה, ז\'בוטינסקי 131, תל אביב' },
+  { id: 'e2', title: 'How Many Partners Have You Had?', curator: 'קורין אברהם', startDate: 'TBD', endDate: 'TBD', status: 'call', description: 'קול קורא לאמנים! תערוכה חדשה בנושא יחסים, אינטימיות וקשרים אנושיים בעידן המודרני. אנחנו מחפשים אמנים ויצירות מכל תחומי האומנות. שלחו תמונה של היצירה, שם היצירה, שם אמן ואת הסיפור שמאחוריה.', artistIds: [], artworkIds: [], location: 'TBD', galleryId: 'g2', coverImage: 'https://static.wixstatic.com/media/3e3f5c_62808fb6a7544742b3e307fd868dcf99~mv2.jpeg' },
+  { id: 'e1', title: 'Loneliness in a Vibrant Environment', curator: 'קורין אברהם', startDate: '28.12.2025', endDate: '28.02.2026', status: 'current', description: 'בדידות אינה תמיד שקט. לעיתים היא מתרחשת דווקא במקומות הרועשים ביותר — שפע, צבע, תנועה, דימויים ואנשים. זו בדידות שאינה נובעת מהיעדר, אלא מעודף. מעודף גירויים, מעודף מסכות, מעודף קולות שמטשטשים את הקול הפנימי. התערוכה מבקשת להתבונן ברגע שבו אדם נמצא בלב ההמולה ועדיין מרגיש לבד. לא כקריסה, אלא כמצב תודעתי. כהשהיה. כהתפכחות. העבודות נעות בין גוף לשפה, בין חומר לרגש, בין פיתוי לנחמה, בין משחקיות לפצע.', artistIds: ['a1', 'a2', 'a3', 'a4', 'a5', 'a6', 'a7'], artworkIds: ['w1', 'w2', 'w3', 'w4', 'w5', 'w6', 'w7', 'w8', 'w9'], location: 'כיכר המדינה, ז\'בוטינסקי 131, תל אביב', galleryId: 'g1' },
 ];
 
 const blogPosts = [
@@ -127,8 +127,8 @@ const blogPosts = [
 ];
 
 const galleries = [
-  { name: 'גלריה כיכר המדינה', address: 'ז\'בוטינסקי 131, תל אביב', hours: 'א\'-ה\' 10:00-19:00 | ו\' 10:00-14:00 | שבת סגור', mapUrl: 'https://maps.google.com/?q=ז\'בוטינסקי+131+תל+אביב', img: 'https://images.squarespace-cdn.com/content/v1/5b6a0c9c7106997328d0b426/1683115130513-LI91AHBMTX9D112361T2/GLD_5549.jpg' },
-  { name: 'גלריה כיכר דיזינגוף', address: 'כיכר דיזינגוף, תל אביב', hours: 'בקרוב', mapUrl: 'https://maps.google.com/?q=כיכר+דיזינגוף+תל+אביב', img: 'https://images.squarespace-cdn.com/content/v1/5b6a0c9c7106997328d0b426/1683110842725-E1ZLIN75RNVT1DYEQMF1/Zielenski+%26+Rozen+Dizengoff.jpg' },
+  { id: 'g1', name: 'גלריה כיכר המדינה', address: 'ז\'בוטינסקי 131, תל אביב', hours: 'א\'-ה\' 10:00-19:00 | ו\' 10:00-14:00 | שבת סגור', mapUrl: 'https://maps.google.com/?q=ז\'בוטינסקי+131+תל+אביב', mapEmbed: 'https://maps.google.com/maps?q=%D7%96%D7%B3%D7%91%D7%95%D7%98%D7%99%D7%A0%D7%A1%D7%A7%D7%99+131+%D7%AA%D7%9C+%D7%90%D7%91%D7%99%D7%91&t=&z=15&ie=UTF8&iwloc=&output=embed', img: 'https://images.squarespace-cdn.com/content/v1/5b6a0c9c7106997328d0b426/1683115130513-LI91AHBMTX9D112361T2/GLD_5549.jpg' },
+  { id: 'g2', name: 'גלריה כיכר דיזינגוף', address: 'כיכר דיזינגוף, תל אביב', hours: 'בקרוב', comingSoon: true, mapUrl: 'https://maps.google.com/?q=כיכר+דיזינגוף+תל+אביב', mapEmbed: 'https://maps.google.com/maps?q=%D7%9B%D7%99%D7%9B%D7%A8+%D7%93%D7%99%D7%96%D7%A0%D7%92%D7%95%D7%A3+%D7%AA%D7%9C+%D7%90%D7%91%D7%99%D7%91&t=&z=15&ie=UTF8&iwloc=&output=embed', img: 'https://images.squarespace-cdn.com/content/v1/5b6a0c9c7106997328d0b426/1683110842725-E1ZLIN75RNVT1DYEQMF1/Zielenski+%26+Rozen+Dizengoff.jpg' },
 ];
 
 // ===== HELPER: get first image URL from an exhibition's artworks =====
@@ -523,6 +523,7 @@ const Footer = ({ navigate, goHome }) => {
           { label: "תערוכות", onClick: () => navigate("exhibitions") },
           { label: "אמנים", onClick: () => navigate("artists") },
           { label: "אומנות", onClick: () => navigate("art") },
+          { label: "הגלריות", onClick: () => navigate("galleries") },
           { label: "בלוג", onClick: () => navigate("blog") },
         ].map((item) => (
           <span key={item.label} {...a11yClick(item.onClick)} style={{ fontSize: 13, color: "#8a7e6c", cursor: "pointer", transition: "color 0.2s" }}
@@ -564,6 +565,8 @@ const pageToPath = (page, id) => {
     case 'artists': return '/artists';
     case 'art': return '/art';
     case 'blog': return '/blog';
+    case 'galleries': return '/galleries';
+    case 'gallery': return `/gallery/${id}`;
     case 'exhibition': return `/exhibition/${id}`;
     case 'artist': return `/artist/${id}`;
     case 'artwork': return `/artwork/${id}`;
@@ -577,7 +580,7 @@ const pathToNav = (pathname) => {
   if (parts.length === 0) return { page: 'home', id: null };
   const base = parts[0];
   const id = parts[1] || null;
-  const routes = { exhibitions: 'exhibitions', artists: 'artists', art: 'art', blog: 'blog', exhibition: 'exhibition', artist: 'artist', artwork: 'artwork', post: 'post' };
+  const routes = { exhibitions: 'exhibitions', artists: 'artists', art: 'art', blog: 'blog', galleries: 'galleries', gallery: 'gallery', exhibition: 'exhibition', artist: 'artist', artwork: 'artwork', post: 'post' };
   if (routes[base]) return { page: routes[base], id };
   return { page: 'home', id: null };
 };
@@ -638,12 +641,13 @@ export default function ArtGalleryApp() {
   // Dynamic page title for SEO
   useEffect(() => {
     const base = "Zielinski & Rozen Art";
-    const titles = { home: base, exhibitions: `תערוכות | ${base}`, artists: `אמנים | ${base}`, art: `אומנות | ${base}`, blog: `בלוג | ${base}` };
+    const titles = { home: base, exhibitions: `תערוכות | ${base}`, artists: `אמנים | ${base}`, art: `אומנות | ${base}`, blog: `בלוג | ${base}`, galleries: `הגלריות | ${base}` };
     if (titles[nav.page]) { document.title = titles[nav.page]; }
     else if (nav.page === "exhibition") { const ex = exhibitions.find(e => e.id === nav.id); document.title = ex ? `${ex.title} | ${base}` : base; }
     else if (nav.page === "artist") { const ar = artists.find(a => a.id === nav.id); document.title = ar ? `${ar.name} | ${base}` : base; }
     else if (nav.page === "artwork") { const w = artworks.find(a => a.id === nav.id); document.title = w ? `${w.title} | ${base}` : base; }
     else if (nav.page === "post") { const p = blogPosts.find(b => b.id === nav.id); document.title = p ? `${p.title} | ${base}` : base; }
+    else if (nav.page === "gallery") { const g = galleries.find(gl => gl.id === nav.id); document.title = g ? `${g.name} | ${base}` : base; }
     else { document.title = base; }
   }, [nav.page, nav.id]);
 
@@ -656,13 +660,7 @@ export default function ArtGalleryApp() {
   };
 
   const goToGalleries = () => {
-    setMenuOpen(false);
-    window.history.pushState(null, '', '/');
-    setNav({ page: "home", id: null, history: [] });
-    setTimeout(() => {
-      const el = document.getElementById("galleries-section");
-      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
-    }, 150);
+    navigate("galleries");
   };
 
   const getArtist = (id) => artists.find((a) => a.id === id);
@@ -839,23 +837,22 @@ export default function ArtGalleryApp() {
       {/* Galleries + Blog */}
       <div className="home-section" style={{ padding: "0", justifyContent: "flex-start", backgroundColor: "#0e0e0e", scrollSnapAlign: "start" }}>
         <div id="galleries-section" style={{ padding: "28px 24px 16px" }}>
-          <div style={{ display: "flex", alignItems: "center", padding: "0", marginBottom: 20 }}>
+          <div {...a11yClick(() => navigate("galleries"))} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0", marginBottom: 20, cursor: "pointer" }}>
             <div style={{ fontSize: 15, fontWeight: 600, color: "#c8b99a", letterSpacing: 4, textTransform: "uppercase" }}>הגלריות</div>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9a8e7a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6" /></svg>
           </div>
           <div className="galleries-grid">
           {galleries.map((g, i) => (
-            <div key={i} style={{ display: "flex", alignItems: "center", gap: 14, padding: "16px 0", borderBottom: i < galleries.length - 1 ? "1px solid rgba(200,180,140,0.08)" : "none" }}>
+            <div key={g.id} {...a11yClick(() => navigate("gallery", g.id))} style={{ display: "flex", alignItems: "center", gap: 14, padding: "16px 0", borderBottom: i < galleries.length - 1 ? "1px solid rgba(200,180,140,0.08)" : "none", cursor: "pointer" }}>
               <div style={{ width: 48, height: 48, borderRadius: 6, backgroundColor: "rgba(200,180,140,0.08)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, overflow: "hidden" }}>
                 {g.img ? <img src={g.img} alt={g.name} loading="lazy" style={{ width: "100%", height: "100%", objectFit: "cover" }} /> : <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(200,180,140,0.35)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" /><circle cx="8.5" cy="8.5" r="1.5" /><path d="m21 15-5-5L5 21" /></svg>}
               </div>
               <div style={{ flex: 1 }}>
                 <div style={{ fontWeight: 500, fontSize: 14, color: "#ede8e0", marginBottom: 3 }}>{g.name}</div>
                 <div style={{ fontSize: 12, color: "#a89a82", marginBottom: 2 }}>{g.address}</div>
-                <div style={{ fontSize: 11, color: "#8a7e6c" }}>{g.hours}</div>
+                <div style={{ fontSize: 11, color: g.comingSoon ? "#e65100" : "#8a7e6c" }}>{g.hours}</div>
               </div>
-              <div {...a11yClick((e) => { e.stopPropagation(); window.open(g.mapUrl, '_blank'); })} aria-label={`ניווט ל${g.name}`} style={{ width: 32, height: 32, borderRadius: "50%", border: "1px solid rgba(200,180,140,0.2)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, cursor: "pointer" }}>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="#a89a82"><path d="m21.41 10.59-7.99-8c-.78-.78-2.05-.78-2.83 0l-8.01 8c-.78.78-.78 2.05 0 2.83l8.01 8c.78.78 2.05.78 2.83 0l7.99-8c.79-.79.79-2.05 0-2.83zM13.5 14.5V12H10v3H8v-4c0-.55.45-1 1-1h4.5V7.5L17 11l-3.5 3.5z" /></svg>
-              </div>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9a8e7a" strokeWidth="2" strokeLinecap="round"><polyline points="15 18 9 12 15 6" /></svg>
             </div>
           ))}
           </div>
@@ -1017,6 +1014,95 @@ export default function ArtGalleryApp() {
     </TexturedContainer>
   );
 
+  // ===== GALLERIES LIST =====
+  const renderGalleries = () => (
+    <TexturedContainer style={{ paddingBottom: 120 }}>
+      <PageHero crumbs={[{ label: "בית", onClick: goHome }, { label: "הגלריות" }]} title="הגלריות" />
+      <div style={{ display: "flex", flexDirection: "column", gap: 28, padding: "0 20px" }}>
+        {galleries.map((g) => (
+          <div key={g.id} {...a11yClick(() => navigate("gallery", g.id))} style={{ cursor: "pointer", borderRadius: 12, overflow: "hidden", backgroundColor: "#fff", boxShadow: "0 1px 6px rgba(0,0,0,0.06)" }}>
+            {g.img && (
+              <div style={{ width: "100%", height: 180, overflow: "hidden" }}>
+                <img src={g.img} alt={g.name} loading="lazy" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+              </div>
+            )}
+            <div style={{ padding: "16px 18px" }}>
+              <h2 style={{ fontSize: 20, fontWeight: 700, color: "#1a1a1a", margin: "0 0 6px" }}>{g.name}</h2>
+              <div style={{ display: "flex", alignItems: "center", gap: 4, fontSize: 14, color: "#888", marginBottom: 4 }}>{Icons.location()} {g.address}</div>
+              <div style={{ fontSize: 13, color: g.comingSoon ? "#e65100" : "#999" }}>{g.hours}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </TexturedContainer>
+  );
+
+  // ===== GALLERY DETAIL =====
+  const renderGalleryDetail = () => {
+    const g = galleries.find((gl) => gl.id === nav.id);
+    if (!g) return null;
+    const galleryExhibitions = exhibitions.filter((e) => e.galleryId === g.id);
+    return (
+      <div style={{ ...styles.page, animation: "slideIn 0.25s ease" }}>
+        <Breadcrumb crumbs={[{ label: "בית", onClick: goHome }, { label: "הגלריות", onClick: () => navigate("galleries") }, { label: g.name }]} title={g.name} />
+        <div className="detail-content" style={{ padding: "0 20px 120px" }}>
+          {g.img && <Placeholder height={220} rounded={12} src={g.img} />}
+          {g.comingSoon && (
+            <div style={{ textAlign: "center", margin: "16px 0 8px" }}>
+              <span style={{ display: "inline-block", padding: "3px 10px", borderRadius: 12, backgroundColor: "#fff3e0", color: "#e65100", fontSize: 11, fontWeight: 600 }}>בקרוב</span>
+            </div>
+          )}
+          <div style={{ marginTop: 20 }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 15, color: "#4a4540", marginBottom: 8 }}>{Icons.location()} {g.address}</div>
+            <div style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 15, color: "#4a4540", marginBottom: 16 }}>{Icons.calendar()} {g.hours}</div>
+            <a href={g.mapUrl} target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "10px 20px", backgroundColor: "#2A4C39", color: "#e8e4df", fontSize: 14, fontWeight: 600, borderRadius: 8, textDecoration: "none", marginBottom: 24, transition: "opacity 0.2s" }}
+              onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.85")}
+              onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m21.41 10.59-7.99-8c-.78-.78-2.05-.78-2.83 0l-8.01 8c-.78.78-.78 2.05 0 2.83l8.01 8c.78.78 2.05.78 2.83 0l7.99-8c.79-.79.79-2.05 0-2.83zM13.5 14.5V12H10v3H8v-4c0-.55.45-1 1-1h4.5V7.5L17 11l-3.5 3.5z" /></svg>
+              נווט לגלריה
+            </a>
+          </div>
+          {/* Map embed */}
+          <div style={{ borderRadius: 12, overflow: "hidden", marginBottom: 24, border: "1px solid #e8e4df" }}>
+            <iframe
+              title={`מפה - ${g.name}`}
+              src={g.mapEmbed}
+              width="100%"
+              height="280"
+              style={{ border: 0, display: "block" }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+          </div>
+          {galleryExhibitions.length > 0 && (
+            <>
+              <SectionHeader>תערוכות בגלריה</SectionHeader>
+              <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+                {galleryExhibitions.map((ex) => {
+                  const coverUrl = getExhibitionCoverUrl(ex);
+                  return (
+                    <div key={ex.id} {...a11yClick(() => navigate("exhibition", ex.id))} style={styles.miniCard}>
+                      <div style={{ width: 72, height: 72, minWidth: 72, borderRadius: 8, backgroundColor: "#e8e4df", overflow: "hidden" }}>
+                        {coverUrl ? <img src={coverUrl} alt={ex.title} loading="lazy" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} /> : null}
+                      </div>
+                      <div style={{ flex: 1 }}>
+                        <div style={{ fontSize: 15, fontWeight: 600, color: "#1a1a1a", direction: isEnglish(ex.title) ? "ltr" : "rtl" }}>{ex.title}</div>
+                        <div style={{ fontSize: 13, color: "#888", marginTop: 2 }}>{ex.startDate} — {ex.endDate}</div>
+                        <StatusBadge status={ex.status} />
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </>
+          )}
+        </div>
+      </div>
+    );
+  };
+
   // ===== EXHIBITION DETAIL =====
   const renderExhibitionDetail = () => {
     const ex = exhibitions.find((e) => e.id === nav.id);
@@ -1027,12 +1113,17 @@ export default function ArtGalleryApp() {
         <Breadcrumb crumbs={[{ label: "בית", onClick: goHome }, { label: "תערוכות", onClick: () => navigate("exhibitions") }, { label: ex.title }]} title={ex.title} />
         <div className="detail-content" style={{ padding: "0 20px 120px" }}>
           <Placeholder height={220} rounded={12} src={coverUrl} />
-          <div style={{ textAlign: "center", margin: "20px 0 8px" }}>
+          <div style={{ height: 20 }} />
+          <div style={{ textAlign: "center", marginBottom: 8 }}>
             <StatusBadge status={ex.status} />
           </div>
           <div style={{ display: "flex", gap: 14, alignItems: "center", color: "#888", fontSize: 15, margin: "0 0 6px", flexWrap: "wrap" }}>
             <span style={{ display: "flex", alignItems: "center", gap: 4 }}>{Icons.calendar()} {ex.startDate} — {ex.endDate}</span>
-            <span style={{ display: "flex", alignItems: "center", gap: 4 }}>{Icons.location()} {ex.location}</span>
+            {ex.galleryId ? (
+              <span {...a11yClick(() => navigate("gallery", ex.galleryId))} style={{ display: "flex", alignItems: "center", gap: 4, cursor: "pointer", textDecoration: "underline", textDecorationColor: "#ccc" }}>{Icons.location()} {ex.location}</span>
+            ) : (
+              <span style={{ display: "flex", alignItems: "center", gap: 4 }}>{Icons.location()} {ex.location}</span>
+            )}
           </div>
           <div style={{ fontSize: 15, color: "#aaa", marginBottom: 16 }}>
             <span style={{ display: "flex", alignItems: "center", gap: 4 }}>{Icons.curator()} אוצרת: {ex.curator}</span>
@@ -1263,6 +1354,8 @@ export default function ArtGalleryApp() {
       case "artists": return renderArtists();
       case "art": return renderArt();
       case "blog": return renderBlog();
+      case "galleries": return renderGalleries();
+      case "gallery": return renderGalleryDetail();
       case "exhibition": return renderExhibitionDetail();
       case "artist": return renderArtistDetail();
       case "artwork": return renderArtworkDetail();

@@ -71,6 +71,21 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://art.zrp.co.il/galleries</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://art.zrp.co.il/gallery/g1</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://art.zrp.co.il/gallery/g2</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://art.zrp.co.il/post/p1</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
