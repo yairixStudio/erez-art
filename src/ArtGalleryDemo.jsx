@@ -1452,18 +1452,20 @@ export default function ArtGalleryApp() {
         {textureUrl && <div style={{ position: "absolute", inset: 0, backgroundImage: `url("${textureUrl}")`, backgroundRepeat: "repeat", backgroundSize: "200% auto", opacity: 0.18, pointerEvents: "none", mixBlendMode: "soft-light", zIndex: 0 }} />}
         <div style={{ position: "absolute", inset: 0, filter: "url(#noise)", opacity: 0.08, pointerEvents: "none", mixBlendMode: "multiply", zIndex: 0 }} />
         <div style={{ padding: "8px 0", position: "relative", zIndex: 1 }}>
-          <a href="https://www.zrp.co.il" target="_blank" rel="noopener noreferrer" style={{
-            display: "flex", alignItems: "center", justifyContent: "space-between", width: "100%", padding: "14px 24px",
-            background: "none", cursor: "pointer", textDecoration: "none",
-            color: "rgba(232,228,223,0.7)", fontSize: 16, fontWeight: 400,
-            borderBottom: "1px solid rgba(255,255,255,0.06)", transition: "color 0.2s",
-          }}
-            onMouseEnter={(e) => (e.currentTarget.style.color = "#fff")}
-            onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(232,228,223,0.7)")}
-          >
-            <span>חזרה לאתר הבית</span>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="7" y1="17" x2="17" y2="7" /><polyline points="7 7 17 7 17 17" /></svg>
-          </a>
+          <div style={{ padding: "12px 24px 8px" }}>
+            <a href="https://www.zrp.co.il" target="_blank" rel="noopener noreferrer" style={{
+              display: "inline-flex", alignItems: "center", gap: 6, padding: "6px 14px",
+              border: "1px solid rgba(200,180,140,0.25)", borderRadius: 20, textDecoration: "none",
+              color: "rgba(232,228,223,0.6)", fontSize: 11, fontWeight: 500, letterSpacing: 0.5,
+              transition: "all 0.2s", background: "rgba(255,255,255,0.04)",
+            }}
+              onMouseEnter={(e) => { e.currentTarget.style.color = "#fff"; e.currentTarget.style.borderColor = "rgba(200,180,140,0.45)"; }}
+              onMouseLeave={(e) => { e.currentTarget.style.color = "rgba(232,228,223,0.6)"; e.currentTarget.style.borderColor = "rgba(200,180,140,0.25)"; }}
+            >
+              zrp.co.il
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="7" y1="17" x2="17" y2="7" /><polyline points="7 7 17 7 17 17" /></svg>
+            </a>
+          </div>
           {[
             { key: "home", label: "בית", onClick: goHome },
             { key: "exhibitions", label: "תערוכות", onClick: () => navigate("exhibitions") },
