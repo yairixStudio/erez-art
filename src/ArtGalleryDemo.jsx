@@ -126,8 +126,8 @@ const blogPosts = [
 ];
 
 const galleries = [
-  { id: 'g1', name: 'גלריה כיכר המדינה', address: 'ז\'בוטינסקי 131, תל אביב', hours: 'א\'-ה\' 10:00-19:00 | ו\' 10:00-14:00 | שבת סגור', mapUrl: 'https://maps.google.com/?q=ז\'בוטינסקי+131+תל+אביב', mapEmbed: 'https://maps.google.com/maps?q=%D7%96%D7%B3%D7%91%D7%95%D7%98%D7%99%D7%A0%D7%A1%D7%A7%D7%99+131+%D7%AA%D7%9C+%D7%90%D7%91%D7%99%D7%91&t=&z=15&ie=UTF8&iwloc=&output=embed', img: 'https://images.squarespace-cdn.com/content/v1/5b6a0c9c7106997328d0b426/1683115130513-LI91AHBMTX9D112361T2/GLD_5549.jpg' },
-  { id: 'g2', name: 'גלריה כיכר דיזינגוף', address: 'כיכר דיזינגוף, תל אביב', hours: 'בקרוב', comingSoon: true, mapUrl: 'https://maps.google.com/?q=כיכר+דיזינגוף+תל+אביב', mapEmbed: 'https://maps.google.com/maps?q=%D7%9B%D7%99%D7%9B%D7%A8+%D7%93%D7%99%D7%96%D7%A0%D7%92%D7%95%D7%A3+%D7%AA%D7%9C+%D7%90%D7%91%D7%99%D7%91&t=&z=15&ie=UTF8&iwloc=&output=embed', img: 'https://images.squarespace-cdn.com/content/v1/5b6a0c9c7106997328d0b426/1683110842725-E1ZLIN75RNVT1DYEQMF1/Zielenski+%26+Rozen+Dizengoff.jpg' },
+  { id: 'g1', name: 'גלריה כיכר המדינה', address: 'ז\'בוטינסקי 131, תל אביב', hours: 'א\'-ה\' 10:00-19:00 | ו\' 10:00-14:00 | שבת סגור', mapUrl: 'https://maps.google.com/?q=ז\'בוטינסקי+131+תל+אביב', mapEmbed: 'https://maps.google.com/maps?q=%D7%96%D7%B3%D7%91%D7%95%D7%98%D7%99%D7%A0%D7%A1%D7%A7%D7%99+131+%D7%AA%D7%9C+%D7%90%D7%91%D7%99%D7%91&t=&z=15&ie=UTF8&iwloc=&output=embed', img: 'https://static.wixstatic.com/media/3e3f5c_1cf61ce7bad242daaf76689ec16192ce~mv2.jpeg' },
+  { id: 'g2', name: 'גלריה כיכר דיזינגוף', address: 'כיכר דיזינגוף, תל אביב', hours: 'בקרוב', comingSoon: true, mapUrl: 'https://maps.google.com/?q=כיכר+דיזינגוף+תל+אביב', mapEmbed: 'https://maps.google.com/maps?q=%D7%9B%D7%99%D7%9B%D7%A8+%D7%93%D7%99%D7%96%D7%A0%D7%92%D7%95%D7%A3+%D7%AA%D7%9C+%D7%90%D7%91%D7%99%D7%91&t=&z=15&ie=UTF8&iwloc=&output=embed', img: 'https://static.wixstatic.com/media/3e3f5c_c18e07dc546345f8a46d93713bc68916~mv2.jpeg' },
 ];
 
 // ===== HELPER: get first image URL from an exhibition's artworks =====
@@ -1271,7 +1271,7 @@ export default function ArtGalleryApp() {
         <Breadcrumb crumbs={[{ label: "בית", onClick: goHome }, { label: "אומנות", onClick: () => navigate("art") }, { label: w.title }]} title={w.title} />
         <div className="detail-content" style={{ padding: "0 20px 120px" }}>
           <MediaSlideshow media={w.media} />
-          <div style={{ display: "flex", gap: 12, alignItems: "center", marginBottom: 6, flexWrap: "wrap" }}>
+          <div style={{ display: "flex", gap: 12, alignItems: "center", marginTop: 16, marginBottom: 6, flexWrap: "wrap" }}>
             <Tag onClick={() => navigate("artist", w.artistId)}>{ar?.name}</Tag>
             <span style={{ fontSize: 15, color: "#999" }}>{w.year}</span>
           </div>
@@ -1362,11 +1362,12 @@ export default function ArtGalleryApp() {
         .home-section:first-child { opacity: 1; }
         .home-section:first-child > * { animation: sectionReveal 0.7s ease both; }
 
-        /* Accessibility */
+        /* Accessibility & interactivity */
         .skip-link { position: absolute; top: -100%; left: 50%; transform: translateX(-50%); z-index: 100; background: #2A4C39; color: #fff; padding: 12px 24px; font-size: 14px; font-weight: 600; text-decoration: none; border-radius: 0 0 8px 8px; transition: top 0.2s; }
         .skip-link:focus { top: 0; }
         :focus-visible { outline: 2px solid #2A4C39; outline-offset: 2px; }
         button:focus-visible, a:focus-visible, [role="button"]:focus-visible { outline: 2px solid #2A4C39; outline-offset: 2px; }
+        [role="button"], button, a { cursor: pointer; }
 
         /* Responsive container */
         .gallery-device { max-width: 430px; }
