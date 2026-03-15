@@ -1000,12 +1000,12 @@ export default function ArtGalleryApp() {
   const renderGalleries = () => (
     <TexturedContainer style={{ paddingBottom: 120 }}>
       <PageHero crumbs={[{ label: "בית", onClick: goHome }, { label: "הגלריות" }]} title="הגלריות" />
-      <div style={{ display: "flex", flexDirection: "column", gap: 28, padding: "0 20px" }}>
+      <div className="galleries-list" style={{ display: "flex", flexDirection: "column", gap: 28, padding: "0 20px" }}>
         {galleries.map((g) => (
-          <div key={g.id} {...a11yClick(() => navigate("gallery", g.id))} style={{ cursor: "pointer", borderRadius: 12, overflow: "hidden", backgroundColor: "#fff", boxShadow: "0 1px 6px rgba(0,0,0,0.06)" }}>
+          <div key={g.id} className="gallery-card" {...a11yClick(() => navigate("gallery", g.id))} style={{ cursor: "pointer", borderRadius: 12, overflow: "hidden", backgroundColor: "#fff", boxShadow: "0 1px 6px rgba(0,0,0,0.06)", display: "flex", flexDirection: "column" }}>
             {g.img && (
-              <div style={{ width: "100%", height: 180, overflow: "hidden" }}>
-                <img src={g.img} alt={g.name} loading="lazy" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+              <div style={{ width: "100%", flex: 1, minHeight: 180, overflow: "hidden" }}>
+                <img src={g.img} alt={g.name} loading="lazy" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
               </div>
             )}
             <div style={{ padding: "16px 18px" }}>
@@ -1397,6 +1397,8 @@ export default function ArtGalleryApp() {
           .carousel-scroll::-webkit-scrollbar-thumb { background: rgba(200,180,140,0.3); border-radius: 2px; }
           .carousel-scroll { scrollbar-width: thin; scrollbar-color: rgba(200,180,140,0.3) transparent; }
           .galleries-grid { display: grid !important; grid-template-columns: 1fr 1fr; gap: 0 24px; }
+          .galleries-list { display: grid !important; grid-template-columns: 1fr 1fr; gap: 24px !important; }
+          .gallery-card { aspect-ratio: 3 / 4; }
         }
 
         @media (min-width: 1024px) {
