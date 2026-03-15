@@ -9,59 +9,64 @@ const artists = [
   { id: 'a5', name: 'אמניות אנונימיות', nameEn: 'Anonymous Artists', bio: 'סדרה שנולדה מתוך מפגש בין שתי יוצרות אנונימיות, שבחרו לוותר על חתימה פרטית ולתת למעגלי הסמל, הציור והטקסט לדבר בעצמם. בתוך כל עבודה חבוי כתב־סתרים מקורי – מערכת קודים שנוצרה במיוחד עבור הסדרה, מעין לחישות חזותיות המשמשות כקמעות. הדימויים נשענים על שפות עתיקות אך מסרבים להישאר קשורים לזמן מסוים.', instagram: 'https://instagram.com/anonymous.artists.tlv', email: 'contact@anonymousartists.com' },
   { id: 'a6', name: 'זוהר שטרית', nameEn: 'Zohar Shitrit', bio: 'זוהר שטרית, 36, תל אביב, צלם, במאי ויוצר חזותי. העבודה שלו מציגה תקריב מטושטש של פני ליצן – דימוי תרבותי המזוהה עם החצנה, תנועה ותגובה מיידית. באמצעות טשטוש מכוון וחיתוך, הדימוי מנותק מהקשרו הטבעי, והחיוך חדל מלתפקד כתגובה ברורה.', img: 'https://static.wixstatic.com/media/3e3f5c_048e722d5e394696a3a9899ada07148c~mv2.jpg', instagram: 'https://instagram.com/zohar.shitrit', facebook: 'https://facebook.com/zohar.shitrit.photo', whatsapp: '972501122334', website: 'https://zoharshitrit.com' },
   { id: 'a7', name: 'רז רונן', nameEn: 'Raz Ronen', bio: 'רז רונן הוא צייר שיצירתו נעה על התפר שבין כאוס לשליטה, בין זוהר לחספוס. גדילתו בחולון עיצבה את קולו האמנותי. את דרכו החל בציור על חולצות שמכר בעצמו – גישה ישירה, גופנית ומיידית. ציוריו נוצרים במהירות ובאופן אינסטינקטיבי, מתוך אמונה שהאמנות הטובה ביותר נובעת מהבטן ולא מהראש.', gallery: 'גלריה בכיכר דיזינגוף', img: 'https://static.wixstatic.com/media/3e3f5c_94d7c1976de94f68ad610638d49ee3fa~mv2.jpg', instagram: 'https://instagram.com/raz.ronen.art', tiktok: 'https://tiktok.com/@razronen', whatsapp: '972549988776', email: 'raz@razronen.art' },
+  { id: 'a8', name: 'קוסטה', nameEn: 'Costa', bio: '', img: 'https://static.wixstatic.com/media/3e3f5c_c029589f676c4014818512e0e50a4c08~mv2.jpg' },
+  { id: 'a9', name: 'הילה', nameEn: 'Hila', bio: '', img: 'https://static.wixstatic.com/media/3e3f5c_ab0a58fe59294d6ba085d303072e1505~mv2.jpg' },
+  { id: 'a10', name: 'גל פולק', nameEn: 'Gal Polk', bio: '', img: 'https://static.wixstatic.com/media/3e3f5c_52a2c0f1797b4878b941fb1ab61d47d9~mv2.jpg' },
+  { id: 'a11', name: 'מאיה נחום', nameEn: 'Maya Nahum', bio: '', img: 'https://static.wixstatic.com/media/3e3f5c_cf7ae4c17fb4418a938756034b1bc40e~mv2.jpg' },
+  { id: 'a12', name: 'עדי דואק', nameEn: 'Adi Doak', bio: '', img: 'https://static.wixstatic.com/media/3e3f5c_0919514ded674491a69fd1d989a080d5~mv2.jpg' },
+  { id: 'a13', name: 'לה רז פורטה', nameEn: 'Le Raz Forta', bio: '', img: 'https://static.wixstatic.com/media/3e3f5c_06182789940c42dd8d8a5fb33e6350d0~mv2.jpg' },
 ];
 
 const artworks = [
-  {
-    id: 'w1', title: 'גוף ושפה', artistId: 'a1', year: 2025, medium: 'צילום, דיו ומכחול על גוף', description: 'המילים, שנוצרות מתוך דיאלוג אינטואיטיבי עם המוזה המצולמת, אינן משמשות כתוספת צורנית או עיטורית, אלא כפעולה טקסית, אינטימית, בעלת ממד כמעט מאגי. הגוף הופך קנבס חי, והטקסט ללחש, שכבת תקשורת, הגנה או גילוי. הצילום לוכד את הרגע שבו נולדת זהות חדשה בין גוף לשפה, בין חוץ לפנים, בין זכר לנקבה.', exhibitionIds: ['e1'], media: [
-      { type: 'image', label: 'מבט קדמי', url: 'https://static.wixstatic.com/media/3e3f5c_9f8bdf75b4e64c9da6d7c57340c3b4a6~mv2.jpg' },
-      { type: 'image', label: 'פרט - כתב על גוף', url: 'https://static.wixstatic.com/media/3e3f5c_7aea5515de4346c7be5858e32500b1f0~mv2.jpg' },
-      { type: 'image', label: 'פרט נוסף', url: 'https://static.wixstatic.com/media/3e3f5c_cd6c8bf9f05f4811ac4d6c8d7fd94d01~mv2.jpg' },
-      { type: 'image', label: 'תיעוד תהליך', url: 'https://static.wixstatic.com/media/3e3f5c_f7dc503b9c324ce784700b639f3eef6d~mv2.jpg' },
-    ]
-  },
-  {
-    id: 'w2', title: 'תשע נשמות', artistId: 'a2', year: 2025, medium: 'מדיה מעורבת - צבעי שמן, אקריליק, גרפיט וקפה על קנוואס מודפס בלייזר', description: 'עבודה משותפת עם הנריקה רוטנברג. כחלק מהפרוייקט המשותף, תהליך חשיבה ארוך על כל קנוואס, איך ליצור סימביוזה בין שתי הנשמות ולייצר בכל ציור נשמה אחת משותפת. בחירה לגשת ליצירה עם דגש על המיתוס האומר כי לחתול יש תשע נשמות, תוך התייחסות לחיים המודרנים.', exhibitionIds: ['e1'], media: [
-      { type: 'image', label: 'מבט כללי', url: 'https://static.wixstatic.com/media/3e3f5c_e90d3845ab844e429bad3476217c025b~mv2.jpg' },
-      { type: 'image', label: 'פרט', url: 'https://static.wixstatic.com/media/3e3f5c_923d724a10194534ba2f17bc6b527196~mv2.jpg' },
-    ]
-  },
-  {
-    id: 'w3', title: 'גן החיות של התודעה', artistId: 'a3', year: 2025, medium: 'אומנות דיגיטלית, אקריל וצבעי פנדה על קנבס', description: 'אוסף יצירות שנולד מתת־מודע, מרחב פנימי של דימויים פראיים, קולות, קונפליקטים ודמויות שמופיעות כמעט למרות. למרות העושר והעומס החזותי, בלב הסדרה מתקיימת תחושת בדידות. היצירות מציגות את הרגע שבו האדם צופה על עצמו מבפנים, בתוך "גן חיות" בלתי צפוי ואף כאוטי.', exhibitionIds: ['e1'], media: [
-      { type: 'image', label: 'מבט כללי', url: 'https://static.wixstatic.com/media/3e3f5c_8cc3ed72100646498b56078fbe20379b~mv2.jpg' },
-    ]
-  },
-  {
-    id: 'w4', title: '100 דולר', artistId: 'a3', year: 2025, medium: 'אומנות דיגיטלית', description: 'יצירה שמציגה שטר של 100 דולר בגווני כחול־סגול, צבעוניות המדגישה את המתח בין העולם החומרי, הקר והמנוכר, לבין רמז לרובד רוחני ותודעתי. הדמויות המאוירות באפור מדגישות את דעיכת האנושי בתוך המערכת. סביב הדמות המרכזית מופיעים מלאך, שטן וארנב — סמלים של מצפון מתערער, פיתוי ואשליה.', exhibitionIds: ['e1'], media: [
-      { type: 'image', label: 'מבט כללי', url: 'https://static.wixstatic.com/media/3e3f5c_d41329c66b9644ddb5248ff888a3bf79~mv2.jpg' },
-    ]
-  },
-  { id: 'w5', title: 'שק האגרוף', artistId: 'a3', year: 2025, medium: 'פיסול, מדיה מעורבת', description: 'שק האגרוף, המעוטר במסכות אצטקיות ובכתובות ברכה, מציב בלב חלל תוסס את מה שאנו נוטים להצניע: מסע ההתמודדות הפנימי. היצירה מעניקה לדפוסים הפנימיים צורה, פנים וסמלים, ומזמינה את הצופה לא רק להיאבק בהם, אלא להכיר בהם כשליחים של תודעה מבקשת ריפוי.', exhibitionIds: ['e1'], media: [{ type: 'image', label: 'מבט קדמי', url: 'https://static.wixstatic.com/media/3e3f5c_33e9bc48115a443f93955bd8d4c0f741~mv2.jpg' }, { type: 'image', label: 'פרט - מסכות' }, { type: 'image', label: 'פרט - כתובות' }, { type: 'video', label: 'סביב היצירה' }] },
-  { id: 'w6', title: 'קמעות', artistId: 'a5', year: 2025, medium: 'ציור וטקסט, טכניקה מעורבת', description: 'בתוך כל עבודה חבוי כתב־סתרים מקורי — מערכת קודים שנוצרה במיוחד עבור הסדרה, מעין לחישות חזותיות המשמשות כקמעות. כל קוד נכתב כטקס זימון, כהזמנה מדויקת לעבודה פנימית: הגנות, התמרה, בהירות. הציורים אינם ארכיאולוגיה של רוחניות, אלא פרשנות חיה ואקטואלית של טקסי מעבר.', exhibitionIds: ['e1'], media: [{ type: 'image', label: 'מבט כללי' }, { type: 'image', label: 'פרט - כתב סתרים' }, { type: 'image', label: 'פרט - סמלים' }] },
-  {
-    id: 'w7', title: 'ליצן', artistId: 'a6', year: 2025, medium: 'צילום', description: 'העבודה מציגה תקריב מטושטש של פני ליצן — דימוי תרבותי המזוהה עם החצנה, תנועה ותגובה מיידית. הטשטוש מבטל זהות, מגדר והבעה כוללת, ומשאיר סימן חזותי טעון: אדום בוהק, מוגזם, כזה שנועד להיראות מרחוק. הליצן הוא דמות של כוח פרפורמטיבי, בעלת רישיון חברתי לחרוג.', exhibitionIds: ['e1'], media: [
-      { type: 'image', label: 'מבט כללי', url: 'https://static.wixstatic.com/media/3e3f5c_43cd1f7ecfcc4bc78ca2538f175aad2d~mv2.jpg' },
-    ]
-  },
-  {
-    id: 'w8', title: 'כאוס ושליטה', artistId: 'a7', year: 2025, medium: 'ציור - טכניקה מעורבת', description: 'ציורים שנוצרים במהירות ובאופן אינסטינקטיבי. תנועות המכחול פרועות אך מכוונות; חצופות אך מהפנטות. קומפוזיציה רנדומלית אך מלאה, מתח שמתקיים בין גסות לבין אסתטיקה, בין מקריות לבין דיוק פנימי. אמנות שמרגישים לפני שמבינים.', exhibitionIds: ['e1'], media: [
-      { type: 'image', label: 'מבט כללי', url: 'https://static.wixstatic.com/media/3e3f5c_4ce5eee9acdb48948a8ed374e79588dd~mv2.jpg' },
-      { type: 'image', label: 'פרט', url: 'https://static.wixstatic.com/media/3e3f5c_5a9e6d13284d4708a77a14521d6ae6b9~mv2.jpg' },
-    ]
-  },
-  {
-    id: 'w9', title: 'פופ וביקורת', artistId: 'a4', year: 2025, medium: 'מדיה מעורבת, חומרים עכשוויים', description: 'עבודות המשלבות בין חומרים עכשוויים לטכניקות מסורתיות והופכות אותם לאובייקטים חדים ומעוררי מחשבה. האסתטיקה הצבעונית והפופ־ארטית משמשת כעדשה ביקורתית על התרבות המערבית ועל המרדף המודרני.', exhibitionIds: ['e1'], media: [
-      { type: 'image', label: 'מבט כללי', url: 'https://static.wixstatic.com/media/3e3f5c_456455c259914d0c90878d43e32d9871~mv2.jpg' },
-      { type: 'image', label: 'פרט', url: 'https://static.wixstatic.com/media/3e3f5c_7157c8d9b35e4212a0db4634173652ee~mv2.jpg' },
-      { type: 'image', label: 'בהצבה', url: 'https://static.wixstatic.com/media/3e3f5c_3310c18f67c54be19c86d1c2b61cfcc9~mv2.jpg' },
-      { type: 'image', label: 'פרט נוסף', url: 'https://static.wixstatic.com/media/3e3f5c_9bf8871285474864b669c78a9710f585~mv2.jpg' },
-    ]
-  },
+  // זוהר רון (a1) — 4 יצירות
+  { id: 'w1', title: '', artistId: 'a1', year: 2025, medium: '', description: '', exhibitionIds: ['e1'], media: [{ type: 'image', url: 'https://static.wixstatic.com/media/3e3f5c_9f8bdf75b4e64c9da6d7c57340c3b4a6~mv2.jpg' }] },
+  { id: 'w2', title: '', artistId: 'a1', year: 2025, medium: '', description: '', exhibitionIds: ['e1'], media: [{ type: 'image', url: 'https://static.wixstatic.com/media/3e3f5c_7aea5515de4346c7be5858e32500b1f0~mv2.jpg' }] },
+  { id: 'w3', title: '', artistId: 'a1', year: 2025, medium: '', description: '', exhibitionIds: ['e1'], media: [{ type: 'image', url: 'https://static.wixstatic.com/media/3e3f5c_cd6c8bf9f05f4811ac4d6c8d7fd94d01~mv2.jpg' }] },
+  { id: 'w4', title: '', artistId: 'a1', year: 2025, medium: '', description: '', exhibitionIds: ['e1'], media: [{ type: 'image', url: 'https://static.wixstatic.com/media/3e3f5c_f7dc503b9c324ce784700b639f3eef6d~mv2.jpg' }] },
+  // איתן גולדסון (a2) — 2 יצירות
+  { id: 'w5', title: '', artistId: 'a2', year: 2025, medium: '', description: '', exhibitionIds: ['e1'], media: [{ type: 'image', url: 'https://static.wixstatic.com/media/3e3f5c_e90d3845ab844e429bad3476217c025b~mv2.jpg' }] },
+  { id: 'w6', title: '', artistId: 'a2', year: 2025, medium: '', description: '', exhibitionIds: ['e1'], media: [{ type: 'image', url: 'https://static.wixstatic.com/media/3e3f5c_923d724a10194534ba2f17bc6b527196~mv2.jpg' }] },
+  // הולי קדוש (a3) — 3 יצירות
+  { id: 'w7', title: '', artistId: 'a3', year: 2025, medium: '', description: '', exhibitionIds: ['e1'], media: [{ type: 'image', url: 'https://static.wixstatic.com/media/3e3f5c_33e9bc48115a443f93955bd8d4c0f741~mv2.jpg' }] },
+  { id: 'w8', title: '', artistId: 'a3', year: 2025, medium: '', description: '', exhibitionIds: ['e1'], media: [{ type: 'image', url: 'https://static.wixstatic.com/media/3e3f5c_8cc3ed72100646498b56078fbe20379b~mv2.jpg' }] },
+  { id: 'w9', title: '', artistId: 'a3', year: 2025, medium: '', description: '', exhibitionIds: ['e1'], media: [{ type: 'image', url: 'https://static.wixstatic.com/media/3e3f5c_d41329c66b9644ddb5248ff888a3bf79~mv2.jpg' }] },
+  // טל נהוראי (a4) — 4 יצירות
+  { id: 'w10', title: '', artistId: 'a4', year: 2025, medium: '', description: '', exhibitionIds: ['e1'], media: [{ type: 'image', url: 'https://static.wixstatic.com/media/3e3f5c_456455c259914d0c90878d43e32d9871~mv2.jpg' }] },
+  { id: 'w11', title: '', artistId: 'a4', year: 2025, medium: '', description: '', exhibitionIds: ['e1'], media: [{ type: 'image', url: 'https://static.wixstatic.com/media/3e3f5c_7157c8d9b35e4212a0db4634173652ee~mv2.jpg' }] },
+  { id: 'w12', title: '', artistId: 'a4', year: 2025, medium: '', description: '', exhibitionIds: ['e1'], media: [{ type: 'image', url: 'https://static.wixstatic.com/media/3e3f5c_3310c18f67c54be19c86d1c2b61cfcc9~mv2.jpg' }] },
+  { id: 'w13', title: '', artistId: 'a4', year: 2025, medium: '', description: '', exhibitionIds: ['e1'], media: [{ type: 'image', url: 'https://static.wixstatic.com/media/3e3f5c_9bf8871285474864b669c78a9710f585~mv2.jpg' }] },
+  // קוסטה (a8) — 1 יצירה
+  { id: 'w14', title: '', artistId: 'a8', year: 2025, medium: '', description: '', exhibitionIds: ['e1'], media: [{ type: 'image', url: 'https://static.wixstatic.com/media/3e3f5c_98a1a09393bb4e4f80f3106d99e9cd33~mv2.jpg' }] },
+  // הילה (a9) — 3 יצירות
+  { id: 'w15', title: '', artistId: 'a9', year: 2025, medium: '', description: '', exhibitionIds: ['e1'], media: [{ type: 'image', url: 'https://static.wixstatic.com/media/3e3f5c_9b39b351c6144eb5ac89615a4cdfb1f5~mv2.jpg' }] },
+  { id: 'w16', title: '', artistId: 'a9', year: 2025, medium: '', description: '', exhibitionIds: ['e1'], media: [{ type: 'image', url: 'https://static.wixstatic.com/media/3e3f5c_0a6843024706432087f32df9dc96dda5~mv2.jpg' }] },
+  { id: 'w17', title: '', artistId: 'a9', year: 2025, medium: '', description: '', exhibitionIds: ['e1'], media: [{ type: 'image', url: 'https://static.wixstatic.com/media/3e3f5c_8085040f11c743ee8dea70c32066e39b~mv2.jpg' }] },
+  // גל פולק (a10) — 3 יצירות
+  { id: 'w18', title: '', artistId: 'a10', year: 2025, medium: '', description: '', exhibitionIds: ['e1'], media: [{ type: 'image', url: 'https://static.wixstatic.com/media/3e3f5c_783f309a3abb48039f31fc146b7c6d57~mv2.jpg' }] },
+  { id: 'w19', title: '', artistId: 'a10', year: 2025, medium: '', description: '', exhibitionIds: ['e1'], media: [{ type: 'image', url: 'https://static.wixstatic.com/media/3e3f5c_4ea4ec7ff5e54fc2afdb10cd089a95f5~mv2.jpg' }] },
+  { id: 'w20', title: '', artistId: 'a10', year: 2025, medium: '', description: '', exhibitionIds: ['e1'], media: [{ type: 'image', url: 'https://static.wixstatic.com/media/3e3f5c_05f6c9f34f9947349736b3cc01ce7947~mv2.jpg' }] },
+  // מאיה נחום (a11) — 3 יצירות
+  { id: 'w21', title: '', artistId: 'a11', year: 2025, medium: '', description: '', exhibitionIds: ['e1'], media: [{ type: 'image', url: 'https://static.wixstatic.com/media/3e3f5c_a17f22f2e2de406b89bc293b2cc85e3a~mv2.jpg' }] },
+  { id: 'w22', title: '', artistId: 'a11', year: 2025, medium: '', description: '', exhibitionIds: ['e1'], media: [{ type: 'image', url: 'https://static.wixstatic.com/media/3e3f5c_6e6f007851344abdbd41c33600f56a34~mv2.jpg' }] },
+  { id: 'w23', title: '', artistId: 'a11', year: 2025, medium: '', description: '', exhibitionIds: ['e1'], media: [{ type: 'image', url: 'https://static.wixstatic.com/media/3e3f5c_2fa65ff8d8074899b0ab18dba8e8c686~mv2.jpg' }] },
+  // עדי דואק (a12) — 3 יצירות
+  { id: 'w24', title: '', artistId: 'a12', year: 2025, medium: '', description: '', exhibitionIds: ['e1'], media: [{ type: 'image', url: 'https://static.wixstatic.com/media/3e3f5c_b8862d4171b34c4e833efd040b762fdc~mv2.jpg' }] },
+  { id: 'w25', title: '', artistId: 'a12', year: 2025, medium: '', description: '', exhibitionIds: ['e1'], media: [{ type: 'image', url: 'https://static.wixstatic.com/media/3e3f5c_10560162827a4d1893e022ff3a7decf7~mv2.jpg' }] },
+  { id: 'w26', title: '', artistId: 'a12', year: 2025, medium: '', description: '', exhibitionIds: ['e1'], media: [{ type: 'image', url: 'https://static.wixstatic.com/media/3e3f5c_962d43b1742647a49e1494274aa71358~mv2.jpg' }] },
+  // לה רז פורטה (a13) — 3 יצירות
+  { id: 'w27', title: '', artistId: 'a13', year: 2025, medium: '', description: '', exhibitionIds: ['e1'], media: [{ type: 'image', url: 'https://static.wixstatic.com/media/3e3f5c_9ec9585f5a434d038d9a8e972bd5df2d~mv2.jpg' }] },
+  { id: 'w28', title: '', artistId: 'a13', year: 2025, medium: '', description: '', exhibitionIds: ['e1'], media: [{ type: 'image', url: 'https://static.wixstatic.com/media/3e3f5c_2a53f5d7811d48e68a7b8019619f65ff~mv2.jpg' }] },
+  { id: 'w29', title: '', artistId: 'a13', year: 2025, medium: '', description: '', exhibitionIds: ['e1'], media: [{ type: 'image', url: 'https://static.wixstatic.com/media/3e3f5c_1acdac1dcf3945b5a9b0b3bfe5907275~mv2.jpg' }] },
+  // זוהר שטרית (a6) — 1 יצירה
+  { id: 'w30', title: '', artistId: 'a6', year: 2025, medium: '', description: '', exhibitionIds: ['e1'], media: [{ type: 'image', url: 'https://static.wixstatic.com/media/3e3f5c_43cd1f7ecfcc4bc78ca2538f175aad2d~mv2.jpg' }] },
+  // רז רונן (a7) — 2 יצירות
+  { id: 'w31', title: '', artistId: 'a7', year: 2025, medium: '', description: '', exhibitionIds: ['e1'], media: [{ type: 'image', url: 'https://static.wixstatic.com/media/3e3f5c_4ce5eee9acdb48948a8ed374e79588dd~mv2.jpg' }] },
+  { id: 'w32', title: '', artistId: 'a7', year: 2025, medium: '', description: '', exhibitionIds: ['e1'], media: [{ type: 'image', url: 'https://static.wixstatic.com/media/3e3f5c_5a9e6d13284d4708a77a14521d6ae6b9~mv2.jpg' }] },
 ];
 
 const exhibitions = [
   { id: 'e2', title: 'How Many Partners Have You Had?', curator: 'קורין אברהם', startDate: 'TBD', endDate: 'TBD', status: 'call', description: 'קול קורא לאמנים! תערוכה חדשה בנושא יחסים, אינטימיות וקשרים אנושיים בעידן המודרני. אנחנו מחפשים אמנים ויצירות מכל תחומי האומנות. שלחו תמונה של היצירה, שם היצירה, שם אמן ואת הסיפור שמאחוריה.', artistIds: [], artworkIds: [], location: 'TBD', galleryId: 'g2', coverImage: 'https://static.wixstatic.com/media/3e3f5c_62808fb6a7544742b3e307fd868dcf99~mv2.jpeg' },
-  { id: 'e1', title: 'Loneliness in a Vibrant Environment', curator: 'קורין אברהם', startDate: '28.12.2025', endDate: '28.02.2026', status: 'current', description: 'בדידות אינה תמיד שקט. לעיתים היא מתרחשת דווקא במקומות הרועשים ביותר — שפע, צבע, תנועה, דימויים ואנשים. זו בדידות שאינה נובעת מהיעדר, אלא מעודף. מעודף גירויים, מעודף מסכות, מעודף קולות שמטשטשים את הקול הפנימי. התערוכה מבקשת להתבונן ברגע שבו אדם נמצא בלב ההמולה ועדיין מרגיש לבד. לא כקריסה, אלא כמצב תודעתי. כהשהיה. כהתפכחות. העבודות נעות בין גוף לשפה, בין חומר לרגש, בין פיתוי לנחמה, בין משחקיות לפצע.', artistIds: ['a1', 'a2', 'a3', 'a4', 'a5', 'a6', 'a7'], artworkIds: ['w1', 'w2', 'w3', 'w4', 'w5', 'w6', 'w7', 'w8', 'w9'], location: 'כיכר המדינה, ז\'בוטינסקי 131, תל אביב', galleryId: 'g1' },
+  { id: 'e1', title: 'Loneliness in a Vibrant Environment', curator: 'קורין אברהם', startDate: '28.12.2025', endDate: '28.02.2026', status: 'current', description: 'בדידות אינה תמיד שקט. לעיתים היא מתרחשת דווקא במקומות הרועשים ביותר — שפע, צבע, תנועה, דימויים ואנשים. זו בדידות שאינה נובעת מהיעדר, אלא מעודף. מעודף גירויים, מעודף מסכות, מעודף קולות שמטשטשים את הקול הפנימי. התערוכה מבקשת להתבונן ברגע שבו אדם נמצא בלב ההמולה ועדיין מרגיש לבד. לא כקריסה, אלא כמצב תודעתי. כהשהיה. כהתפכחות. העבודות נעות בין גוף לשפה, בין חומר לרגש, בין פיתוי לנחמה, בין משחקיות לפצע.', artistIds: ['a1', 'a2', 'a3', 'a4', 'a5', 'a6', 'a7', 'a8', 'a9', 'a10', 'a11', 'a12', 'a13'], artworkIds: ['w1', 'w2', 'w3', 'w4', 'w5', 'w6', 'w7', 'w8', 'w9', 'w10', 'w11', 'w12', 'w13', 'w14', 'w15', 'w16', 'w17', 'w18', 'w19', 'w20', 'w21', 'w22', 'w23', 'w24', 'w25', 'w26', 'w27', 'w28', 'w29', 'w30', 'w31', 'w32'], location: 'כיכר המדינה, ז\'בוטינסקי 131, תל אביב', galleryId: 'g1' },
 ];
 
 const blogPosts = [
@@ -1455,14 +1460,14 @@ export default function ArtGalleryApp() {
           <div style={{ padding: "12px 24px 8px" }}>
             <a href="https://www.zrp.co.il" target="_blank" rel="noopener noreferrer" style={{
               display: "inline-flex", alignItems: "center", gap: 6, padding: "6px 14px",
-              border: "1px solid rgba(200,180,140,0.25)", borderRadius: 20, textDecoration: "none",
+              border: "1px solid rgba(200,180,140,0.25)", borderRadius: 3, textDecoration: "none",
               color: "rgba(232,228,223,0.6)", fontSize: 11, fontWeight: 500, letterSpacing: 0.5,
               transition: "all 0.2s", background: "rgba(255,255,255,0.04)",
             }}
               onMouseEnter={(e) => { e.currentTarget.style.color = "#fff"; e.currentTarget.style.borderColor = "rgba(200,180,140,0.45)"; }}
               onMouseLeave={(e) => { e.currentTarget.style.color = "rgba(232,228,223,0.6)"; e.currentTarget.style.borderColor = "rgba(200,180,140,0.25)"; }}
             >
-              zrp.co.il
+              מעבר לאתר הבית
               <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="7" y1="17" x2="17" y2="7" /><polyline points="7 7 17 7 17 17" /></svg>
             </a>
           </div>
